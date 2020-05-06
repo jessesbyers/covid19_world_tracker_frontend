@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { connect } from 'react-redux'
 
 import './App.css';
 
@@ -28,12 +30,5 @@ function App() {
   );
 }
 
-export default App;
-
-// componentDidMount(){
-//   fetch("https://api.covid19api.com/countries")
-//   .then(response => response.json())
-//   .then(charts => {
-//     this.setState({charts})
-//   })
-// }
+// export default connect (state => ({ countries: state.countries }))(App);
+export default App
