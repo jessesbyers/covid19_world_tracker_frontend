@@ -1,12 +1,9 @@
 import { combineReducers } from 'redux'
 
-// import chartsReducer from './chartsReducer'
+import countriesReducer from './countriesReducer'
 
 const rootReducer = combineReducers({
-    test: "test"
-    // charts: chartsReducer,
-    // notices: noticesReducer,
-    // wonders: wondersReducer
+    countries: countriesReducer
 });
 
 export default rootReducer
