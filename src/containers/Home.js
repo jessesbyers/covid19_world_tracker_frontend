@@ -38,7 +38,7 @@ const Home = (props) => {
                     })}
                 </ol>
             </div>
-    )
+        )
     } else {
         return <div>Loading...</div>
     }
