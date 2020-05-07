@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './components/NavBar';
-import Home from './containers/Home'
+import New from './containers/New'
 // import New from '../containers/New'
 // import Show from '../containers/Show'
 
@@ -20,10 +20,10 @@ function App() {
       <Container fluid >
         <div >
           <NavBar />
-          <Route exact path="/" component={Home} />
-          {/* <Route path={`/charts/new`} component={} /> */}
-          {/* <Route path={`/charts/:id/interact`} component={} /> */}
-          {/* <Route path={`/charts/:id/reflections`} component={} /> */}
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route path={`/collections/new`} component={New} />
+          {/* <Route path={`/collections`} component={Collections} /> */}
+          {/* <Route path={`/collections/:id`} component={Show} /> */}
         </div>
       </Container>
     </Router>

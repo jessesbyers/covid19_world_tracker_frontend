@@ -10,10 +10,19 @@ const NavBar = () => {
         <h1 className="header" >COVID-19 World Tracker</h1>
 
         <NavLink 
-        // style={{ marginRight: '10px' }} 
         to="/">
           <Button variant="dark">NavLink Button to HOME</Button>
-      </NavLink>
+        </NavLink>
+
+        <NavLink 
+        to="/collections/new">
+          <Button variant="dark">Create a New Collection</Button>
+        </NavLink>
+
+        <NavLink 
+        to="/collections">
+          <Button variant="dark">View a Collection</Button>
+        </NavLink>
     </div>
   );
 }
