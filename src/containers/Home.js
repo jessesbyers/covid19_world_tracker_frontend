@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 const Home = (props) => {
 
     return (
-        <div>HOME component placeholder</div>
+        <div>
+            <h1>HOME component placeholder</h1>
+            <p>render About / Instructions</p>
+            <p>render giant navigation buttons</p>
+        </div>
     )
 }
 

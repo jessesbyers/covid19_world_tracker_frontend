@@ -27,6 +27,8 @@ const New = () => {
 
     return (
         <div>
+            <h1>NEW Container component placeholder</h1>
+            <h3>Choose 4 Countries for your Collection:</h3>
             <CountryDropdown options={options} />
             <CountryDropdown options={options} />
             <CountryDropdown options={options} />
