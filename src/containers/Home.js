@@ -1,33 +1,49 @@
 // import React from 'react';
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux'
 
-const Home = () => {
-    const [countries, setCountries] = useState([]);
+import { postCountries } from '../actions/postCountries'
+
+
+const Home = (props) => {
+    const [countries, setCountries] = useState();
  
     useEffect( () => {
-      async function fetchData() {
-        fetch("https://api.covid19api.com/countries")
-        .then(response => response.json())
-        .then(data => {
-        setCountries(data)
-        })
-      }
-      fetchData();
-    });
+        let ignore = false;
 
+        async function fetchData() {
+            await fetch("https://api.covid19api.com/countries")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if (!ignore) {
+                    setCountries(data)
+                }
+            })
+        }
 
-    return (
-        <div>
-            <ol>
+        fetchData();
+        return () => { ignore = true; }
+        }, []); 
 
-                {countries.map(country => {
-                    return (
-                        <li>{country.Country}</li>
-                    )
-                })}
-            </ol>
-        </div>
+    if (countries) {
+        return (
+            <div>
+                {console.log(countries)}
+                <ol>
+                    {countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( (country, index) => {
+                        return (
+                            <li key={index}>{country.Country}</li>
+                        )
+                    })}
+                </ol>
+            </div>
     )
+    } else {
+        return <div>Loading...</div>
+    }
 }
 
-export default Home;
+// export default connect(state => ({ countries: state.countries }), { postCountries })(Home);
+// export default connect(null, { postCountries })(Home);
+export default Home

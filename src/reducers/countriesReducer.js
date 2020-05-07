@@ -1,3 +1,6 @@
 export default function countriesReducer(state = [], action) {
-    return state
+    switch (action.type) {
+        default:
+            return state
+    }
 }
