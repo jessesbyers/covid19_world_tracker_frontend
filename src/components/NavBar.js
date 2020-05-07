@@ -14,7 +14,7 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink 
-        to="/collections/new">
+        to="/new">
           <Button variant="dark">Create a New Collection</Button>
         </NavLink>
 

@@ -7,8 +7,10 @@ import './App.css';
 
 import NavBar from './components/NavBar';
 import New from './containers/New'
-// import New from '../containers/New'
-// import Show from '../containers/Show'
+import Home from './containers/Home'
+import Show from './containers/Show'
+import Collections from './containers/Collections'
+
 
 import Container from 'react-bootstrap/Container';
 
@@ -20,10 +22,11 @@ function App() {
       <Container fluid >
         <div >
           <NavBar />
-          {/* <Route exact path="/" component={Home} /> */}
-          <Route path={`/collections/new`} component={New} />
-          {/* <Route path={`/collections`} component={Collections} /> */}
-          {/* <Route path={`/collections/:id`} component={Show} /> */}
+          <Route exact path="/" component={Home} />
+          <Route path={`/collections/:id`} component={Show} />
+
+          <Route exact path={`/new`} component={New} />
+          <Route exact path={`/collections`} component={Collections} />
         </div>
       </Container>
     </Router>
