@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import CountryDropdown from '../components/CountryDropdown'
 import Button from 'react-bootstrap/Button';
+import { BASE_URL } from '../constants/constants'
 
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
 
 const New = () => {
     const [countries, setCountries] = useState([]);

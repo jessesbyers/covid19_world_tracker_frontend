@@ -10,7 +10,7 @@ const NavBar = () => {
 
         <NavLink 
         to="/">
-          <Button variant="dark">NavLink Button to HOME</Button>
+          <Button variant="dark">Home</Button>
         </NavLink>
 
         <NavLink 
@@ -20,7 +20,7 @@ const NavBar = () => {
 
         <NavLink 
         to="/collections">
-          <Button variant="dark">View a Collection</Button>
+          <Button variant="dark">View Collections</Button>
         </NavLink>
     </div>
   );
