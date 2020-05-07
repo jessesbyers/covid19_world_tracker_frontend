@@ -14,7 +14,6 @@ const CountryDropdown = (props) => {
             ))}
         </select>
     )
-
 }
 
 export default CountryDropdown

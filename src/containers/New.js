@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import CountryDropdown from '../components/CountryDropdown'
-
+import Button from 'react-bootstrap/Button';
 
 const New = () => {
     const [countries, setCountries] = useState([]);
@@ -31,7 +31,7 @@ const New = () => {
             <CountryDropdown options={options} />
             <CountryDropdown options={options} />
             <CountryDropdown options={options} />
-            <button className="btn btn-primary">Create a Collection</button>
+            <Button variant="dark">Create a Collection</Button>
         </div>
     )
 }
