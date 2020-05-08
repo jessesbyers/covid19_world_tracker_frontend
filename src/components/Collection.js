@@ -1,9 +1,25 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
+
 
 const Collection = (props) => {
+    console.log(props)
+
+
+
     return (
-        <li key={props.index}>{props.collection.name} : {props.collection.summary} <button>View Collection</button></li>
-        
+        <div key={props.collection.id}>
+            <NavLink 
+                to={`/collections/${props.collection.id}`}>
+                <Button 
+                    variant="dark"
+                    >
+                        {props.collection.name}
+                </Button>
+            </NavLink>
+            <p>{props.collection.summary}</p>
+        </div>
     )
 }
 
