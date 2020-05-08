@@ -18,10 +18,10 @@ const NavBar = () => {
           <Button variant="dark">Create a New Collection</Button>
         </NavLink>
 
-        <NavLink 
+        {/* <NavLink 
         to="/collections">
           <Button variant="dark">View Collections</Button>
-        </NavLink>
+        </NavLink> */}
     </div>
   );
 }

@@ -10,19 +10,9 @@ const New = () => {
     const [countries, setCountries] = useState([]);
  
     useEffect( () => {
-    // DO NOT DELETE: Code for fetching countries directly from database
-        // async function fetchData() {
-        //     await fetch("https://api.covid19api.com/countries")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         setCountries(data)
-        //     })
-        // }
-
-// code for fetching seed data from backend for testing
+    // Code for fetching countries directly from database
         async function fetchData() {
-            await fetch(`${BASE_URL}` + `/countries`)
+            await fetch("https://api.covid19api.com/countries")
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -33,31 +23,44 @@ const New = () => {
         fetchData();
     }, []); 
 
-// DO NOT DELETE: Code for fetching countries directly from database
-    // const options = countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( country => {
-    //     return (
-    //         {name: country.Country, value: country.Slug}
-    //     )
-    // })
-
-// code for fetching seed data from backend for testing
     const options = countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( country => {
         return (
-            {name: country.name, value: country.slug}
+            {name: country.Country, value: country.Slug}
         )
     })
+
+    // const handleClick = () => {
+    //     console.log("new collection submitted")
+    // }
 
     return (
         <div>
             <h1>NEW Container component placeholder</h1>
-            <h3>Choose 4 Countries for your Collection:</h3>
-            <CountryDropdown options={options} />
-            <CountryDropdown options={options} />
-            <CountryDropdown options={options} />
-            <CountryDropdown options={options} />
-            <Button variant="dark">Create a Collection</Button>
+            <h3>Choose Multiple Countries for your Collection:</h3>
+            <CountryDropdown id="1" options={options} />
+            {/* <CountryDropdown id="2" options={options} />
+            <CountryDropdown id="3" options={options} />
+            <CountryDropdown id="4" options={options} /> */}
+            {/* <form onClick={handleClick}><Button variant="dark" >Create a Collection</Button></form> */}
         </div>
     )
 }
 
 export default New
+
+// code for fetching seed data from backend for testing
+        // async function fetchData() {
+        //     await fetch(`${BASE_URL}` + `/countries`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         setCountries(data)
+        //     })
+        // }
+
+// code for fetching seed data from backend for testing
+    // const options = countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( country => {
+    //     return (
+    //         {name: country.name, value: country.slug}
+    //     )
+    // })
