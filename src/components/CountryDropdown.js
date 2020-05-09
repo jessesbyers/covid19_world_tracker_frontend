@@ -9,6 +9,7 @@ import Collection from '../containers/Collection'
 const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
+    const [countryDataCollection, setCountryDataCollection] = useState([]);
 
 
     const fetchCountry = (country) => {
@@ -23,7 +24,9 @@ const CountryDropdown = (props) => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                setCountryData(countryData => [...countryData, data])
+                console.log(country)
+                setCountryData(countryData => [...countryData, {country: [data]}])
+                // setCountryData({country: [data]})
             })
             .catch(error => console.log('error', error));
 
@@ -48,6 +51,11 @@ const CountryDropdown = (props) => {
             </select>
 
             < Collection countries={collection}/>
+            {/* {console.log(collection)} */}
+            {console.log(countryData)}
+            {/* {console.log(countryDataCollection)} */}
+
+
 
 
             {/* <NavLink 
