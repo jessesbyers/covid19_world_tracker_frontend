@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Country = (props) => {
     // replace this logic with rendering Chart component from D3, passing country day data as props
+    // need logic to deal with countries with no cases!!!
 
     return (
 
