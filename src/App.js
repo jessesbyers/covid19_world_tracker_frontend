@@ -9,7 +9,7 @@ import NavBar from './components/NavBar';
 import New from './containers/New'
 import Home from './containers/Home'
 import Show from './containers/Show'
-import Collections from './containers/Collections'
+import Collection from './containers/Collection'
 
 
 import Container from 'react-bootstrap/Container';
@@ -23,10 +23,10 @@ function App() {
         <div >
           <NavBar />
           <Route exact path="/" component={Home} />
-          <Route path={`/collections/:id`} component={Show} />
+          <Route path={`/country/:slug`} component={Show} />
 
           <Route exact path={`/new`} component={New} />
-          <Route exact path={`/collections`} component={Collections} />
+          {/* <Route exact path={`/collection`} component={Collection} /> */}
         </div>
       </Container>
     </Router>

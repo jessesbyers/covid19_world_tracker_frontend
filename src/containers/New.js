@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import CountryDropdown from '../components/CountryDropdown'
 import Button from 'react-bootstrap/Button';
-import { BASE_URL } from '../constants/constants'
-
-// const BASE_URL = "http://localhost:3000"
+// import { BASE_URL } from '../constants/constants'
 
 const New = () => {
     const [countries, setCountries] = useState([]);
@@ -29,19 +27,11 @@ const New = () => {
         )
     })
 
-    // const handleClick = () => {
-    //     console.log("new collection submitted")
-    // }
-
     return (
         <div>
             <h1>NEW Container component placeholder</h1>
             <h3>Choose Multiple Countries for your Collection:</h3>
-            <CountryDropdown id="1" options={options} />
-            {/* <CountryDropdown id="2" options={options} />
-            <CountryDropdown id="3" options={options} />
-            <CountryDropdown id="4" options={options} /> */}
-            {/* <form onClick={handleClick}><Button variant="dark" >Create a Collection</Button></form> */}
+            <CountryDropdown options={options} />
         </div>
     )
 }

@@ -1,17 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
+import Collection from '../containers/Collection'
+
 
 
 
 const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
-    console.log(collection)
+    const [countryData, setCountryData] = useState([]);
+
+
+    const fetchCountry = (country) => {
+        console.log("fetch country" + country)
+
+        async function fetchData() {
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+            await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setCountryData(countryData => [...countryData, data])
+            })
+            .catch(error => console.log('error', error));
+
+        }
+
+        fetchData();
+    }
 
     return (
         <div>
-            <select onChange={ event => setCollection([...collection, event.target.value])}>
-            {/* <select onChange={event => {setCountry(event.target.value); renderCountry(event.target.value)}}> */}
+            <select onChange={ event => {setCollection([...collection, event.target.value]); fetchCountry(event.target.value)}}>
                 <option placeholder="Choose a Country">Choose a Country</option>
                 {props.options.map(option => (
                     <option
@@ -24,18 +47,21 @@ const CountryDropdown = (props) => {
                 ))}
             </select>
 
-            <NavLink 
+            < Collection countries={collection}/>
+
+
+            {/* <NavLink 
                 to={{
-                    pathname: `/collections`,
+                    pathname: `/collection`,
                     collection}}>
                 <Button variant="dark">View Collection</Button>
-            </NavLink>
+            </NavLink> */}
 
-            {collection.map( (country, index) => {
+            {/* {collection.map( (country, index) => {
                 return (
                 <p key={index}>{country}</p>
                 )
-            })}
+            })} */}
 
         </div>
     )

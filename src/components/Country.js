@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 
 
-const Collection = (props) => {
+const Country = (props) => {
     console.log(props)
 
 
@@ -24,4 +24,4 @@ const Collection = (props) => {
     )
 }
 
-export default Collection
+export default Country
