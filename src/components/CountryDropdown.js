@@ -9,7 +9,6 @@ import Collection from '../containers/Collection'
 const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
-    const [countryDataCollection, setCountryDataCollection] = useState([]);
 
 
     const fetchCountry = (country) => {
@@ -24,6 +23,8 @@ const CountryDropdown = (props) => {
             .then(response => response.json())
             .then(data => {
                 setCountryData(countryData => [...countryData, {[country]: [data]}])
+                // return <Collection countriesData={countryData} />
+
             })
             .catch(error => console.log('error', error));
 
@@ -46,28 +47,9 @@ const CountryDropdown = (props) => {
                     </option>
                 ))}
             </select>
-
-            < Collection countries={collection}/>
-            {/* {console.log(collection)} */}
             {console.log(countryData)}
-            {/* {console.log(countryDataCollection)} */}
 
-
-
-
-            {/* <NavLink 
-                to={{
-                    pathname: `/collection`,
-                    collection}}>
-                <Button variant="dark">View Collection</Button>
-            </NavLink> */}
-
-            {/* {collection.map( (country, index) => {
-                return (
-                <p key={index}>{country}</p>
-                )
-            })} */}
-
+            {/* <Collection countriesData={countryData} /> */}
         </div>
     )
 }

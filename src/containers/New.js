@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import CountryDropdown from '../components/CountryDropdown'
+import Collection from '../containers/Collection'
+
 import Button from 'react-bootstrap/Button';
 // import { BASE_URL } from '../constants/constants'
 
@@ -32,6 +34,7 @@ const New = () => {
             <h1>NEW Container component placeholder</h1>
             <h3>Choose Multiple Countries for your Collection:</h3>
             <CountryDropdown options={options} />
+            <Collection />
         </div>
     )
 }

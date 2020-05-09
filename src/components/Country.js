@@ -6,22 +6,26 @@ import { NavLink } from 'react-router-dom';
 const Country = (props) => {
     console.log(props)
 
-
-
     return (
-        <div key={props.collection.id}>
-            <NavLink 
-                to={{
-                    pathname: `/collections/${props.collection.id}`,
-                    collection: {id: props.collection.id, name: props.collection.name, summary: props.collection.summary}}}>
-                <Button 
-                    variant="dark">
-                    {props.collection.name}
-                </Button>
-            </NavLink>
-            <p>{props.collection.summary}</p>
-        </div>
+        <div>TEST</div>
     )
+
+
+
+    // return (
+    //     <div key={props.collection.id}>
+    //         <NavLink 
+    //             to={{
+    //                 pathname: `/collections/${props.collection.id}`,
+    //                 collection: {id: props.collection.id, name: props.collection.name, summary: props.collection.summary}}}>
+    //             <Button 
+    //                 variant="dark">
+    //                 {props.collection.name}
+    //             </Button>
+    //         </NavLink>
+    //         <p>{props.collection.summary}</p>
+    //     </div>
+    // )
 }
 
 export default Country
