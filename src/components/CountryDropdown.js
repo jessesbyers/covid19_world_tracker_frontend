@@ -23,10 +23,7 @@ const CountryDropdown = (props) => {
             await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                console.log(country)
-                setCountryData(countryData => [...countryData, {country: [data]}])
-                // setCountryData({country: [data]})
+                setCountryData(countryData => [...countryData, {[country]: [data]}])
             })
             .catch(error => console.log('error', error));
 
