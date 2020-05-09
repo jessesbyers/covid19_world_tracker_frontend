@@ -10,7 +10,6 @@ const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
 
-
     const fetchCountry = (country) => {
         console.log("fetch country" + country)
 
@@ -23,8 +22,6 @@ const CountryDropdown = (props) => {
             .then(response => response.json())
             .then(data => {
                 setCountryData(countryData => [...countryData, {[country]: [data]}])
-                // return <Collection countriesData={countryData} />
-
             })
             .catch(error => console.log('error', error));
 
@@ -49,7 +46,17 @@ const CountryDropdown = (props) => {
             </select>
             {console.log(countryData)}
 
-            {/* <Collection countriesData={countryData} /> */}
+            <NavLink 
+                to = {{
+                    pathname: `/collection`,
+                    countryData
+                    
+                }}>
+                <Button variant="dark">View Collection</Button>
+            </NavLink>
+
+            {collection.map(country => <p>{country}</p>)}
+
         </div>
     )
 }

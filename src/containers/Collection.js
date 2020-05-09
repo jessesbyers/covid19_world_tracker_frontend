@@ -3,18 +3,15 @@ import Country from '../components/Country'
 
 
 const Collection = (props) => {
-    console.log(props)
-
-    if (props.countriesData) {
-        props.countriesData.map((country, index) => {
+    console.log(props.location.countryData);
+        if (props.location.countryData) {
             return (
-                <Country key={index} country={country} /> 
+                props.location.countryData.map((country, index) => { return (<Country key={index} country={country} /> )})
             )
-        
-        })
-    } else {
-        return null
-    }
+        } else {
+            return <div>Return to Home</div>
+        }
+    
 }
 
 export default Collection

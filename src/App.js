@@ -26,7 +26,7 @@ function App() {
           <Route path={`/country/:slug`} component={Show} />
 
           <Route exact path={`/new`} component={New} />
-          {/* <Route exact path={`/collection`} component={Collection} /> */}
+          <Route exact path={`/collection`} component={Collection} />
         </div>
       </Container>
     </Router>
