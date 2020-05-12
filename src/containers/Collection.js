@@ -11,7 +11,6 @@ const Collection = (props) => {
         } else {
             return <div>Return to Home</div>
         }
-    
 }
 
 export default Collection

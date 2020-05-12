@@ -4,7 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 
 const Country = (props) => {
-    // replace this logic with rendering Chart component from D3, passing country day data as props
+    console.log(props.country)
+    console.log(props.country[Object.keys(props.country)][0].length)
+    const countryName = Object.keys(props.country)[0]
+    // need to fix index
+    const totalCases = props.country[Object.keys(props.country)][props.country[Object.keys(props.country)].length-1].Confirmed 
+
+
+        // replace this logic with rendering Chart component from D3, passing country day data as props
     // need logic to deal with countries with no cases!!!
 
     return (
@@ -12,7 +19,9 @@ const Country = (props) => {
         props.country[Object.keys(props.country)].map( days => {
             return (
                 <div>
-                    <h3>TEST COUNTRY: {days[0].Country}</h3>
+                    <h3>{countryName}</h3>
+                    <h5>{totalCases} Confirmed Cases</h5>
+                    
 
                     {days.map((day, index) => {
 

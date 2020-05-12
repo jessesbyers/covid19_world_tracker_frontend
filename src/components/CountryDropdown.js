@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
-import Collection from '../containers/Collection'
-
-
-
+// import Collection from '../containers/Collection'
 
 const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
 
-    const fetchCountry = (country) => {
-        console.log("fetch country" + country)
+    const fetchCountry = (country, countryName) => {
 
         async function fetchData() {
+
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
@@ -21,7 +18,7 @@ const CountryDropdown = (props) => {
             await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                setCountryData(countryData => [...countryData, {[country]: [data]}])
+                setCountryData(countryData => [...countryData, {[countryName]: [data]}])
             })
             .catch(error => console.log('error', error));
 
@@ -32,13 +29,15 @@ const CountryDropdown = (props) => {
 
     return (
         <div>
-            <select onChange={ event => {setCollection([...collection, event.target.value]); fetchCountry(event.target.value)}}>
+            <select onChange={ event => {setCollection([...collection, event.target.value.split(",")[1]]); 
+                fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
+
                 <option placeholder="Choose a Country">Choose a Country</option>
                 {props.options.map(option => (
                     <option
                     id={props.id}
                     key={option.value}
-                    value={option.value}
+                    value={[option.value, option.name]}
                     >
                     {option.name}
                     </option>
