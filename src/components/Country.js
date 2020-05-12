@@ -1,4 +1,5 @@
 import React from 'react';
+import Viz from '../d3/Viz'
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 
@@ -21,31 +22,39 @@ const Country = (props) => {
     // need logic to deal with countries with no cases!!!
 
     return (
+        <Viz />
+    )
 
-        props.country[Object.keys(props.country)].map( days => {
-            return (
-                <div>
-                    <h3>{countryName}</h3>
-                    <h5>{totalCases()} Total Confirmed Cases</h5>
+
+
+// // DO NOT DELETE: raw data in list form
+//      return (        
+//         props.country[Object.keys(props.country)].map( days => {
+//             return (
+//                 <div>
+//                     <h3>{countryName}</h3>
+//                     <h5>{totalCases()} Total Confirmed Cases</h5>
                     
 
-                    {days.map((day, index) => {
+//                     {days.map((day, index) => {
 
-                        return (
-                            <div>
-                                <p><strong>Day: {index + 1}</strong></p>
-                                <p>Date: {day.Date}</p>
-                                <p>Confirmed Cases: {day.Confirmed}</p>
-                                <p>Active Cases: {day.Confirmed}</p>
-                                <p>Recovered Cases: {day.Recovered}</p>
-                                <p>Deaths: {day.Deaths}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-            )
-        })
-    )
+//                         return (
+//                             <div>
+//                                 <p><strong>Day: {index + 1}</strong></p>
+//                                 <p>Date: {day.Date}</p>
+//                                 <p>Confirmed Cases: {day.Confirmed}</p>
+//                                 <p>Active Cases: {day.Confirmed}</p>
+//                                 <p>Recovered Cases: {day.Recovered}</p>
+//                                 <p>Deaths: {day.Deaths}</p>
+//                             </div>
+//                         )
+//                     })}
+//                 </div>
+//             )
+//         })
+//     )
+
+
 }
 
 export default Country
