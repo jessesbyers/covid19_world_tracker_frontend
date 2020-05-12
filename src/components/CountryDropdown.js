@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
-// import Collection from '../containers/Collection'
 
 const CountryDropdown = (props) => {
     const [collection, setCollection] = useState([]);
@@ -21,7 +20,6 @@ const CountryDropdown = (props) => {
                 setCountryData(countryData => [...countryData, {[countryName]: [data]}])
             })
             .catch(error => console.log('error', error));
-
         }
 
         fetchData();
@@ -43,7 +41,6 @@ const CountryDropdown = (props) => {
                     </option>
                 ))}
             </select>
-            {console.log(countryData)}
 
             <NavLink 
                 to = {{
