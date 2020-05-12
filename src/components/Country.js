@@ -1,7 +1,7 @@
 import React from 'react';
 import Viz from '../d3/Viz'
-import Button from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
+// import Button from 'react-bootstrap/Button';
+// import { NavLink } from 'react-router-dom';
 
 
 const Country = (props) => {
@@ -22,7 +22,7 @@ const Country = (props) => {
     // need logic to deal with countries with no cases!!!
 
     return (
-        <Viz />
+        <Viz countryName={countryName} totalCases={totalCases()} dailyData={props.country[Object.keys(props.country)]}/>
     )
 
 
@@ -54,7 +54,7 @@ const Country = (props) => {
 //         })
 //     )
 
-
 }
 
 export default Country
+

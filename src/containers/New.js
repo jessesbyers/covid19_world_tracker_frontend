@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import CountryDropdown from '../components/CountryDropdown'
-import Collection from '../containers/Collection'
-import Button from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
+// import Collection from '../containers/Collection'
+// import Button from 'react-bootstrap/Button';
+// import { NavLink } from 'react-router-dom';
 
 
 const New = () => {
