@@ -7,7 +7,7 @@ const Viz = (props) => {
         Draw(props.countryName, props.totalCases, props.dailyData)
     }, [props])
 
-    return <div className="viz">TEST</div>
+    return <div className="viz"></div>
 }
 
 export default Viz

@@ -1,18 +1,39 @@
 import * as d3 from 'd3'
 import React from 'react'
 
+// TO DOS:
+    // make svg size responsive
+    // 
+
 const Draw = (countryName, totalCases, dailyData) => {
     console.log(countryName)
     console.log(totalCases)
     console.log(dailyData)
-    const formattedDate = new Date(dailyData[0][0].Date).toLocaleDateString()
-    // console.log(formattedDate)
-
+    // const formattedDate = new Date(dailyData[0][0].Date).toLocaleDateString()
     console.log(d3)
 
-    return (
-        <div>DRAW test </div>
-    )
+    // const width = Math.max(document.documentElement.clientWidth, window.innerWidth)
+    // const height = Math.max(document.documentElement.clientHeight, window.innerHeight)
+    const width = 700
+    const height = 500
+
+
+    d3.select(".viz").append("svg")
+    // set height and width to be responsive
+        // .attr("viewBox", `0 0 width height`)
+        .attr("height", height)
+        .attr("width", width)
+        .attr("id", "svg-viz")
+
+
+
+
+
+
+
+    // return (
+    //     <div>DRAW test </div>
+    // )
 }
 
 export default Draw

@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* d3 and svg styling */
+
+/* svg {
+  background-color: gray;
+} */
+
+#svg-viz {
+  background-color: lightgrey;
+  margin: 20;
+}
+
+
