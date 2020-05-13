@@ -1,4 +1,4 @@
-// import * as d3 from 'd3'
+import * as d3 from 'd3'
 import React from 'react'
 
 
@@ -6,6 +6,7 @@ const Draw = (countryName, totalCases, dailyData) => {
     console.log(countryName)
     console.log(totalCases)
     console.log(dailyData)
+    console.log(d3)
 
     return (
         <div>DRAW test</div>
