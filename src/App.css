@@ -39,13 +39,18 @@
 
 /* d3 and svg styling */
 
-/* svg {
+svg {
   background-color: gray;
-} */
+}
 
-#svg-viz {
+/* #svg-viz {
   background-color: lightgrey;
   margin: 20;
+} */
+
+rect {
+  fill: steelblue;
+  stroke: black;
 }
 
 
