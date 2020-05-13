@@ -5,10 +5,13 @@ const Draw = (countryName, totalCases, dailyData) => {
     console.log(countryName)
     console.log(totalCases)
     console.log(dailyData)
+    const formattedDate = new Date(dailyData[0][0].Date).toLocaleDateString()
+    // console.log(formattedDate)
+
     console.log(d3)
 
     return (
-        <div>DRAW test</div>
+        <div>DRAW test </div>
     )
 }
 
@@ -20,6 +23,8 @@ export default Draw
     //         return (
     //             <div>
     //                 <h3>{countryName}</h3>
+        //             <h5>{formattedDate} First Reported Case</h5>
+
     //                 <h5>{totalCases} Total Confirmed Cases</h5>
                     
 
