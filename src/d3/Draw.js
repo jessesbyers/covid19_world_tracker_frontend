@@ -5,6 +5,8 @@ import {
 
 // TO DOS:
     // make svg size responsive
+    // add axis labels and title
+    // add special effects (hover, lables, etc)
 
 const Draw = (countryName, totalCases, dailyData) => {
     // console.log(countryName)
@@ -56,6 +58,8 @@ const Draw = (countryName, totalCases, dailyData) => {
             .attr("text-anchor", "start")
             .text(dailyData.total))
     }
+
+    const xAxisLabel = "Number of Days"
     
     // setting up svg element
     const svg = d3.select(".viz")
@@ -72,12 +76,27 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr("y", d => yScale(d.total))
         .attr("width", xScale.bandwidth())
         .attr("height", d => yScale(0) - yScale(d.total))
+        .attr("class", "bar")
+
+    
 
     svg.append("g")
         .call(xAxis)
 
     svg.append("g")
         .call(yAxis)
+
+    //    const xAxisG = g.append('g').call(xAxis)
+//         .attr('transform', `translate(0,${innerHeight})`);
+        
+//     xAxisG.select('.domain').remove();
+    
+//     xAxisG.append('text')
+//         .attr('class', 'axis-label')
+//         .attr('y', 80)
+//         .attr('x', innerWidth / 2)
+//         .attr('fill', 'black')
+//         .text(xAxisLabel);
 
     
 
@@ -181,32 +200,4 @@ export default Draw
 
 // .toLocaleDateString(),
 
-// DO NOT DELETE: RAW DATA for VISUALIZATIONS
-    // return (        
-    //     dailyData.map( days => {
-    //         return (
-    //             <div>
-    //                 <h3>{countryName}</h3>
-        //             <h5>{formattedDate} First Reported Case</h5>
-
-    //                 <h5>{totalCases} Total Confirmed Cases</h5>
-                    
-
-    //                 {days.map((day, index) => {
-
-    //                     return (
-    //                         <div>
-    //                             <p><strong>Day: {index + 1}</strong></p>
-    //                             <p>Date: {day.Date}</p>
-    //                             <p>Confirmed Cases: {day.Confirmed}</p>
-    //                             <p>Active Cases: {day.Confirmed}</p>
-    //                             <p>Recovered Cases: {day.Recovered}</p>
-    //                             <p>Deaths: {day.Deaths}</p>
-    //                         </div>
-    //                     )
-    //                 })}
-    //             </div>
-    //         )
-    //     })
-    // )
         

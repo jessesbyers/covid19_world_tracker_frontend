@@ -38,19 +38,22 @@
 }
 
 /* d3 and svg styling */
-
-svg {
-  /* background-color: gray; */
+.bar:hover {
+  fill: brown;
 }
 
-/* #svg-viz {
+/* svg {
+  background-color: gray;
+}
+
+#svg-viz {
   background-color: lightgrey;
   margin: 20;
-} */
+}
 
 rect {
-  /* fill: steelblue; */
-  /* stroke: black; */
-}
+  fill: steelblue;
+  stroke: black;
+} */
 
 
