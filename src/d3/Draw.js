@@ -1,6 +1,6 @@
 import * as d3 from 'd3'
 import {
-    axisBottom, axisLeft, line, max
+    axisBottom, axisLeft, line, max, scaleBand
 } from 'd3'
 
 // TO DOS:
@@ -9,36 +9,41 @@ import {
 const Draw = (countryName, totalCases, dailyData) => {
     // console.log(countryName)
     // console.log(totalCases)
-    console.log(dailyData)
+    // console.log(dailyData)
     // console.log(d3)
 
+
+
     // setting up constants for sizes
-    const width = 100
-    const height = 100
+    const width = 700
+    const height = 700
     const padding = 10
     const margin = 10
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const xScale = d3.scaleLinear()
-        .domain([0, d3.max(dailyData, d => d.total)])
+    const xScale = d3.scaleBand()
+        .domain(dailyData.map(d => d.dayCount))
         .range([0, width])
 
-        console.log(xScale.domain())
+    const yScale = d3.scaleLinear()
+        .domain([0, max(dailyData, d => d.total)])
+        .range([0, width])
 
-
-    // // setting up svg element
+    // setting up svg element
     const svg = d3.select(".viz")
         .append("svg")
-        .attr("viewBox", [0, 0, width, height])
+        .attr("width", width)
+        .attr("height", height)
         .attr("id", "svg-viz")
 
     svg.selectAll('rect')
         .data(dailyData)
         .enter()
         .append('rect')
-        .attr("width", 50)
-        .attr("height", 300)
+        .attr('x', d => xScale(d.dayCount))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => yScale(d.total))
 
 
 
