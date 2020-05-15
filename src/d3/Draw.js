@@ -12,24 +12,6 @@ const Draw = (countryName, totalCases, dailyData) => {
     console.log(dailyData)
     // console.log(d3)
 
-    // const array = []
-
-    // const parseData = (data, array) => {
-    //     data[0].forEach( (day, index) => {
-    //         array.push({
-    //             dayCount: index + 1,
-    //             date: new Date(day.Date),
-    //             total: day.Confirmed, 
-    //             active: day.Active, 
-    //             recovered: day.Recovered, 
-    //             deaths: day.Deaths
-    //         })
-    //     })
-    //     return array
-    // }
-
-    // const parsedData = parseData(dailyData, array)
-
     // setting up constants for sizes
     const width = 100
     const height = 100
