@@ -50,7 +50,7 @@ svg {
 
 rect {
   fill: steelblue;
-  stroke: black;
+  /* stroke: black; */
 }
 
 

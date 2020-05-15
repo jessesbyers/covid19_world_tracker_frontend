@@ -12,38 +12,45 @@ const Draw = (countryName, totalCases, dailyData) => {
     // console.log(dailyData)
     // console.log(d3)
 
-
-
     // setting up constants for sizes
     const width = 700
     const height = 700
-    const padding = 10
-    const margin = 10
+    const padding = .2
+    // const margin = 10
+    const margin = ({top: 30, right: 0, bottom: 30, left: 40})
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
+    const color = "red"
 
     const xScale = d3.scaleBand()
         .domain(dailyData.map(d => d.dayCount))
-        .range([0, width])
+        .range([margin.left, width - margin.right])
+        .padding(padding)
+
+        // .range([0, width])
 
     const yScale = d3.scaleLinear()
         .domain([0, max(dailyData, d => d.total)])
-        .range([0, width])
+        // .range([0, width])
+        .range([height - margin.bottom, margin.top])
 
+    
+    
     // setting up svg element
     const svg = d3.select(".viz")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+        .attr("viewBox", [0, 0, width, height])
         .attr("id", "svg-viz")
 
-    svg.selectAll('rect')
+    svg.append("g")
+        .attr("fill", color)
+        .selectAll('rect')
         .data(dailyData)
-        .enter()
-        .append('rect')
+        .join("rect")
         .attr('x', d => xScale(d.dayCount))
+        .attr("y", d => yScale(d.total))
         .attr("width", xScale.bandwidth())
-        .attr("height", d => yScale(d.total))
+        .attr("height", d => yScale(0) - yScale(d.total))
 
 
 
