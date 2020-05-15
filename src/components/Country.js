@@ -20,7 +20,6 @@ const Country = (props) => {
     const array = []
 
     const parseData = (data, array) => {
-        console.log(data[0])
         data[0].forEach( (day, index) => {
             array.push({
                 dayCount: index + 1,
