@@ -39,7 +39,7 @@
 
 /* d3 and svg styling */
 .bar:hover {
-  fill: brown;
+  fill: black;
 }
 
 .title {
@@ -60,7 +60,6 @@
   box-sizing: border-box;
   display: inline;
   font-size: 10px;
-  width: 100%;
   line-height: 1;
   color: rgba(0, 0, 0, 0.8);
   content: "\25BC";

@@ -82,11 +82,12 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return "<p>" + d.date.toLocaleDateString() + "<br/>"
-            + d.total + " Total" + "<br/>"
-            + d.active + " Active" + "<br/>"
-            + d.recovered + " Recovered" + "<br/>"
-            + d.deaths + " Deaths" + "</p>"
+            return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount + ": " +
+                d.date.toLocaleDateString() + "<br/>" + "</span>" +
+                "<span style='color:steelblue'>" + d.total + " Total" + "<br/>" + "</span>" +
+                "<span style='color:green'>" + d.active + " Active" + "<br/>" + "</span>" +
+                "<span style='color:orange'>" + d.recovered + " Recovered" + "<br/>" + "</span>" +
+                "<span style='color:red'>" + d.deaths + " Deaths" + "</p>" 
         })
 
 
