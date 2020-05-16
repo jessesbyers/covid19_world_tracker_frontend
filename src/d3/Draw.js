@@ -1,7 +1,13 @@
-import * as d3 from 'd3'
 import {
-    axisBottom, axisLeft, line, max, scaleBand
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, tip, select
 } from 'd3'
+// import d3Tip from "d3-tip";
+// import * as tip from 'd3-tip'; 
+// import * from 'd3-tip';        
+// import { tip } from 'd3-tip';
+import d3Tip from "d3-tip";
+import React from 'react'
+
 
 // TO DOS:
     // make svg size responsive
@@ -30,7 +36,7 @@ const Draw = (countryName, totalCases, dailyData) => {
     const yAxisLabel = "Number of Confirmed Cases"
     const title = countryName + " Covid-19 Cases"
 
-    const xScale = d3.scaleBand()
+    const xScale = scaleBand()
         .domain(dailyData.map(d => d.dayCount))
         .range([margin.left, width - margin.right])
         .padding(padding)
@@ -38,7 +44,7 @@ const Draw = (countryName, totalCases, dailyData) => {
 
 
 
-    const yScale = d3.scaleLinear()
+    const yScale = scaleLinear()
         .domain([0, max(dailyData, d => d.total)])
         .range([height - margin.bottom, margin.top])
 
@@ -47,7 +53,7 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickFormat(i => i+1).tickSizeOuter(0))
+        .call(axisBottom(xScale).tickFormat(i => i+1).tickSizeOuter(0))
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -60,7 +66,7 @@ const Draw = (countryName, totalCases, dailyData) => {
     
     const yAxis = (g) => {
         g.attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(yScale).ticks(null, dailyData.format))
+        .call(axisLeft(yScale).ticks(null, dailyData.format))
         .call(g => g.select(".domain").remove())
 
         .call(g => g.append("text")
@@ -71,6 +77,18 @@ const Draw = (countryName, totalCases, dailyData) => {
             .text(dailyData.total))
     }
 
+    // setting up tooltip with data labels
+    const tip = d3Tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return "<p>" + d.date.toLocaleDateString() + "<br/>"
+            + d.total + " Total" + "<br/>"
+            + d.active + " Active" + "<br/>"
+            + d.recovered + " Recovered" + "<br/>"
+            + d.deaths + " Deaths" + "</p>"
+        })
+
 
 
 
@@ -79,7 +97,7 @@ const Draw = (countryName, totalCases, dailyData) => {
 
 
     // setting up svg element
-    const svg = d3.select(".viz")
+    const svg = select(".viz")
         .append("svg")
         .attr("viewBox", [0, 0, width, height])
         .attr("id", "svg-viz")
@@ -94,6 +112,8 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr("width", xScale.bandwidth())
         .attr("height", d => yScale(0) - yScale(d.total))
         .attr("class", "bar")
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
 
 
 
@@ -140,6 +160,9 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr('x', innerWidth / 2)
         .attr('y', 20)
         .text(title);
+
+    svg.call(tip);
+
 
 }
 
