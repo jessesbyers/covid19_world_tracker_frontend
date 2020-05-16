@@ -1,8 +1,5 @@
 import React from 'react';
 import Viz from '../d3/Viz'
-// import Button from 'react-bootstrap/Button';
-// import { NavLink } from 'react-router-dom';
-
 
 const Country = (props) => {
     const countryName = Object.keys(props.country)[0]
