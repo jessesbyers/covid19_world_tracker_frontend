@@ -53,7 +53,6 @@ const Draw = (countryName, totalCases, dailyData) => {
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text(dailyData.dayCount))
-
     }
     
     const yAxis = (g) => {
@@ -121,7 +120,8 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr('y', 80)
         .attr('x', innerWidth / 2)
         .attr('fill', 'black')
-        .text(xAxisLabel);
+        .text(xAxisLabel)
+
 
 
 
