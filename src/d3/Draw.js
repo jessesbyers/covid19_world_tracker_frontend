@@ -1,5 +1,5 @@
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, tip, select, tickSize
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, tickSize, selectAll
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -45,9 +45,10 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(axisBottom(xScale)
-        .tickFormat(i => i)
-        .tickSizeOuter(0))
+        .call(axisBottom(xScale))
+        // .tickFormat(i => i)
+        // .orient("bottom").ticks(10))
+        // .tickSizeOuter(0))
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -56,6 +57,7 @@ const Draw = (countryName, totalCases, dailyData) => {
             .attr("text-anchor", "start")
             .text(dailyData.dayCount))
     }
+
     
     const yAxis = (g) => {
         g.attr("transform", `translate(${margin.left},0)`)
@@ -70,6 +72,11 @@ const Draw = (countryName, totalCases, dailyData) => {
             .attr("text-anchor", "start")
             .text(dailyData.total))
     }
+
+
+    // const ticks = selectAll(".tick text");
+    
+    // ticks.attr("display", function (d, i) { return i % 2 ? "none" : "initial" })
 
     // setting up tooltip with data labels
     const tip = d3Tip()
@@ -152,12 +159,11 @@ const Draw = (countryName, totalCases, dailyData) => {
     titleG.append('text')
         .attr('class', 'title')
         .attr('x', innerWidth / 2)
-        .attr('y', 20)
+        .attr('y', 40)
+        .attr('text-anchor', 'middle')
         .text(title);
 
     svg.call(tip);
-
-
 }
 
 export default Draw

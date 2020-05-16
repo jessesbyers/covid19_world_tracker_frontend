@@ -42,10 +42,6 @@
   fill: black;
 }
 
-.title {
-  color: black;
-}
-
 .d3-tip {
   line-height: 1;
   font-weight: bold;
@@ -76,18 +72,24 @@
   left: 0;
 }
 
-/* svg {
-  background-color: gray;
+.tick text {
+  fill: #635F5D;
+  font-size: 1em
 }
 
-#svg-viz {
-  background-color: lightgrey;
-  margin: 20;
+text.axis-label {
+  fill: black;
+  font-size: 2.5em;
 }
 
-rect {
-  fill: steelblue;
-  stroke: black;
-} */
+text.axis-label {
+  fill: black;
+  font-size: 2.5em;
+}
+
+text.title {
+  fill: black;
+  font-size: 2.75em;
+}
 
 
