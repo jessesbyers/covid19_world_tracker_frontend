@@ -1,5 +1,5 @@
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, tip, select
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, tip, select, tickSize
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -23,7 +23,7 @@ const Draw = (countryName, totalCases, dailyData) => {
     const color = "steelblue"
 
 
-
+    // setting constants for text labels and title
     const xAxisLabel = "Number of Days"
     const yAxisLabel = "Number of Confirmed Cases"
     const title = countryName + " Covid-19 Cases"
@@ -45,7 +45,9 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(axisBottom(xScale).tickFormat(i => i).tickSizeOuter(0))
+        .call(axisBottom(xScale)
+        .tickFormat(i => i)
+        .tickSizeOuter(0))
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -57,8 +59,9 @@ const Draw = (countryName, totalCases, dailyData) => {
     
     const yAxis = (g) => {
         g.attr("transform", `translate(${margin.left},0)`)
-        .call(axisLeft(yScale).ticks(null, dailyData.format))
-        .call(g => g.select(".domain").remove())
+        .call(axisLeft(yScale).ticks(null, dailyData.format).tickSize(-innerWidth))
+            
+            .call(g => g.select(".domain").remove())
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -73,7 +76,7 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount + ": " +
+            return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount + "<br/>" +
                 d.date.toLocaleDateString() + "<br/>" + "</span>" +
                 "<span style='color:steelblue'>" + d.total + " Total" + "<br/>" + "</span>" +
                 "<span style='color:green'>" + d.active + " Active" + "<br/>" + "</span>" +
