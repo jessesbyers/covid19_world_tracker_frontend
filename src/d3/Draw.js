@@ -1,5 +1,5 @@
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, tickSize, selectAll
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, tickSize, selectAll, timeDay
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -45,10 +45,9 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(axisBottom(xScale))
-        // .tickFormat(i => i)
-        // .orient("bottom").ticks(10))
-        // .tickSizeOuter(0))
+        .call(axisBottom(xScale)
+        .tickValues(xScale.domain().filter(function(d,i){ return !(((i+1)%5))})))
+
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -56,6 +55,7 @@ const Draw = (countryName, totalCases, dailyData) => {
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text(dailyData.dayCount))
+
     }
 
     
@@ -74,9 +74,6 @@ const Draw = (countryName, totalCases, dailyData) => {
     }
 
 
-    // const ticks = selectAll(".tick text");
-    
-    // ticks.attr("display", function (d, i) { return i % 2 ? "none" : "initial" })
 
     // setting up tooltip with data labels
     const tip = d3Tip()
@@ -110,6 +107,7 @@ const Draw = (countryName, totalCases, dailyData) => {
         .data(dailyData)
         .join("rect")
         .attr('x', d => xScale(d.dayCount))
+
         .attr("y", d => yScale(d.total))
         .attr("width", xScale.bandwidth())
         .attr("height", d => yScale(0) - yScale(d.total))
@@ -127,10 +125,11 @@ const Draw = (countryName, totalCases, dailyData) => {
     
     xAxisG.append('text')
         .attr('class', 'axis-label')
-        .attr('y', 80)
+        .attr('y', 45)
         .attr('x', innerWidth / 2)
         .attr('fill', 'black')
         .text(xAxisLabel)
+
 
 
 
@@ -150,7 +149,6 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr('transform', `rotate(-90)`)
         .attr('text-anchor', 'middle')
         .text(yAxisLabel);
-
 
 
 

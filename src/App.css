@@ -77,18 +77,17 @@
   font-size: 1em
 }
 
-text.axis-label {
-  fill: black;
-  font-size: 2.5em;
+.tick line {
+  stroke: #C0C0BB;
 }
 
 text.axis-label {
-  fill: black;
+  fill: #8E8883;
   font-size: 2.5em;
 }
 
 text.title {
-  fill: black;
+  fill: #635F5D;
   font-size: 2.75em;
 }
 
