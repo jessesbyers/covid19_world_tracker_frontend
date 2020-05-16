@@ -9,6 +9,8 @@ import d3Tip from "d3-tip";
     // make svg size responsive
     // account for countries with 0 cases (text box in middle of graph?)
     // add stacked bar
+    // add cards on country page
+    // add full page for each country
 
 const Draw = (countryName, totalCases, dailyData) => {
     console.log(dailyData)
