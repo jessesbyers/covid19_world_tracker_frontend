@@ -1,25 +1,17 @@
 import {
     max, scaleBand, scaleLinear, axisBottom, axisLeft, tip, select
 } from 'd3'
-// import d3Tip from "d3-tip";
-// import * as tip from 'd3-tip'; 
-// import * from 'd3-tip';        
-// import { tip } from 'd3-tip';
+
 import d3Tip from "d3-tip";
-import React from 'react'
 
 
 // TO DOS:
     // make svg size responsive
-    // add axis labels and title
-    // add special effects (hover, labels, etc)
     // account for countries with 0 cases (text box in middle of graph?)
+    // add stacked bar
 
 const Draw = (countryName, totalCases, dailyData) => {
-    // console.log(countryName)
-    // console.log(totalCases)
     console.log(dailyData)
-    // console.log(d3)
 
     // setting up constants for sizes
     const width = 700
@@ -53,7 +45,7 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(axisBottom(xScale).tickFormat(i => i+1).tickSizeOuter(0))
+        .call(axisBottom(xScale).tickFormat(i => i).tickSizeOuter(0))
 
         .call(g => g.append("text")
             .attr("x", -margin.left)
@@ -121,7 +113,6 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const xAxisG = svg.append('g')
         .call(xAxis)
-    //  .attr('transform', `translate(0,${innerHeight})`);
         
     xAxisG.select('.domain').remove();
     
@@ -138,7 +129,6 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     const yAxisG = svg.append('g')
         .call(yAxis)
-    //  .attr('transform', `translate(0,${innerHeight})`);
         
     yAxisG.select('.domain').remove();
     
@@ -167,88 +157,4 @@ const Draw = (countryName, totalCases, dailyData) => {
 
 }
 
-
 export default Draw
-
-        
-        //     // const xValue = dailyData => d.timestamp;
-        //     // const yValue
-        
-        
-        //     const g = svg.append("g")
-        //         .attr('transform', `translate(${margin.left},${margin.top})`)
-        
-        
-        //     // // setting up scales dynamically
-        //     const xScale = d3.scaleLinear()
-        //         .domain([0, d3.max(dailyData, (d, i) => i)])
-        //         .range([padding, width - padding]);
-        
-        //     const yScale = d3.scaleLinear()
-        //         .domain([0, d3.max(dailyData, d => d.Confirmed)])
-        //         .range([height - padding, padding])
-        
-        //     const yAxisLabel = "Number of Cases"
-        //     const xAxisLabel = "Day Number"
-        //     const title = countryName + " Covid-19 Cases"
-        
-        
-        //     // setting up axes
-        //     const xAxis = axisBottom(xScale)
-        //         // .tickSize(-innerHeight)
-        //         // .tickPadding(15);
-        
-        //     const yAxis = axisLeft(yScale)
-        //         // .tickSize(-innerWidth)
-        //         // .tickPadding(10);
-        
-        //     const yAxisG = g.append('g').call(yAxis);
-        //         yAxisG.selectAll('.domain').remove();
-        
-        //     yAxisG.append('text')
-        //         .attr('class', 'axis-label')
-        //         .attr('y', -60)
-        //         .attr('x', -innerHeight / 2)
-        //         .attr('fill', 'black')
-        //         .attr('transform', `rotate(-90)`)
-        //         .attr('text-anchor', 'middle')
-        //         .text(yAxisLabel);
-        
-        //     const xAxisG = g.append('g').call(xAxis)
-        //         .attr('transform', `translate(0,${innerHeight})`);
-              
-        //     xAxisG.select('.domain').remove();
-            
-        //     xAxisG.append('text')
-        //         .attr('class', 'axis-label')
-        //         .attr('y', 80)
-        //         .attr('x', innerWidth / 2)
-        //         .attr('fill', 'black')
-        //         .text(xAxisLabel);
-        
-        
-        
-        
-        
-        
-        
-        //     const lineGenerator = line()
-        //         // .x(d => xScale(xValue(d)))
-        //         .x((d, i) => xScale(i + 1))
-        //         // .y(d => yScale(yValue(d)))
-        //         .y(d => yScale(dailyData.map(d => d.Confirmed)))
-        //         // .curve(curveBasis);
-                
-        //     g.append('path')
-        //         .attr('class', 'line-path')
-        //         .attr('d', lineGenerator(dailyData));
-            
-        //     g.append('text')
-        //         .attr('class', 'title')
-        //         .attr('y', -10)
-        //         .text(title);
-
-
-// .toLocaleDateString(),
-
-        
