@@ -42,6 +42,10 @@
   fill: brown;
 }
 
+.title {
+  color: black;
+}
+
 /* svg {
   background-color: gray;
 }

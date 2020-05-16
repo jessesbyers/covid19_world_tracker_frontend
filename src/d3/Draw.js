@@ -6,7 +6,8 @@ import {
 // TO DOS:
     // make svg size responsive
     // add axis labels and title
-    // add special effects (hover, lables, etc)
+    // add special effects (hover, labels, etc)
+    // account for countries with 0 cases (text box in middle of graph?)
 
 const Draw = (countryName, totalCases, dailyData) => {
     // console.log(countryName)
@@ -18,10 +19,16 @@ const Draw = (countryName, totalCases, dailyData) => {
     const width = 700
     const height = 700
     const padding = .2
-    const margin = ({top: 30, right: 0, bottom: 60, left: 40})
+    const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     const color = "steelblue"
+
+
+
+    const xAxisLabel = "Number of Days"
+    const yAxisLabel = "Number of Confirmed Cases"
+    const title = countryName + " Covid-19 Cases"
 
     const xScale = d3.scaleBand()
         .domain(dailyData.map(d => d.dayCount))
@@ -29,9 +36,14 @@ const Draw = (countryName, totalCases, dailyData) => {
         .padding(padding)
 
 
+
+
     const yScale = d3.scaleLinear()
         .domain([0, max(dailyData, d => d.total)])
         .range([height - margin.bottom, margin.top])
+
+
+
 
     const xAxis = (g) => {
         g.attr("transform", `translate(0,${height - margin.bottom})`)
@@ -59,15 +71,20 @@ const Draw = (countryName, totalCases, dailyData) => {
             .text(dailyData.total))
     }
 
-    const xAxisLabel = "Number of Days"
+
+
+
     
+
+
+
     // setting up svg element
     const svg = d3.select(".viz")
         .append("svg")
         .attr("viewBox", [0, 0, width, height])
         .attr("id", "svg-viz")
 
-    svg.append("g")
+    const g = svg.append("g")
         .attr("fill", color)
         .selectAll('rect')
         .data(dailyData)
@@ -78,44 +95,54 @@ const Draw = (countryName, totalCases, dailyData) => {
         .attr("height", d => yScale(0) - yScale(d.total))
         .attr("class", "bar")
 
-    
 
-    svg.append("g")
+
+
+    const xAxisG = svg.append('g')
         .call(xAxis)
-
-    svg.append("g")
-        .call(yAxis)
-
-    //    const xAxisG = g.append('g').call(xAxis)
-//         .attr('transform', `translate(0,${innerHeight})`);
+    //  .attr('transform', `translate(0,${innerHeight})`);
         
-//     xAxisG.select('.domain').remove();
+    xAxisG.select('.domain').remove();
     
-//     xAxisG.append('text')
-//         .attr('class', 'axis-label')
-//         .attr('y', 80)
-//         .attr('x', innerWidth / 2)
-//         .attr('fill', 'black')
-//         .text(xAxisLabel);
+    xAxisG.append('text')
+        .attr('class', 'axis-label')
+        .attr('y', 80)
+        .attr('x', innerWidth / 2)
+        .attr('fill', 'black')
+        .text(xAxisLabel);
 
+
+
+
+
+    const yAxisG = svg.append('g')
+        .call(yAxis)
+    //  .attr('transform', `translate(0,${innerHeight})`);
+        
+    yAxisG.select('.domain').remove();
     
+    yAxisG.append('text')
+        .attr('class', 'axis-label')
+        .attr('y', -60)
+        .attr('x', -innerHeight / 2)
+        .attr('fill', 'black')
+        .attr('transform', `rotate(-90)`)
+        .attr('text-anchor', 'middle')
+        .text(yAxisLabel);
 
 
 
 
+    const titleG = svg.append("g")
 
-
-
-
-
-
-
+    titleG.append('text')
+        .attr('class', 'title')
+        .attr('x', innerWidth / 2)
+        .attr('y', 20)
+        .text(title);
 
 }
 
-    // return (
-    //     <div>DRAW test </div>
-    // )
 
 export default Draw
 
