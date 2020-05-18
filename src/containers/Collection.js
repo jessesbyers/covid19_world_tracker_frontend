@@ -12,13 +12,12 @@ const Collection = (props) => {
 
                     {props.location.countryData.map((country, index) => { 
                         return (
-                            <Col sm={12} md={4} lg={3}>
+                            <Col xs={12} sm={6} md={4} lg={3}>
 
                                 <Card>
                                     <Country id={index} country={country} /> 
                                 </Card>
                             </Col>
-
                         )
                     })}
                 </Row>
