@@ -28,7 +28,17 @@ const Draw = (countryName, totalCases, dailyData) => {
     // setting constants for text labels and title
     const xAxisLabel = "Number of Days"
     const yAxisLabel = "Number of Confirmed Cases"
-    const title = countryName + " Covid-19 Cases"
+    const title = countryName
+    const subtitle = () => {
+        if (dailyData.length > 0) {
+            return totalCases + " COVID-19 Cases Reported Since " + dailyData[0].date.toLocaleDateString()
+        } else {
+            return totalCases + " COVID-19 Cases Reported"
+        }
+    }
+        
+    
+
 
     const xScale = scaleBand()
         .domain(dailyData.map(d => d.dayCount))
@@ -146,7 +156,7 @@ const Draw = (countryName, totalCases, dailyData) => {
     yAxisG.append('text')
         .attr('class', 'axis-label')
         .attr('y', -60)
-        .attr('x', -innerHeight / 2)
+        .attr('x', -height / 2)
         .attr('fill', 'black')
         .attr('transform', `rotate(-90)`)
         .attr('text-anchor', 'middle')
@@ -158,10 +168,17 @@ const Draw = (countryName, totalCases, dailyData) => {
 
     titleG.append('text')
         .attr('class', 'title')
-        .attr('x', innerWidth / 2)
+        .attr('x', width / 2)
         .attr('y', 40)
         .attr('text-anchor', 'middle')
         .text(title);
+
+        titleG.append('text')
+        .attr('class', 'subtitle')
+        .attr('x', width / 2)
+        .attr('y', 70)
+        .attr('text-anchor', 'middle')
+        .text(subtitle());
 
     svg.call(tip);
 }

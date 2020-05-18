@@ -55,9 +55,8 @@
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
-  font-size: 10px;
+  font-size: 1em;
   width: 100%;
-
   line-height: 1;
   color: rgba(0, 0, 0, 0.8);
   content: "\25BC";
@@ -89,6 +88,11 @@ text.axis-label {
 text.title {
   fill: #635F5D;
   font-size: 2.75em;
+}
+
+text.subtitle {
+  fill: #635F5D;
+  font-size: 1.5em;
 }
 
 
