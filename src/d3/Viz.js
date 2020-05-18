@@ -4,10 +4,12 @@ import Draw from './Draw'
 const Viz = (props) => {
 
     useEffect( () => {
-        Draw(props.countryName, props.totalCases, props.dailyData)
+        Draw(props.countryName, props.totalCases, props.dailyData, props.id)
     }, [props])
 
-    return <div className="viz"></div>
+    return (
+            <div className={"viz" + props.id}></div>
+    )
 }
 
 export default Viz

@@ -1,6 +1,7 @@
 import React from 'react';
 import Viz from '../d3/Viz'
 
+
 const Country = (props) => {
     const countryName = Object.keys(props.country)[0]
 
@@ -32,7 +33,7 @@ const Country = (props) => {
 
 
     return (
-        <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)}/>
+        <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.id}/>
     )
 
 }

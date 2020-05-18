@@ -3,16 +3,15 @@ import {
 } from 'd3'
 
 import d3Tip from "d3-tip";
+import {  Card } from 'react-bootstrap'
 
 
 // TO DOS:
     // make svg size responsive
-    // account for countries with 0 cases (text box in middle of graph?)
     // add stacked bar
-    // add cards on country page
     // add full page for each country
 
-const Draw = (countryName, totalCases, dailyData) => {
+const Draw = (countryName, totalCases, dailyData, id) => {
     console.log(dailyData)
 
     // setting up constants for sizes
@@ -23,6 +22,8 @@ const Draw = (countryName, totalCases, dailyData) => {
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     const color = "steelblue"
+    const vizName = "viz" + id
+    console.log(vizName)
 
 
     // setting constants for text labels and title
@@ -107,8 +108,8 @@ const Draw = (countryName, totalCases, dailyData) => {
 
 
 
-    // setting up svg element
-    const svg = select(".viz")
+    // setting up svg element on card
+    const svg = select(`.${vizName}`)
         .append("svg")
         .attr("viewBox", [0, 0, width, height])
         .attr("id", "svg-viz")
