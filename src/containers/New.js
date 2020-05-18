@@ -24,7 +24,7 @@ const New = () => {
 
     const options = countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( country => {
         return (
-            {name: country.Country, value: country.Slug}
+            {name: country.Country, value: country.Slug, flagCode: country.ISO2}
         )
     })
 
