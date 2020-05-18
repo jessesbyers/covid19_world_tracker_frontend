@@ -8,7 +8,7 @@ import {Row} from 'react-bootstrap'
 const Collection = (props) => {
         if (props.location.countryData) {
             return (
-                <Row >
+                <Row className="justify-content-md-center">
 
                     {props.location.countryData.map((country, index) => { 
                         return (

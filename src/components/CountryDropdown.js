@@ -32,6 +32,7 @@ const CountryDropdown = (props) => {
         fetchData();
     }
 
+
     return (
         <div>
             {console.log(props)}
@@ -59,22 +60,24 @@ const CountryDropdown = (props) => {
                 <Button variant="dark">View Collection</Button>
             </NavLink>
 
-            <Row>
+            <Row className="justify-content-md-center">
 
                 {collection.map(country => {
-                    const flagUrl = `https://www.countryflags.io/${country[1]}/flat/64.png`
-
+                    // const flagUrl = `https://www.countryflags.io/${country[1]}/flat/64.png`
+                    const flagUrl = `https://www.cia.gov/library/publications/the-world-factbook/attachments/flags/${country[1]}-flag.gif`
+                    
+                    const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
                     return (
                         <Col xs={4} sm={4} md={3} lg={2}>
-                            <Card className="text-center">
+                            <Card>
                                 <Card.Header>{country[0]}</Card.Header>
 
-                                <Card.Img src={flagUrl}></Card.Img>
-                                
+                                {/* <Card.Img src={flagUrl} onError={(e)=>{e.target.onerror = null; e.target.src={worldUrl}}}/> */}
+                                <Card.Img src={flagUrl} />
                             </Card>
                         </Col>
                     )
-            })}
+                })}
             </Row>
 
         </div>
