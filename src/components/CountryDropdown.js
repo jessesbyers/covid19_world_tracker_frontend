@@ -11,8 +11,6 @@ const CountryDropdown = (props) => {
 
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
-    // const [flags, setFlags] = useState([])
-
 
     const fetchCountry = (country, countryName) => {
         console.log(props)
@@ -38,8 +36,6 @@ const CountryDropdown = (props) => {
         <div>
             {console.log(props)}
             <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2]]]); 
-                // console.log(event.target.value)
-                // setFlags([...flags, event.target.value.split(",")[2]])
                 fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
                 <option placeholder="Choose a Country">Choose a Country</option>
@@ -49,7 +45,6 @@ const CountryDropdown = (props) => {
                     key={option.value}
                     value={[option.value, option.name, option.flagCode]}
                     >
-                    {/* {<img src="https://www.countryflags.io/be/flat/16.png"/>} */}
                     {option.name}
                     </option>
                 ))}
@@ -67,11 +62,10 @@ const CountryDropdown = (props) => {
             <Row>
 
                 {collection.map(country => {
-                    console.log(collection)
                     const flagUrl = `https://www.countryflags.io/${country[1]}/flat/64.png`
 
                     return (
-                        <Col xs={12} sm={6} md={4} lg={3}>
+                        <Col xs={4} sm={4} md={3} lg={2}>
                             <Card className="text-center">
                                 <Card.Header>{country[0]}</Card.Header>
 
