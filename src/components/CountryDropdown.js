@@ -63,17 +63,17 @@ const CountryDropdown = (props) => {
             <Row className="justify-content-md-center">
 
                 {collection.map(country => {
-                    // const flagUrl = `https://www.countryflags.io/${country[1]}/flat/64.png`
                     const flagUrl = `https://www.cia.gov/library/publications/the-world-factbook/attachments/flags/${country[1]}-flag.gif`
-                    
                     const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
                     return (
                         <Col xs={4} sm={4} md={3} lg={2}>
                             <Card>
                                 <Card.Header>{country[0]}</Card.Header>
 
-                                {/* <Card.Img src={flagUrl} onError={(e)=>{e.target.onerror = null; e.target.src={worldUrl}}}/> */}
-                                <Card.Img src={flagUrl} />
+                                <Card.Img src={flagUrl} onError={(e)=>{ 
+                                    if (e.target.src !== worldUrl) {
+                                        e.target.src=worldUrl;}
+                                    }}/>
                             </Card>
                         </Col>
                     )
