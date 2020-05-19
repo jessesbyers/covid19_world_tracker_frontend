@@ -18,7 +18,8 @@
     "react-scripts": "3.4.1",
     "react-select-search": "^1.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "topojson": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

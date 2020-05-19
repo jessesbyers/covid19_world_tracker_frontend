@@ -20,7 +20,6 @@ const DrawBar = (countryName, totalCases, dailyData, id) => {
     const innerHeight = height - margin.top - margin.bottom;
     const color = "steelblue"
     const vizName = "viz" + id
-    console.log(vizName)
 
 
     // setting constants for text labels and title
