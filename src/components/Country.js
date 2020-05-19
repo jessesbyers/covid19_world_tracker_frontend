@@ -35,7 +35,15 @@ const Country = (props) => {
 
 
     return (
-        <NavLink to={`/countries/${props.country.slug}`}>
+        <NavLink
+            to = {{
+                pathname: `/countries/${props.country.slug}`,
+                countryName,
+                totalCases: totalCases(),
+                dailyData: parseData(dailyData, array), 
+                slug: props.country.slug, 
+                id: props.country.slug
+            }}>
             <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.country.slug} slug={props.country.slug}/>
         </NavLink>
     )
