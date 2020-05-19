@@ -2,10 +2,11 @@ import React from 'react';
 import Country from '../components/Country'
 import { Card } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
-import {Row} from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 
 const Collection = (props) => {
+    console.log(props.location.countryData)
     if (props.location.countryData) {
         return (
             <Row className="justify-content-md-center">

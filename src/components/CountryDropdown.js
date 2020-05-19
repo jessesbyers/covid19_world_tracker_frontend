@@ -23,7 +23,7 @@ const CountryDropdown = (props) => {
             await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                setCountryData(countryData => [...countryData, {[countryName]: [data]}])
+                setCountryData(countryData => [...countryData, {[countryName]: [data], slug: country}])
             })
             .catch(error => console.log('error', error));
         }
@@ -34,7 +34,7 @@ const CountryDropdown = (props) => {
 
     return (
         <div>
-            <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2]]]); 
+            <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
                 fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
                 <option placeholder="Choose Multiple Countries to Create a Collection">Choose Multiple Countries to Create a Collection</option>
@@ -52,8 +52,8 @@ const CountryDropdown = (props) => {
             <NavLink 
                 to = {{
                     pathname: `/collection`,
-                    countryData
-                    
+                    countryData,
+                    collection
                 }}>
                 <Button variant="dark">View Collection</Button>
             </NavLink>
@@ -63,12 +63,14 @@ const CountryDropdown = (props) => {
                 {collection.map( (country, index) => {
                     const flagUrl = `https://www.cia.gov/library/publications/the-world-factbook/attachments/flags/${country[1]}-flag.gif`
                     const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
+                    const slug = country[2]
+
                     return (
                         <Col xs={4} sm={4} md={3} lg={2} key={index}>
                             <Card>
                                 <Card.Header>{country[0]}</Card.Header>
 
-                                <Card.Img src={flagUrl} onError={(e)=>{ 
+                                <Card.Img key={slug} src={flagUrl} onError={(e)=>{ 
                                     if (e.target.src !== worldUrl) {
                                         e.target.src=worldUrl;}
                                     }}/>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { connect } from 'react-redux'
 
 import './App.css';
 
@@ -23,7 +22,7 @@ function App() {
         <div >
           <NavBar />
           <Route exact path="/" component={Home} />
-          <Route path={`/country/:slug`} component={Show} />
+          <Route path={`/countries/:slug`} component={Show} />
 
           <Route exact path={`/new`} component={New} />
           <Route exact path={`/collection`} component={Collection} />
@@ -33,5 +32,4 @@ function App() {
   );
 }
 
-// export default connect (state => ({ countries: state.countries }))(App);
 export default App

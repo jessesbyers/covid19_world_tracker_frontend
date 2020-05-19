@@ -1,6 +1,6 @@
 // **************DO NOT DELETE: WORKING CODE FOR SIMPLE BAR CHART!!!!****************
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, tickSize, selectAll, timeDay
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select
 } from 'd3'
 
 import d3Tip from "d3-tip";

@@ -1,17 +1,19 @@
 import React from 'react';
 import Viz from '../d3/Viz'
 
+import { NavLink } from 'react-router-dom';
+
+
 
 const Country = (props) => {
     const countryName = Object.keys(props.country)[0]
-
-    const dailyData = props.country[Object.keys(props.country)]
+    const dailyData = props.country[countryName]
 
     const totalCases = () => {
-        if (props.country[countryName][0].length === 0) {
+        if (dailyData[0].length === 0) {
             return 0
         } else {
-            return props.country[Object.keys(props.country)][0][props.country[Object.keys(props.country)][0].length-1].Confirmed
+            return dailyData[0][dailyData[0].length-1].Confirmed
         }
     }
 
@@ -33,9 +35,10 @@ const Country = (props) => {
 
 
     return (
-        <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.id}/>
+        <NavLink to={`/countries/${props.country.slug}`}>
+            <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.country.slug} slug={props.country.slug}/>
+        </NavLink>
     )
-
 }
 
 export default Country
