@@ -95,10 +95,7 @@ text.subtitle {
   font-size: 1.5em;
 }
 
-.card {
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
+
 
 
 /* d3 map css */
@@ -116,6 +113,12 @@ body {
   stroke: black;
   stroke-opacity: 0.1;
 }
+
+.card {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 
 
 

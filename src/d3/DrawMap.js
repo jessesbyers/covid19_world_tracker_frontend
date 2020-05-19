@@ -9,9 +9,10 @@ const DrawMap = () => {
 
     // setting up svg element on home page
     const svg = select(".mapviz").append("svg")
-        // .attr("viewBox", [0, 0, width, height])
-        .attr("width", width)
-        .attr("height", height)
+        .attr("preserveAspectRatio", "xMinYMid meet")
+        .attr("viewBox", [0, 0, width, height])
+        // .attr("width", width)
+        // .attr("height", height)
         // .attr("id", "svg-viz")
 
 

@@ -9,7 +9,7 @@ const Viz = (props) => {
     }, [props])
 
     return (
-        <div className={"viz" + props.id}></div>
+        <div className={"viz" + props.id} ></div>
     )
 }
 
