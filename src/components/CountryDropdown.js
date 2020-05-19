@@ -35,11 +35,10 @@ const CountryDropdown = (props) => {
 
     return (
         <div>
-            {console.log(props)}
             <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2]]]); 
                 fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
-                <option placeholder="Choose a Country">Choose a Country</option>
+                <option placeholder="Choose Multiple Countries to Create a Collection">Choose Multiple Countries to Create a Collection</option>
                 {props.options.map(option => (
                     <option
                     id={props.id}
@@ -62,11 +61,11 @@ const CountryDropdown = (props) => {
 
             <Row className="justify-content-md-center">
 
-                {collection.map(country => {
+                {collection.map( (country, index) => {
                     const flagUrl = `https://www.cia.gov/library/publications/the-world-factbook/attachments/flags/${country[1]}-flag.gif`
                     const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
                     return (
-                        <Col xs={4} sm={4} md={3} lg={2}>
+                        <Col xs={4} sm={4} md={3} lg={2} key={index}>
                             <Card>
                                 <Card.Header>{country[0]}</Card.Header>
 

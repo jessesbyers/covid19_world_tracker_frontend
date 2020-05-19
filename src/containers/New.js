@@ -30,7 +30,6 @@ const New = () => {
 
     return (
         <div>
-            <h3>Choose Multiple Countries for your Collection:</h3>
             <CountryDropdown options={options} />
         </div>
     )

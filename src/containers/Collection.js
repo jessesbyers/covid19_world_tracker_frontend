@@ -6,26 +6,24 @@ import {Row} from 'react-bootstrap'
 
 
 const Collection = (props) => {
-        if (props.location.countryData) {
-            return (
-                <Row className="justify-content-md-center">
+    if (props.location.countryData) {
+        return (
+            <Row className="justify-content-md-center">
 
-                    {props.location.countryData.map((country, index) => { 
-                        return (
-                            <Col xs={12} sm={6} md={4} lg={3}>
-
-                                <Card>
-                                    <Country id={index} country={country} /> 
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                </Row>
-
-            )
-        } else {
-            return <div>Return to Home</div>
-        }
+                {props.location.countryData.map((country, index) => { 
+                    return (
+                        <Col xs={12} sm={6} md={4} lg={3} key={index}>
+                            <Card>
+                                <Country key={index} id={index} country={country} /> 
+                            </Card>
+                        </Col>
+                    )
+                })}
+            </Row>
+        )
+    } else {
+        return <div>Return to Home</div>
+    }
 }
 
 export default Collection
