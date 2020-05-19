@@ -13,7 +13,6 @@ const CountryDropdown = (props) => {
     const [countryData, setCountryData] = useState([]);
 
     const fetchCountry = (country, countryName) => {
-        console.log(props)
 
         async function fetchData() {
 
