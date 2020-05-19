@@ -8,7 +8,7 @@ import d3Tip from "d3-tip";
 
 // TO DOS:
     // add stacked bar
-const Draw = (countryName, totalCases, dailyData, id) => {
+const DrawBar = (countryName, totalCases, dailyData, id) => {
     console.log(dailyData)
 
     // setting up constants for sizes
@@ -181,7 +181,7 @@ const Draw = (countryName, totalCases, dailyData, id) => {
     svg.call(tip);
 }
 
-export default Draw
+export default DrawBar
 
 
 

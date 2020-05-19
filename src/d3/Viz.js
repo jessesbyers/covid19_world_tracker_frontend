@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Draw from './Draw'
+import DrawBar from './DrawBar'
 
 const Viz = (props) => {
     console.log(props)
 
     useEffect( () => {
-        Draw(props.countryName, props.totalCases, props.dailyData, props.id)
+        DrawBar(props.countryName, props.totalCases, props.dailyData, props.id)
     }, [props])
 
     return (

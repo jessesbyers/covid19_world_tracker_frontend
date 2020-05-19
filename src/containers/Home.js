@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Map from '../d3/Map'
 
 const Home = (props) => {
 
@@ -13,8 +14,8 @@ const Home = (props) => {
                 <li>add background image for pages if no data present</li>
                 <li></li>
                 <li></li>
-
             </ul>
+            <Map />
         </div>
     )
 }
