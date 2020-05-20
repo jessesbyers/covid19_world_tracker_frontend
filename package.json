@@ -1,4 +1,5 @@
 {
+  "proxy": "https://2019ncov.asia",
   "name": "covid19_world_tracker_frontend",
   "version": "0.1.0",
   "private": true,
