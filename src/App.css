@@ -37,7 +37,18 @@
   }
 }
 
-/* d3 and svg styling */
+
+/* custom bootstrap styling */
+
+.card {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+
+
+
+/* BAR CHART - d3 and svg styling  */
 .bar:hover {
   fill: black;
 }
@@ -98,7 +109,7 @@ text.subtitle {
 
 
 
-/* d3 map css */
+/* WORLS MAP: d3 map css */
 body {
   margin: 0px;
   overflow: hidden;
@@ -114,10 +125,20 @@ body {
   stroke-opacity: 0.1;
 }
 
-.card {
-  margin-bottom: 1em;
-  margin-top: 1em;
+.country:hover {
+  fill: red
 }
+
+/* .country text.title {
+  fill: black;
+  font-size: 1em;
+  
+} */
+
+
+
+
+
 
 
 
