@@ -122,18 +122,12 @@ body {
 .country {
   fill: lightgreen;
   stroke: black;
-  stroke-opacity: 0.1;
+  stroke-width: 0.05
 }
 
 .country:hover {
   fill: red
 }
-
-/* .country text.title {
-  fill: black;
-  font-size: 1em;
-  
-} */
 
 
 
