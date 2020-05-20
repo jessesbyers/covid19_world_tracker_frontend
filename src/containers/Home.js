@@ -19,11 +19,11 @@ const Home = (props) => {
                    }
               }
 
-            await fetch('/api/country_region', requestOptions)
+            await fetch('https://corona.lmao.ninja/v2/countries', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data.results)
-                setCountryResults(data.results)
+                console.log(data)
+                setCountryResults(data)
             })
         }
         fetchData();
