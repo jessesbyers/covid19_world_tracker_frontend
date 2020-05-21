@@ -1,44 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DrawMap from '../d3/DrawMap'
 import MapInput from '../components/MapInput'
 
 
-const Home = (props) => {
-    const [countryResults, setCountryResults] = useState([])
-    console.log(countryResults)
-
+const Home = () => {
 
     useEffect( () => {
-
-        async function fetchData() {
-            var requestOptions = {
-                method: 'GET',
-                redirect: 'follow',
-                headers : { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                   }
-              }
-
-            await fetch('https://corona.lmao.ninja/v2/countries', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setCountryResults(data)
-            })
-        }
-        fetchData();
-
         DrawMap(); 
     }, [])
 
-    return (
-
-        <div className="mapviz">
-
-            <MapInput />
-        </div>
-    )
+    return <div className="mapviz"><MapInput /></div>
 }
 
 export default Home
