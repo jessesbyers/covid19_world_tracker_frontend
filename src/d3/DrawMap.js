@@ -16,6 +16,7 @@ const DrawMap = (caseType, data) => {
 
     // creating a group to arrange map elements
     const g = svg.append("g")
+        .attr("class", "map-group")
     g.append('path')
         .attr('class', 'sphere')
         .attr('d', pathGenerator({type: 'Sphere'}));
@@ -48,29 +49,7 @@ const DrawMap = (caseType, data) => {
             .attr('d', pathGenerator)
         .append("title")
             .text(d => countryName[d.id])
-
-
-    // ***** DO NOT DELETE: drawing circles on map using COVID-country data
-        g.selectAll('circle').data(data)
-            .enter().append('circle')
-                .attr('class', 'country-circle')
-                // setting x and y coordiantes by translating country coordinate data to pixels
-                .attr("transform", function(d) { console.log(d); return "translate(" + projection([d.countryInfo.long, d.countryInfo.lat]) + ")"; })
-                .attr("r", 5)
-                .attr("fill", "red")
-            .append("title")
-                .text(d => d.country)
     })
 }
 
 export default DrawMap
-
-    // **********DO NOT DELETE: drawing circles on map using topoJSON country data************
-        // g.selectAll('circle').data(countries.features)
-        //     .enter().append('circle')
-        //         .attr('class', 'country-circle')
-        //         .attr("transform", function(d) { console.log(d); return "translate(" + projection(geoCentroid(d)) + ")"; })
-        //         .attr("r", 5)
-        //         .attr("fill", "red")
-        //     .append("title")
-        //         .text(d => countryName[d.id])

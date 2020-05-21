@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-// import DrawMap from '../d3/DrawMap'
+import DrawMap from '../d3/DrawMap'
 import MapInput from '../components/MapInput'
 
 
 const Home = () => {
 
-    // useEffect( () => {
-    //     DrawMap(); 
-    // }, [])
+    useEffect( () => {
+        DrawMap(); 
+    }, [])
 
     return <div className="mapviz"><MapInput /></div>
 }

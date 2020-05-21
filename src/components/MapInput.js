@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
-import DrawMap from '../d3/DrawMap'
-
-
 
 const MapInput = () => {
     // disable button that is clicked / re-enable when another button is clicked
@@ -11,7 +8,6 @@ const MapInput = () => {
     const [countryResults, setCountryResults] = useState([])
 
     useEffect( () => {
-
         async function fetchData() {
             await fetch('https://corona.lmao.ninja/v2/countries')
             .then(response => response.json())
@@ -20,14 +16,11 @@ const MapInput = () => {
             })
         }
         fetchData();
-
-        // DrawMap(); 
-
     }, [])
 
     return (
         <span>
-            <Button onClick={event => DrawMap(event.target.value, countryResults)} value="population">Population</Button>
+            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="population">Population</Button>
             {/* <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="cases">Total Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="active">Active Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="critical">Critical Cases</Button>
