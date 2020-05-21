@@ -21,7 +21,7 @@ const MapInput = () => {
     return (
         <span>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="population">Population</Button>
-            {/* <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="cases">Total Cases</Button>
+            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="cases">Total Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="active">Active Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="critical">Critical Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="deaths">Total Deaths</Button>
@@ -36,7 +36,7 @@ const MapInput = () => {
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="criticalPerOneMillion">Critical Cases Per One Million</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="deathsPerOneMillion">Deaths Per One Million</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="recoveredPerOneMillion">Recovered Cases Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="testsPerOneMillion">Tests Per One Million</Button> */}
+            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="testsPerOneMillion">Tests Per One Million</Button>
         </span>
     )
 }
