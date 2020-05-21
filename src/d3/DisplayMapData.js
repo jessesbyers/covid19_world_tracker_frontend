@@ -1,10 +1,9 @@
-import { select, geoNaturalEarth1, scaleSqrt, max} from 'd3'
-// import React from 'react'
+import { select, geoNaturalEarth1, scaleSqrt, max, format} from 'd3'
+import { sizeLegend } from './SizeLegend'
 
 const DisplayMapData = (caseType, caseTitle, data) => {
     console.log(data)
     console.log(caseType)
-    // console.log(data[0][`${caseType}`])
 
     const color = (caseType) => {
         switch (caseType) {
@@ -46,12 +45,10 @@ const DisplayMapData = (caseType, caseTitle, data) => {
     const projection = geoNaturalEarth1();
     const radiusValue = d => d[`${caseType}`];
 
-    const radiusScale = scaleSqrt()
+    const sizeScale = scaleSqrt()
         .domain([0, max(data, d => d[`${caseType}`], radiusValue)])
         .range([0, 20]);
 
-
-console.log(radiusScale.domain())
     const g = select(".map-group")
 
     g.selectAll('circle').data(data)
@@ -59,11 +56,41 @@ console.log(radiusScale.domain())
         .attr('class', 'country-circle')
         // setting x and y coordiantes by translating country coordinate data to pixels
         .attr("transform", function(d) { return "translate(" + projection([d.countryInfo.long, d.countryInfo.lat]) + ")"; })
-        .attr("r", d => radiusScale(radiusValue(d)))
+        .attr("r", d => sizeScale(radiusValue(d)))
         .attr("fill", color(caseType))
     .append("title")
         .text(d => d.country + ": " 
         + d[`${caseType}`] + " " + caseTitle)
+
+
+
+    // adding size legend
+    const numberFormat = format(',');
+
+    const legend = g.append('g')
+        .attr('transform', `translate(45,215)`)
+        .call(sizeLegend, {
+            sizeScale,
+            spacing: 45,
+            textOffset: 10,
+            numTicks: 5,
+            tickFormat: numberFormat 
+        })
+        .append('text')
+            .attr('class', 'legend-title')
+            .text(caseTitle)
+            .attr('y', -45)
+            .attr('x', -30);
+        g.selectAll("circle")
+            .attr("fill", color(caseType));
+        
+
+
+
+
+
+    // legend.selectAll("circle")
+    //     .attr("fill", color(caseType))
 }
 
 export default DisplayMapData
