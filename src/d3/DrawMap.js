@@ -1,4 +1,4 @@
-import { select, json, geoPath, geoNaturalEarth1, geoCentroid, tsv, zoom, event } from 'd3';
+import { select, json, geoPath, geoNaturalEarth1, tsv, zoom, event } from 'd3';
 import { feature } from 'topojson';
 
 const DrawMap = (caseType, data) => {
@@ -31,45 +31,46 @@ const DrawMap = (caseType, data) => {
     Promise.all([
         tsv('https://unpkg.com/world-atlas@1.1.4/world/50m.tsv'),
         json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
-    ]).then(([ tsvData, topoJSONdata ]) => {
+    ])
+    .then(([ tsvData, topoJSONdata ]) => {
 
-    // parses tsvData to extract country names
-    const countryName = {}
-    tsvData.forEach(d => {
-        countryName[d.iso_n3] = d.name
-    })
+        // parses tsvData to extract country names
+        const countryName = {}
+        tsvData.forEach(d => {
+            countryName[d.iso_n3] = d.name
+        })
 
-    // draws a path for each country with countryName as title (shown on hover)
-    const countries = feature(topoJSONdata, topoJSONdata.objects.countries);
-    g.selectAll('path').data(countries.features)
-    .enter().append('path')
-        .attr('class', 'country')
-        .attr('d', pathGenerator)
-    .append("title")
-        .text(d => countryName[d.id])
-
-
-
+        // draws a path for each country with countryName as title (shown on hover)
+        const countries = feature(topoJSONdata, topoJSONdata.objects.countries);
+        g.selectAll('path').data(countries.features)
+        .enter().append('path')
+            .attr('class', 'country')
+            .attr('d', pathGenerator)
+        .append("title")
+            .text(d => countryName[d.id])
 
 
-    // drawing circles on map
-        // g.selectAll('circle').data(data)
-        g.selectAll('circle').data(countries.features)
+    // ***** DO NOT DELETE: drawing circles on map using COVID-country data
+        g.selectAll('circle').data(data)
             .enter().append('circle')
                 .attr('class', 'country-circle')
-                // .attr("cx", d => d.countryInfo.lat)
-                // .attr("cy", d => d.countryInfo.long)
-                .attr("transform", function(d) { return "translate(" + projection(geoCentroid(d)) + ")"; })
+                // setting x and y coordiantes by translating country coordinate data to pixels
+                .attr("transform", function(d) { console.log(d); return "translate(" + projection([d.countryInfo.long, d.countryInfo.lat]) + ")"; })
                 .attr("r", 5)
                 .attr("fill", "red")
             .append("title")
-                .text(d => countryName[d.id])
+                .text(d => d.country)
     })
-
-
-
-
 }
 
 export default DrawMap
 
+    // **********DO NOT DELETE: drawing circles on map using topoJSON country data************
+        // g.selectAll('circle').data(countries.features)
+        //     .enter().append('circle')
+        //         .attr('class', 'country-circle')
+        //         .attr("transform", function(d) { console.log(d); return "translate(" + projection(geoCentroid(d)) + ")"; })
+        //         .attr("r", 5)
+        //         .attr("fill", "red")
+        //     .append("title")
+        //         .text(d => countryName[d.id])
