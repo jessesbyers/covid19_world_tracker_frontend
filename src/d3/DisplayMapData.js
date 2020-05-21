@@ -1,46 +1,46 @@
 import { select, geoNaturalEarth1, scaleSqrt, max} from 'd3'
+// import React from 'react'
 
-const DisplayMapData = (caseType, data) => {
+const DisplayMapData = (caseType, caseTitle, data) => {
     console.log(data)
     console.log(caseType)
     // console.log(data[0][`${caseType}`])
 
     const color = (caseType) => {
         switch (caseType) {
-            case "population":
-                return ""
             case "cases":
-                return ""
+                return "#137B80"
             case "active":
-                return ""
+                return "#E3BA22"
             case "critical":
-                return ""
+                return "#9A3E25"
             case "deaths":
-                return ""
+                return "#E6842A"
             case "recovered":
-                return ""
+                return "#5C8100"
             case "tests":
-                return ""
-            case "todayCases":
-                return ""
-            case "todayDeaths":
-                return ""
+                return "#8E6C8A"
+
             case "casesPerOneMillion":
-                return ""
+                return "#42A5B3"
             case "activePerOneMillion":
-                return ""
+                return "#F2DA57"
             case "criticalPerOneMillion":
-                return ""
+                return "#B37055"
             case "deathsPerOneMillion":
-                return ""
+                return "#F6B656"
             case "recoveredPerOneMillion":
-                return ""
+                return "#A0B700"
             case "testsPerOneMillion":
-                return ""
-            
+                return "#B396AD"
+
+            case "population":
+                return "#7C715E"
+            case "todayCases":
+                return "#005D6E"
+            case "todayDeaths":
+                return "#BA5F06"            
         }
-
-
     }
 
     const projection = geoNaturalEarth1();
@@ -62,7 +62,8 @@ console.log(radiusScale.domain())
         .attr("r", d => radiusScale(radiusValue(d)))
         .attr("fill", color(caseType))
     .append("title")
-        .text(d => d.country + ": " + d[`${caseType}`])
+        .text(d => d.country + ": " 
+        + d[`${caseType}`] + " " + caseTitle)
 }
 
 export default DisplayMapData
