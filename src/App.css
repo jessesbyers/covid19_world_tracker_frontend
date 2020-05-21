@@ -116,17 +116,17 @@ body {
 }
 
 .sphere {
-  fill: #4242e4;
+  fill: #DCDCDC;
 }
 
 .country {
-  fill: lightgreen;
+  fill: #D3D3D3;
   stroke: black;
   stroke-width: 0.05
 }
 
 .country:hover {
-  fill: red
+  fill: #E0FFFF
 }
 
 

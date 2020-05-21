@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DrawMap from '../d3/DrawMap'
+import MapInput from '../components/MapInput'
 
 
 const Home = (props) => {
@@ -31,7 +32,13 @@ const Home = (props) => {
         DrawMap(); 
     }, [])
 
-    return <div className="mapviz"></div>
+    return (
+
+        <div className="mapviz">
+
+            <MapInput />
+        </div>
+    )
 }
 
 export default Home
