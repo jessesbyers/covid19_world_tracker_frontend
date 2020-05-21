@@ -47,19 +47,27 @@ const DrawMap = (caseType, data) => {
         .attr('d', pathGenerator)
     .append("title")
         .text(d => countryName[d.id])
+
+
+
+
+
+    // drawing circles on map
+        // g.selectAll('circle').data(data)
+        g.selectAll('circle').data(countries.features)
+            .enter().append('circle')
+                .attr('class', 'country-circle')
+                // .attr("cx", d => d.countryInfo.lat)
+                // .attr("cy", d => d.countryInfo.long)
+                .attr("transform", function(d) { return "translate(" + projection(geoCentroid(d)) + ")"; })
+                .attr("r", 5)
+                .attr("fill", "red")
+            .append("title")
+                .text(d => countryName[d.id])
     })
 
 
-// drawing circles on map
 
-
-        svg.selectAll('circle').data(data)
-            .enter().append('circle')
-                .attr('class', 'country-circle')
-                .attr("cx", d => d.countryInfo.lat)
-                .attr("cy", d => d.countryInfo.long)
-                .attr("r", 5)
-                .attr("fill", "red")
 
 }
 

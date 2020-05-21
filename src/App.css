@@ -109,7 +109,7 @@ text.subtitle {
 
 
 
-/* WORLS MAP: d3 map css */
+/* WORLD MAP: d3 map css */
 body {
   margin: 0px;
   overflow: hidden;
@@ -128,6 +128,11 @@ body {
 .country:hover {
   fill: #E0FFFF
 }
+
+.country-circle:hover {
+  fill: black
+}
+
 
 
 
