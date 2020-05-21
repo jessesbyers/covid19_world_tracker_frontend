@@ -14,7 +14,7 @@ export const sizeLegend = (selection, props) => {
     const groups = selection.selectAll('g').data(ticks);
     const groupsEnter = groups
       .enter().append('g')
-        .attr('class', 'tick');
+        .attr('class', 'tick-map');
     groupsEnter
       .merge(groups)
         .attr('transform', (d, i) =>

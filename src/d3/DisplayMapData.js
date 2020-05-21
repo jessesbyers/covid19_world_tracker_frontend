@@ -59,8 +59,8 @@ const DisplayMapData = (caseType, caseTitle, data) => {
         .attr("r", d => sizeScale(radiusValue(d)))
         .attr("fill", color(caseType))
     .append("title")
-        .text(d => d.country + ": " 
-        + d[`${caseType}`] + " " + caseTitle)
+        .text(d => d.country + " " + caseTitle + ": "
+        + format(',')(d[`${caseType}`]))
 
 
 
@@ -68,7 +68,7 @@ const DisplayMapData = (caseType, caseTitle, data) => {
     const numberFormat = format(',');
 
     const legend = g.append('g')
-        .attr('transform', `translate(45,215)`)
+        .attr('transform', `translate(65, 125)`)
         .call(sizeLegend, {
             sizeScale,
             spacing: 45,
@@ -76,21 +76,15 @@ const DisplayMapData = (caseType, caseTitle, data) => {
             numTicks: 5,
             tickFormat: numberFormat 
         })
-        .append('text')
-            .attr('class', 'legend-title')
-            .text(caseTitle)
-            .attr('y', -45)
-            .attr('x', -30);
-        g.selectAll("circle")
-            .attr("fill", color(caseType));
-        
+    const title = g.append('text')
+        .attr('class', 'legend-title')
+        .text(caseTitle)
+        .attr('transform', 'rotate(270)')
+        .attr('x', -245)
+        .attr('y', 45);
 
-
-
-
-
-    // legend.selectAll("circle")
-    //     .attr("fill", color(caseType))
+    g.selectAll("circle")
+        .attr("fill", color(caseType));
 }
 
 export default DisplayMapData

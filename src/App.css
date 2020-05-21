@@ -130,11 +130,17 @@ body {
 }
 
 .country-circle:hover {
-  fill: black
+  fill: #E0FFFF
 }
 
 .legend-title {
   fill: #635F5D;
+  text-anchor: middle;
+}
+
+.tick-map text {
+  fill: #635F5D;
+  font-size: .75em
 }
 
 

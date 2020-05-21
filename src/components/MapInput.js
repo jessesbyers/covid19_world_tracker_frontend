@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
+import { CardTitle } from 'react-bootstrap/Card';
 
 const MapInput = () => {
     // disable button that is clicked / re-enable when another button is clicked
@@ -18,6 +19,7 @@ const MapInput = () => {
         fetchData();
     }, [])
 
+
     return (
         <span>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="cases">Total Cases</Button>
@@ -25,7 +27,7 @@ const MapInput = () => {
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="critical">Critical Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="deaths">Total Deaths</Button>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="recovered">Recovered Cases</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="tests">Number of Tests</Button>
+            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="tests">Number of Tests</Button>
 <br/>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="casesPerOneMillion">Total Cases Per One Million</Button>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="activePerOneMillion">Active Cases Per One Million</Button>
