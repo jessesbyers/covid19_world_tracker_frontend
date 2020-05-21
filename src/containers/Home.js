@@ -20,7 +20,7 @@ export default Home
     <li>render About / Instructions</li>
     <li>add case data to covid map component for home</li>
     <li>add forward and back navlinks to NavBar</li>
-    <li>add background image for pages if no data present</li>
+    <li>add background image and NavLink (or Redirect) for pages if no data present</li>
     <li>fix sizing on show page</li>
     <li></li>
 </ul> */} 
