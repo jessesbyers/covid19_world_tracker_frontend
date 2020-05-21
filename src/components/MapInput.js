@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
+import DrawMap from '../d3/DrawMap'
+
 
 
 const MapInput = () => {
@@ -18,11 +20,14 @@ const MapInput = () => {
             })
         }
         fetchData();
+
+        // DrawMap(); 
+
     }, [])
 
     return (
         <span>
-            <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="population">Population</Button>
+            <Button onClick={event => DrawMap(event.target.value, countryResults)} value="population">Population</Button>
             {/* <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="cases">Total Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="active">Active Cases</Button>
             <Button onClick={event => DisplayMapData(event.target.value, countryResults)} value="critical">Critical Cases</Button>

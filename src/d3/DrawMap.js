@@ -1,7 +1,7 @@
-import { select, json, geoPath, geoNaturalEarth1, tsv, zoom, event } from 'd3';
+import { select, json, geoPath, geoNaturalEarth1, geoCentroid, tsv, zoom, event } from 'd3';
 import { feature } from 'topojson';
 
-const DrawMap = () => {
+const DrawMap = (caseType, data) => {
 
     // setting up svg element on Home component; making size responsive
     const height = 500
@@ -48,6 +48,19 @@ const DrawMap = () => {
     .append("title")
         .text(d => countryName[d.id])
     })
+
+
+// drawing circles on map
+
+
+        svg.selectAll('circle').data(data)
+            .enter().append('circle')
+                .attr('class', 'country-circle')
+                .attr("cx", d => d.countryInfo.lat)
+                .attr("cy", d => d.countryInfo.long)
+                .attr("r", 5)
+                .attr("fill", "red")
+
 }
 
 export default DrawMap
