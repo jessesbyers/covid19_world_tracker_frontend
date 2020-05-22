@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from "react-router"
 import Country from '../components/Country'
 import { Card } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
@@ -23,7 +24,7 @@ const Collection = (props) => {
             </Row>
         )
     } else {
-        return <div>Return to Home</div>
+        return <Redirect to='/' />
     }
 }
 

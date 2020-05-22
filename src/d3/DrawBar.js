@@ -1,6 +1,6 @@
 // **************DO NOT DELETE: WORKING CODE FOR SIMPLE BAR CHART!!!!****************
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, zoom, event
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -187,6 +187,13 @@ const DrawBar = (countryName, totalCases, dailyData, id) => {
         .text(subtitle());
 
     svg.call(tip);
+
+        // enabling zooming/panning on entire svg
+        // svg.call(zoom().on("zoom", () => {
+        //     g.attr("transform", event.transform)
+        //     xAxisG.attr("transform", event.transform)
+        //     yAxisG.attr("transform", event.transform)
+        // }))
 }
 
 export default DrawBar

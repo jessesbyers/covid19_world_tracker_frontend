@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from "react-router"
+
 import VizShow from '../d3/Viz'
 import Viz from '../d3/Viz'
 import { Card } from 'react-bootstrap'
@@ -27,7 +29,7 @@ const Show = (props) => {
         )
 
     } else {
-        return null
+        return <Redirect to='/' />
     }
 }
 
