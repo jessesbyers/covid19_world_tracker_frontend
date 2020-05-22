@@ -34,7 +34,6 @@ export default Home
 <ul>
     <li>render About / Instructions</li>
     <li>add forward and back navlinks to NavBar</li>
-    <li>add background image and NavLink (or Redirect) for pages if no data present</li>
     <li>fix sizing on all pages</li>
     <li>center justify map legends</li>
     <li>remove circles, title, and legend before displaying new map data</li>

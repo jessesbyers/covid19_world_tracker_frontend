@@ -11,18 +11,18 @@ import d3Tip from "d3-tip";
 const DrawBar = (countryName, totalCases, dailyData, id) => {
     console.log(dailyData)
 
-    let w = window,
-        d = document,
-        e = d.documentElement,
-        body = d.getElementsByTagName('body')[0];
-    const width = w.innerWidth || e.clientWidth || body.clientWidth;
-    const height = w.innerHeight || e.clientHeight|| body.clientHeight;
+    // let w = window,
+    //     d = document,
+    //     e = d.documentElement,
+    //     body = d.getElementsByTagName('body')[0];
+    // const width = w.innerWidth || e.clientWidth || body.clientWidth;
+    // const height = w.innerHeight || e.clientHeight|| body.clientHeight;
 
 
 
     // setting up constants for sizes
-    // let width = 600
-    // let height = 400
+    let width = 600
+    let height = 400
     const padding = .2
     const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;

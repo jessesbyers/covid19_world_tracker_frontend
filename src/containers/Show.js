@@ -8,8 +8,6 @@ import { Col } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 
 
-
-
 const Show = (props) => {
     console.log(props)
 
@@ -17,12 +15,16 @@ const Show = (props) => {
         return (
             <div> 
                 <Row className="justify-content-md-center">
-                {/* <Row> */}
-                    {/* <Col xs={12} sm={12} md={10} lg={10}> */}
-                    <Col lg={9}>
+                    <Col xs="12" sm="12" md="10" lg="10" xl="9">
+                    {/* <Col> */}
+                    {/* <Col lg={9}> */}
                         <Card classname="show">
                             <Viz countryName={props.location.countryName} totalCases={props.location.totalCases} dailyData={props.location.dailyData} id={props.location.slug} slug={props.location.slug}/>
                         </Card>
+                    </Col>
+
+                    <Col xs="12" sm="12" md="2" lg="2" xl="3">
+                    <Card>Placeholder for Sidebar</Card>
                     </Col>
                 </Row>
             </div>
