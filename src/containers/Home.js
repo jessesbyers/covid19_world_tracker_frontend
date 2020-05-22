@@ -6,9 +6,6 @@ import { Col } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 
 
-
-
-
 const Home = () => {
 
     useEffect( () => {
@@ -36,7 +33,6 @@ export default Home
     <li>add forward and back navlinks to NavBar</li>
     <li>fix sizing on all pages</li>
     <li>center justify map legends</li>
-    <li>remove circles, title, and legend before displaying new map data</li>
     <li>identify countries with missing data (shading)</li>
     <li>create color classes for circles and text by caseType in app.css</li>
     <li>coordinate colors across map, buttons, and bar chart</li>

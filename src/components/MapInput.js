@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
-import { ResetMapData}  from '../d3/ResetMapData'
+// import { ResetMapData}  from '../d3/ResetMapData'
 
 const MapInput = () => {
-    // disable button that is clicked / re-enable when another button is clicked
-    // remove data layer when a new button is clicked
+
     const [countryResults, setCountryResults] = useState([])
 
     useEffect( () => {
@@ -17,10 +16,7 @@ const MapInput = () => {
             })
         }
         fetchData();
-    }, [])
-
-    // const displayMap = (caseType, caseTitle, data) => ResetMapData().then(DisplayMapData(caseType, caseTitle, data))
-    
+    }, [])    
 
 
     return (
@@ -43,6 +39,8 @@ const MapInput = () => {
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="population">Population</Button>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="todayCases">New Cases Today</Button>
             <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="todayDeaths">New Deaths Today</Button>
+            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="reset">Reset</Button>
+
         </span>
     )
 }
