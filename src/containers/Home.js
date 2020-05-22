@@ -23,5 +23,6 @@ export default Home
     <li>fix sizing on all pages</li>
     <li>center justify map legends</li>
     <li>remove circles, title, and legend before displaying new map data</li>
+    <li>identify countries with missing data (shading)</li>
     <li>add resources to readme</li>
 </ul> */} 
