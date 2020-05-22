@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
-import { CardTitle } from 'react-bootstrap/Card';
+import { ResetMapData}  from '../d3/ResetMapData'
 
 const MapInput = () => {
     // disable button that is clicked / re-enable when another button is clicked
@@ -18,6 +18,9 @@ const MapInput = () => {
         }
         fetchData();
     }, [])
+
+    // const displayMap = (caseType, caseTitle, data) => ResetMapData().then(DisplayMapData(caseType, caseTitle, data))
+    
 
 
     return (

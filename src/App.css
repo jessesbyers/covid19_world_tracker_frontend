@@ -129,8 +129,14 @@ body {
   fill: #E0FFFF
 }
 
-.country-circle:hover {
+.country-circle:hover, circle:hover {
   fill: #E0FFFF
+}
+
+.country-circle, circle {
+  fill-opacity: 0.4;
+  stroke: black;
+  stroke-width: 0.3;
 }
 
 .legend-title {

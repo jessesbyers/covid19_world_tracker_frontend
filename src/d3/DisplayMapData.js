@@ -2,8 +2,9 @@ import { select, geoNaturalEarth1, scaleSqrt, max, format} from 'd3'
 import { sizeLegend } from './SizeLegend'
 
 const DisplayMapData = (caseType, caseTitle, data) => {
-    console.log(data)
-    console.log(caseType)
+    console.log("displaying map data")
+
+    const g = select(".map-group")
 
     const color = (caseType) => {
         switch (caseType) {
@@ -49,7 +50,6 @@ const DisplayMapData = (caseType, caseTitle, data) => {
         .domain([0, max(data, d => d[`${caseType}`], radiusValue)])
         .range([0, 20]);
 
-    const g = select(".map-group")
 
     g.selectAll('circle').data(data)
     .enter().append('circle')

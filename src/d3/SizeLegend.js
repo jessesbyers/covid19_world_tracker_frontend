@@ -31,5 +31,4 @@ export const sizeLegend = (selection, props) => {
         .text(tickFormat)
         .attr('dy', '0.32em')
         .attr('x', d => sizeScale(d) + textOffset);
-    
   }

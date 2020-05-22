@@ -2,10 +2,19 @@ import { select, json, geoPath, geoNaturalEarth1, tsv, zoom, event } from 'd3';
 import { feature } from 'topojson';
 
 const DrawMap = (caseType, data) => {
+    console.log("drawing map")
+
+    let w = window,
+        d = document,
+        e = d.documentElement,
+        body = d.getElementsByTagName('body')[0];
+    const width = w.innerWidth || e.clientWidth || body.clientWidth;
+    const height = w.innerHeight || e.clientHeight|| body.clientHeight;
 
     // setting up svg element on Home component; making size responsive
-    const height = 500
-    const width = 960
+    // const height = 500
+    // const width = 960
+
     const svg = select(".mapviz").append("svg")
         .attr("preserveAspectRatio", "xMinYMid meet")
         .attr("viewBox", [0, 0, width, height])
