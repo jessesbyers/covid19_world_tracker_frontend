@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import DrawMap from '../d3/DrawMap'
 import MapInput from '../components/MapInput'
+import { Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
+
+
 
 
 const Home = () => {
@@ -9,7 +13,12 @@ const Home = () => {
         DrawMap(); 
     }, [])
 
-    return <div className="mapviz"><MapInput /></div>
+    return (
+        <Row>
+            <Col sm="12" md="3" lg="3" xl="3"><MapInput /></Col>
+            <Col sm="12" md="9" lg="9" xl="9" className="mapviz"></Col>
+        </Row>
+    )
 }
 
 export default Home
