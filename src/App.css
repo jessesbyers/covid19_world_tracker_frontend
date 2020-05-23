@@ -136,7 +136,7 @@ body {
 .country-circle, circle {
   fill-opacity: 0.4;
   stroke: black;
-  stroke-width: 0.3;
+  stroke-width: 0.05;
 }
 
 .legend-title {
@@ -166,12 +166,15 @@ body {
 .block:hover {
   background-color: #C0C0BB;
   color: black;
+  font-size: 22px;
+  padding: 12px
 }
 
 .block:focus {
+  fill-opacity: 50%;
   color: black;
-  font-size: 20px;
-  padding: 8px
+  font-size: 22px;
+  padding: 12px
 }
 
 button.cases {
@@ -222,48 +225,3 @@ button.population {
 button.reset {
   background-color: #7C715E;
 }
-
-
-/* case "population":
-return "#7C715E"
-case "todayCases":
-return "#005D6E"
-case "todayDeaths":
-return "#BA5F06"   */
-
-/* case "cases":
-return "#137B80"
-case "active":
-return "#E3BA22"
-case "critical":
-return "#9A3E25"
-case "deaths":
-return "#E6842A"
-case "recovered":
-return "#5C8100"
-case "tests":
-return "#8E6C8A" */
-
-/* case "casesPerOneMillion":
-return "#42A5B3"
-case "activePerOneMillion":
-return "#F2DA57"
-case "criticalPerOneMillion":
-return "#B37055"
-case "deathsPerOneMillion":
-return "#F6B656"
-case "recoveredPerOneMillion":
-return "#A0B700"
-case "testsPerOneMillion":
-return "#B396AD" */
-
-
-
-
-
-
-
-
-
-
-

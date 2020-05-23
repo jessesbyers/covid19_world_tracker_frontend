@@ -1,5 +1,6 @@
 import { select, geoNaturalEarth1, scaleSqrt, max, format, selectAll} from 'd3'
 import { sizeLegend } from './SizeLegend'
+import { color } from './Color'
 
 const DisplayMapData = (caseType, caseTitle, data) => {
 
@@ -13,50 +14,12 @@ const DisplayMapData = (caseType, caseTitle, data) => {
 
         const g = select(".map-group")
 
-        const color = (caseType) => {
-            switch (caseType) {
-                case "cases":
-                    return "#137B80"
-                case "active":
-                    return "#E3BA22"
-                case "critical":
-                    return "#9A3E25"
-                case "deaths":
-                    return "#E6842A"
-                case "recovered":
-                    return "#5C8100"
-                case "tests":
-                    return "#8E6C8A"
-
-                case "casesPerOneMillion":
-                    return "#42A5B3"
-                case "activePerOneMillion":
-                    return "#F2DA57"
-                case "criticalPerOneMillion":
-                    return "#B37055"
-                case "deathsPerOneMillion":
-                    return "#F6B656"
-                case "recoveredPerOneMillion":
-                    return "#A0B700"
-                case "testsPerOneMillion":
-                    return "#B396AD"
-
-                case "population":
-                    return "#7C715E"
-                case "todayCases":
-                    return "#005D6E"
-                case "todayDeaths":
-                    return "#BA5F06"            
-            }
-        }
-
         const projection = geoNaturalEarth1();
         const radiusValue = d => d[`${caseType}`];
 
         const sizeScale = scaleSqrt()
             .domain([0, max(data, d => d[`${caseType}`], radiusValue)])
             .range([0, 20]);
-
 
         g.selectAll('circle').data(data)
         .enter().append('circle')
@@ -85,6 +48,7 @@ const DisplayMapData = (caseType, caseTitle, data) => {
                 tickFormat: numberFormat 
             })
 
+        // adding map title on side of legend
         const title = g.append('text')
             .attr('class', 'legend-title')
             .text(caseTitle)
@@ -92,6 +56,7 @@ const DisplayMapData = (caseType, caseTitle, data) => {
             .attr('x', -245)
             .attr('y', 45);
 
+        // color-coding all circles based on caseType from user input
         g.selectAll("circle")
             .attr("fill", color(caseType));
     }

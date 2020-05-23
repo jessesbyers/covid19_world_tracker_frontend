@@ -37,7 +37,7 @@ const DrawMap = (caseType, data) => {
     ])
     .then(([ tsvData, topoJSONdata ]) => {
 
-        // parses tsvData to extract country names
+        // parses tsvData to extract country names for base map titles
         const countryName = {}
         tsvData.forEach(d => {
             countryName[d.iso_n3] = d.name
