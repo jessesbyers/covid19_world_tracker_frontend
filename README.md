@@ -27,9 +27,9 @@ $ npm start
 ## Using the Application and Exploring Data
 
 ### Exploring Real-Time Global Data Using the World Map Visualization
-
+![Imgur](https://i.imgur.com/rkq732fl.png)
 1. From the home page, click on any of the buttons on the right sidebar to see global COVID-19 data diplayed on the base map. 
-![Imgur](https://i.imgur.com/rkq732ft.png)
+
 
 2. Click on the map and drag/swipe to zoom in and out for a better view.
 
