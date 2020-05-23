@@ -37,6 +37,10 @@
   }
 }
 
+[role=navigation] {
+    overflow: auto !important
+}
+
 
 /* custom bootstrap styling */
 
