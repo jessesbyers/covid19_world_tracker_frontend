@@ -27,7 +27,7 @@ const DrawBar = (countryName, totalCases, dailyData, id) => {
     const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
-    const color = "steelblue"
+    const color = "#BD2D28"
     const vizName = "viz" + id
 
 
@@ -100,10 +100,10 @@ const DrawBar = (countryName, totalCases, dailyData, id) => {
         .html(function(d) {
             return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount + "<br/>" +
                 d.date.toLocaleDateString() + "<br/>" + "</span>" +
-                "<span style='color:steelblue'>" + d.total + " Total" + "<br/>" + "</span>" +
-                "<span style='color:green'>" + d.active + " Active" + "<br/>" + "</span>" +
-                "<span style='color:orange'>" + d.recovered + " Recovered" + "<br/>" + "</span>" +
-                "<span style='color:red'>" + d.deaths + " Deaths" + "</p>" 
+                "<span style='color:#BD2D28'>" + d.total + " Total" + "<br/>" + "</span>" +
+                "<span style='color:#E3BA22'>" + d.active + " Active" + "<br/>" + "</span>" +
+                "<span style='color:#A0B700'>" + d.recovered + " Recovered" + "<br/>" + "</span>" +
+                "<span style='color:#BA5F06'>" + d.deaths + " Deaths" + "</p>" 
         })
 
 

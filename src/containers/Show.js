@@ -24,7 +24,7 @@ const Show = (props) => {
                     </Col>
 
                     <Col xs="12" sm="12" md="2" lg="2" xl="3">
-                    <Card>Placeholder for Sidebar</Card>
+                    {/* <Card>Placeholder for Sidebar</Card> */}
                     </Col>
                 </Row>
             </div>
