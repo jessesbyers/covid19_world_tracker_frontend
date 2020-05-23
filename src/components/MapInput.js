@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap'
 import DisplayMapData from '../d3/DisplayMapData'
-// import { ResetMapData}  from '../d3/ResetMapData'
 
 const MapInput = () => {
 
@@ -20,27 +18,30 @@ const MapInput = () => {
 
 
     return (
+        // <ButtonGroup vertical >
         <span>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="cases">Total Cases</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="active">Active Cases</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="critical">Critical Cases</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="deaths">Total Deaths</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="recovered">Recovered Cases</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="tests">Number of Tests</Button>
-<br/>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="casesPerOneMillion">Total Cases Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="activePerOneMillion">Active Cases Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="criticalPerOneMillion">Critical Cases Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="deathsPerOneMillion">Deaths Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="recoveredPerOneMillion">Recovered Cases Per One Million</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="testsPerOneMillion">Tests Per One Million</Button>
-<br/>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="cases block" value="cases">Total Cases</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="casesPerOneMillion block" value="casesPerOneMillion">Total Cases Per Million</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="todayCases block" value="todayCases">New Cases Today</button>
 
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="population">Population</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="todayCases">New Cases Today</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="todayDeaths">New Deaths Today</Button>
-            <Button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} value="reset">Reset</Button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="deaths block" value="deaths">Total Deaths</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="deathsPerOneMillion block" value="deathsPerOneMillion">Deaths Per Million</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="todayDeaths block" value="todayDeaths">New Deaths Today</button>
 
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="activee block" value="active">Active Cases</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="activePerOneMillion block" value="activePerOneMillion">Active Cases Per Million</button>
+
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="recovered block" value="recovered">Recovered Cases</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="recoveredPerOneMillion block" value="recoveredPerOneMillion">Recovered Cases Per Million</button>
+
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="critical block" value="critical">Critical Cases</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="criticalPerOneMillion block" value="criticalPerOneMillion">Critical Cases Per Million</button>
+
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="tests block" value="tests">Number of Tests</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="testsPerOneMillion block" value="testsPerOneMillion">Tests Per Million</button>
+
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="population block" value="population">Population</button>
+            <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="reset block" value="reset">Reset Map</button>
         </span>
     )
 }

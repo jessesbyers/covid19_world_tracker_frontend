@@ -150,6 +150,113 @@ body {
 }
 
 
+/* Color: Circles, Legends, and Buttons */
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: #C0C0BB;
+  color: black;
+}
+
+.block:focus {
+  color: black;
+  font-size: 20px;
+  padding: 8px
+}
+
+button.cases {
+  background-color: #BD2D28;
+}
+button.casesPerOneMillion {
+  background-color:  #9A3E25;
+}
+button.todayCases {
+  background-color: #B37055;
+}
+button.deaths {
+  background-color: #BA5F06;
+}
+button.deathsPerOneMillion {
+  background-color: #E6842A;
+}
+button.todayDeaths {
+  background-color: #F6B656;
+}
+button.activee {
+  background-color: #E3BA22;
+}
+button.activePerOneMillion {
+  background-color: #F2DA57;
+}
+button.recovered {
+  background-color: #A0B700;
+}
+button.recoveredPerOneMillion {
+  background-color: #5C8100;
+}
+button.critical {
+  background-color: #137B80;
+}
+button.criticalPerOneMillion {
+  background-color: #42A5B3;
+}
+button.tests {
+  background-color:  #684664;
+}
+button.testsPerOneMillion {
+  background-color: #8E6C8A;
+}
+button.population {
+  background-color: #B396AD;
+}
+button.reset {
+  background-color: #7C715E;
+}
+
+
+/* case "population":
+return "#7C715E"
+case "todayCases":
+return "#005D6E"
+case "todayDeaths":
+return "#BA5F06"   */
+
+/* case "cases":
+return "#137B80"
+case "active":
+return "#E3BA22"
+case "critical":
+return "#9A3E25"
+case "deaths":
+return "#E6842A"
+case "recovered":
+return "#5C8100"
+case "tests":
+return "#8E6C8A" */
+
+/* case "casesPerOneMillion":
+return "#42A5B3"
+case "activePerOneMillion":
+return "#F2DA57"
+case "criticalPerOneMillion":
+return "#B37055"
+case "deathsPerOneMillion":
+return "#F6B656"
+case "recoveredPerOneMillion":
+return "#A0B700"
+case "testsPerOneMillion":
+return "#B396AD" */
+
 
 
 
