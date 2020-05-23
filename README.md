@@ -1,4 +1,6 @@
 ## Project Overview
+[Video Demo](https://drive.google.com/file/d/12GCIO429NXrMwQIdbDXs9e1kyj6jMbch/view?usp=sharing)
+
 The COVID-19 World Tracker is designed to allow users to inquire, interact with, and explore large, complex COVID-19 data sets with ease. 
 
 This project is a React Single Page Application using React-Router to manage routing. All data visualizations were created using D3.js, and are rendered dynamically in real-time using data fetched from the sources below.
@@ -26,6 +28,7 @@ The bar charts are rendered from data from the [Coronavirus COVID19 API](https:/
 `$ npm start`
 
 ## Using the Application and Exploring Data
+[Watch a quick video demo!](https://drive.google.com/file/d/12GCIO429NXrMwQIdbDXs9e1kyj6jMbch/view?usp=sharing)
 
 ### Exploring Real-Time Global Data Using the World Map Visualization
 ![Imgur](https://i.imgur.com/rkq732f.png)
