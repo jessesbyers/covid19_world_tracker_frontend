@@ -34,8 +34,5 @@ export default Home
     <li>fix sizing on all pages</li>
     <li>center justify map legends</li>
     <li>identify countries with missing data (shading)</li>
-    <li>create color classes for circles and text by caseType in app.css</li>
-    <li>coordinate colors across map, buttons, and bar chart</li>
     <li>add zoom to bar charts</li>
-    <li>add resources to readme</li>
 </ul> */} 
