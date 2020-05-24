@@ -8,7 +8,7 @@ import d3Tip from "d3-tip";
 
 // TO DOS:
     // add stacked bar
-const DrawBar = (countryName, totalCases, dailyData, id) => {
+const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     console.log(dailyData)
 
     // let w = window,

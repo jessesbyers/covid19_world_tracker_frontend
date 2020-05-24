@@ -5,7 +5,7 @@ const Viz = (props) => {
     console.log(props)
 
     useEffect( () => {
-        DrawBar(props.countryName, props.totalCases, props.dailyData, props.id)
+        DrawBar(props.countryName, props.totalCases, props.dailyData, props.id, props.caseType)
     }, [props])
 
     return (

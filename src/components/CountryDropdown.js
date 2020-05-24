@@ -62,7 +62,6 @@ const CountryDropdown = (props) => {
 
                 {collection.map( (country, index) => {
                     const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
-                    // const flagUrl = `https://www.cia.gov/library/publications/the-world-factbook/attachments/flags/${country[1]}-flag.gif`
                     const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
                     const slug = country[2]
 

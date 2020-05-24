@@ -35,4 +35,5 @@ export default Home
     <li>center justify map legends</li>
     <li>identify countries with missing data (shading)</li>
     <li>add zoom to bar charts</li>
+    <li>add options to change bar chart views<li>
 </ul> */} 
