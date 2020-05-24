@@ -4,12 +4,12 @@ import {
 } from 'd3'
 
 import d3Tip from "d3-tip";
+import { color } from './Color'
 
 
 // TO DOS:
     // add stacked bar
 const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
-    console.log(dailyData)
 
     // let w = window,
     //     d = document,
@@ -27,7 +27,8 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
-    const color = "#BD2D28"
+    // const color = "#BD2D28"
+    // const color = color(caseType)
     const vizName = "viz" + id
 
 
@@ -120,7 +121,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
         .attr("viewBox", [0, 0, width, height])
 
     const g = svg.append("g")
-        .attr("fill", color)
+        .attr("fill", color(caseType))
         .selectAll('rect')
         .data(dailyData)
         .join("rect")

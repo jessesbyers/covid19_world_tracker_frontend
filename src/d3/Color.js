@@ -8,13 +8,13 @@ export const color = (caseType) => {
             return "#F6B656"  
         case "cases":
             return "#BD2D28"
-        case "active":
+        case "active" || "Active":
             return "#E3BA22"
         case "critical":
             return "#137B80"
-        case "deaths":
+        case "deaths" || "Deaths":
             return "#BA5F06"
-        case "recovered":
+        case "recovered" || "Recovered":
             return "#A0B700"
         case "tests":
             return "#684664"
@@ -29,6 +29,16 @@ export const color = (caseType) => {
         case "recoveredPerOneMillion":
             return "#5C8100"
         case "testsPerOneMillion":
-            return "#8E6C8A"          
+            return "#8E6C8A" 
+        case "Confirmed":   
+            return "#BD2D28"
+        case "Active":   
+            return "#E3BA22"
+        case "Recovered":  
+           return "#A0B700"
+        case "Deaths":   
+            return "#BA5F06"
+        default:
+            return "#BD2D28"
     }
 }

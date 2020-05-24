@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from "react-router"
 import Country from '../components/Country'
 import { Card } from 'react-bootstrap'
@@ -7,23 +7,16 @@ import { Row } from 'react-bootstrap'
 
 
 const Collection = (props) => {
-    console.log(props.location.countryData)
-
-    const caseType = () => {
-
-    }
+    const [caseType, setCaseType] = useState("");
 
     if (props.location.countryData) {
         return (
             <div>
                 <Row className="justify-content-md-center">
-                    {/* <button onClick={event => DrawBar(event.target.value, event.target.innerText, countryResults)} className="cases block" value="cases">Total Cases</button> */}
-                    <button className="cases tile" value="Confirmed">Total Cases</button>
-                    <button className="activee tile" value="Active"> Active Cases</button>
-                    <button className="recovered tile" value="Recovered">Recovered Cases</button>
-                    <button className="deaths tile" value="Deaths">Deaths</button>
-
-
+                    <button onClick={event => setCaseType(event.target.value)} className="cases tile" value="Confirmed">Total Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="activee tile" value="Active"> Active Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="recovered tile" value="Recovered">Recovered Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="deaths tile" value="Deaths">Deaths</button>
                 </Row>
 
                 <Row className="justify-content-md-center">
@@ -32,7 +25,7 @@ const Collection = (props) => {
                         return (
                             <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                 <Card>
-                                    <Country key={index} id={index} country={country} caseType={caseType()}/> 
+                                    <Country key={index} id={index} country={country} caseType={caseType}/> 
                                 </Card>
                             </Col>
                         )
