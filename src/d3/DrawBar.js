@@ -1,6 +1,6 @@
 // **************DO NOT DELETE: WORKING CODE FOR SIMPLE BAR CHART!!!!****************
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, zoom, event
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -10,6 +10,9 @@ import { color } from './Color'
 // TO DOS:
     // add stacked bar
 const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
+    console.log(caseType)
+
+    caseType ? caseType = caseType : caseType = "total"
 
     // let w = window,
     //     d = document,
@@ -17,9 +20,10 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     //     body = d.getElementsByTagName('body')[0];
     // const width = w.innerWidth || e.clientWidth || body.clientWidth;
     // const height = w.innerHeight || e.clientHeight|| body.clientHeight;
-
-
-
+    function jsUcfirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    // caseType = caseType || "Confirmed";
     // setting up constants for sizes
     let width = 600
     let height = 400
@@ -27,14 +31,12 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
-    // const color = "#BD2D28"
-    // const color = color(caseType)
     const vizName = "viz" + id
 
 
     // setting constants for text labels and title
     const xAxisLabel = "Number of Days"
-    const yAxisLabel = "Number of Confirmed Cases"
+    const yAxisLabel = caseType ? `Number of Cases: ${jsUcfirst(caseType)}` : "Number of Cases"
     const title = countryName
     const subtitle = () => {
         if (dailyData.length > 0) {
@@ -43,6 +45,8 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
             return totalCases + " COVID-19 Cases Reported"
         }
     }
+
+
         
     
 
@@ -56,7 +60,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
 
 
     const yScale = scaleLinear()
-        .domain([0, max(dailyData, d => d.total)])
+        .domain([0, max(dailyData, d => d[`${caseType}`])])
         .range([height - margin.bottom, margin.top])
 
 
@@ -127,9 +131,9 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
         .join("rect")
         .attr('x', d => xScale(d.dayCount))
 
-        .attr("y", d => yScale(d.total))
+        .attr("y", d => yScale(d[`${caseType}`]))
         .attr("width", xScale.bandwidth())
-        .attr("height", d => yScale(0) - yScale(d.total))
+        .attr("height", d => yScale(0) - yScale(d[`${caseType}`]))
         .attr("class", "bar")
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)

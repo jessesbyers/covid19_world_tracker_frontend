@@ -13,10 +13,10 @@ const Collection = (props) => {
         return (
             <div>
                 <Row className="justify-content-md-center">
-                    <button onClick={event => setCaseType(event.target.value)} className="cases tile" value="Confirmed">Total Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="activee tile" value="Active"> Active Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="recovered tile" value="Recovered">Recovered Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="deaths tile" value="Deaths">Deaths</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="cases tile" value="total">Total Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="activee tile" value="active"> Active Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="recovered tile" value="recovered">Recovered Cases</button>
+                    <button onClick={event => setCaseType(event.target.value)} className="deaths tile" value="deaths">Deaths</button>
                 </Row>
 
                 <Row className="justify-content-md-center">
