@@ -4,6 +4,8 @@ import Country from '../components/Country'
 import { Card } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
+import { selectAll } from 'd3'
+
 
 
 const Collection = (props) => {
@@ -13,10 +15,10 @@ const Collection = (props) => {
         return (
             <div>
                 <Row className="justify-content-md-center">
-                    <button onClick={event => setCaseType(event.target.value)} className="cases tile" value="total">Total Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="activee tile" value="active"> Active Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="recovered tile" value="recovered">Recovered Cases</button>
-                    <button onClick={event => setCaseType(event.target.value)} className="deaths tile" value="deaths">Deaths</button>
+                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases tile" value="total">Total Cases</button>
+                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee tile" value="active"> Active Cases</button>
+                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered tile" value="recovered">Recovered Cases</button>
+                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths tile" value="deaths">Deaths</button>
                 </Row>
 
                 <Row className="justify-content-md-center">
