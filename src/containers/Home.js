@@ -36,4 +36,5 @@ export default Home
     <li>identify countries with missing data (shading)</li>
     <li>add zoom to bar charts</li>
     <li>add options to change bar chart views<li>
+    <li>fix rendering lag bug on Map (DisplayMapData)</li>
 </ul> */} 

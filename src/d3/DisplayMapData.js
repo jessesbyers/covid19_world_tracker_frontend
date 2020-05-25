@@ -1,4 +1,4 @@
-import { select, geoNaturalEarth1, scaleSqrt, max, format, selectAll} from 'd3'
+import { select, geoNaturalEarth1, scaleSqrt, max, format, selectAll, zoom, event} from 'd3'
 import { sizeLegend } from './SizeLegend'
 import { color } from './Color'
 
