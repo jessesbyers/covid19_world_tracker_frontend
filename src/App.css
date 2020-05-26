@@ -116,7 +116,7 @@ text.subtitle {
 /* WORLD MAP: d3 map css */
 body {
   margin: 0px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .sphere {
