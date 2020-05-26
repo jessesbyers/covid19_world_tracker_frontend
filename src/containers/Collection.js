@@ -15,18 +15,19 @@ const Collection = (props) => {
         return (
             <div>
                 <Row className="justify-content-md-center">
-                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases tile" value="total">Total Cases</button>
-                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee tile" value="active"> Active Cases</button>
-                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered tile" value="recovered">Recovered Cases</button>
-                    <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths tile" value="deaths">Deaths</button>
-                </Row>
-
-                <Row className="justify-content-md-center">
+                    <Col xs="12" sm="6" md="4" lg="3" xl="3">
+                        <Card>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths block" value="deaths">Deaths</button>
+                        </Card>
+                    </Col>
 
                     {props.location.countryData.map((country, index) => { 
                         return (
                             <Col xs={12} sm={6} md={4} lg={3} key={index}>
-                                <Card>
+                            <Card>
                                     <Country key={index} id={index} country={country} caseType={caseType}/> 
                                 </Card>
                             </Col>
