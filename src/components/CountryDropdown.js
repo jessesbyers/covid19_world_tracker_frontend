@@ -16,7 +16,7 @@ const CountryDropdown = (props) => {
 
         async function fetchData() {
 
-            var requestOptions = {
+            const requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
             };
