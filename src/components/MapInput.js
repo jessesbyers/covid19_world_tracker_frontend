@@ -7,11 +7,9 @@ const MapInput = () => {
 
     useEffect( () => {
         async function fetchData() {
-            await fetch('https://corona.lmao.ninja/v2/countries')
-            .then(response => response.json())
-            .then(data => {
-                setCountryResults(data)
-            })
+            const response = await fetch('https://corona.lmao.ninja/v2/countries')
+            const data = await response.json()
+            setCountryResults(data)
         }
         fetchData();
     }, [])    

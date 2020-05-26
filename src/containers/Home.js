@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+
 import DrawMap from '../d3/DrawMap'
 import MapInput from '../components/MapInput'
+
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
@@ -15,10 +17,14 @@ const Home = () => {
     return (
         <Row>
             <Col sm="12" md="3" lg="3" xl="3">
-                <Card><MapInput /></Card>
+                <Card>
+                    <MapInput />
+                </Card>
             </Col>
             <Col sm="12" md="9" lg="9" xl="9" >
-                <Card className="mapviz"></Card>
+                <Card className="mapviz">
+
+                </Card>
             </Col>
         </Row>
     )
@@ -35,6 +41,5 @@ export default Home
     <li>center justify map legends</li>
     <li>identify countries with missing data (shading)</li>
     <li>add zoom to bar charts</li>
-    <li>add options to change bar chart views<li>
     <li>fix rendering lag bug on Map (DisplayMapData)</li>
 </ul> */} 

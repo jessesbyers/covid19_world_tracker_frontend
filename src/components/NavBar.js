@@ -1,9 +1,13 @@
 import React from 'react';
 
 import { NavLink } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
+  // const history = useHistory();
+
   return (
     <div style={{ paddingBottom: '15px', marginBottom: '15px' }}>
         <h1 className="header" >COVID-19 World Tracker</h1>
@@ -17,11 +21,6 @@ const NavBar = () => {
         to="/new">
           <Button variant="dark">Create a New Collection</Button>
         </NavLink>
-
-        {/* <NavLink 
-        to="/countries">
-          <Button variant="dark">View Country</Button>
-        </NavLink> */}
     </div>
   );
 }

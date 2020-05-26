@@ -13,11 +13,9 @@ const New = () => {
                 redirect: 'follow'
               };
 
-            await fetch("https://api.covid19api.com/countries", requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                setCountries(data)
-            })
+            const response = await fetch("https://api.covid19api.com/countries", requestOptions)
+            const data = await response.json()
+            setCountries(data)
         }
         fetchData();
     }, []); 

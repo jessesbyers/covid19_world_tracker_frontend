@@ -28,13 +28,16 @@ const Show = (props) => {
                     <Col xs="12" sm="12" md="10" lg="10" xl="9">
                     {/* <Col> */}
                     {/* <Col lg={9}> */}
-                        <Card classname="show">
+                        <Card className="show">
                             <Viz countryName={props.location.countryName} totalCases={props.location.totalCases} dailyData={props.location.dailyData} id={props.location.slug} slug={props.location.slug} caseType={caseType}/>
                         </Card>
                     </Col>
 
                     <Col xs="12" sm="12" md="2" lg="2" xl="3">
-                    {/* <Card>Placeholder for Sidebar</Card> */}
+
+                        <Card>
+                            {/* <Button onClick={props.history.goBack(1)}>Go Back</Button> */}
+                            </Card>
                     </Col>
                 </Row>
             </div>

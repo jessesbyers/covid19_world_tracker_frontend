@@ -20,12 +20,11 @@ const CountryDropdown = (props) => {
                 method: 'GET',
                 redirect: 'follow'
             };
-            await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                setCountryData(countryData => [...countryData, {[countryName]: [data], slug: country}])
-            })
-            .catch(error => console.log('error', error));
+            
+            const response = await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
+            const data = await response.json()
+            setCountryData(countryData => [...countryData, {[countryName]: [data], slug: country}])
+            // .catch(error => console.log('error', error));
         }
 
         fetchData();

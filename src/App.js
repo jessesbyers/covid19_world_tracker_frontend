@@ -10,10 +10,7 @@ import Home from './containers/Home'
 import Show from './containers/Show'
 import Collection from './containers/Collection'
 
-
 import Container from 'react-bootstrap/Container';
-
-
 
 function App() {
   return (      
