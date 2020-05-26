@@ -14,7 +14,7 @@ const Collection = (props) => {
     if (props.location.countryData) {
         return (
             <div>
-                <Row className="justify-content-md-center">
+                <Row >
                     <Col xs="12" sm="6" md="4" lg="3" xl="3">
                         <Card>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>

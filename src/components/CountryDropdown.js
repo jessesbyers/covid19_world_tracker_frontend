@@ -33,31 +33,36 @@ const CountryDropdown = (props) => {
 
     return (
         <div>
-            <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
-                fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
+            <Row>
+                <Col xs="12" sm="6" md="4" lg="3" xl="3">
 
-                <option placeholder="Choose Multiple Countries to Create a Collection">Choose Multiple Countries to Create a Collection</option>
-                {props.options.map(option => (
-                    <option
-                    id={props.id}
-                    key={option.value}
-                    value={[option.value, option.name, option.flagCode]}
-                    >
-                    {option.name}
-                    </option>
-                ))}
-            </select>
+                    <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
+                        fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
-            <NavLink 
-                to = {{
-                    pathname: `/collection`,
-                    countryData,
-                    collection
-                }}>
-                <Button variant="dark">View Collection</Button>
-            </NavLink>
+                        <option placeholder="Choose Multiple Countries to Create a Collection">Choose Multiple Countries to Create a Collection</option>
+                        {props.options.map(option => (
+                            <option
+                            id={props.id}
+                            key={option.value}
+                            value={[option.value, option.name, option.flagCode]}
+                            >
+                            {option.name}
+                            </option>
+                        ))}
+                    </select>
 
-            <Row className="justify-content-md-center">
+
+                    <NavLink 
+                        to = {{
+                            pathname: `/collection`,
+                            countryData,
+                            collection
+                        }}>
+                        <Button variant="dark">View Collection</Button>
+                    </NavLink>
+
+                </Col>
+
 
                 {collection.map( (country, index) => {
                     const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
@@ -65,7 +70,7 @@ const CountryDropdown = (props) => {
                     const slug = country[2]
 
                     return (
-                        <Col xs={4} sm={4} md={3} lg={2} key={index}>
+                        <Col xs={12} sm={6} md={4} lg={3} key={index}>
                             <Card>
                                 <Card.Header>{country[0]}</Card.Header>
 

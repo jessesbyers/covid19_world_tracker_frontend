@@ -23,11 +23,16 @@ const DrawMap = () => {
         .attr('class', 'sphere')
         .attr('d', pathGenerator({type: 'Sphere'}));
 
+
+
     // enabling zooming/panning on entire svg
     svg.call(zoom().on("zoom", () => {
         g.attr("transform", event.transform)
     }))
 
+
+
+    
     // fetching and loading geographic data
         // tsvData supplies country names
         // topoJSONdata supplies geographic coordinates for each country
