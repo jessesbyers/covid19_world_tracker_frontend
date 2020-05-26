@@ -1,6 +1,7 @@
 import { select, geoNaturalEarth1, scaleSqrt, max, format, selectAll, zoom, event} from 'd3'
 import { sizeLegend } from './SizeLegend'
 import { color } from './Color'
+import DrawMap from './DrawMap'
 
 const DisplayMapData = (caseType, caseTitle, data) => {
     data.sort((a, b) => a[`${caseType}`] < b[`${caseType}`] ? 1 : -1)
@@ -10,7 +11,7 @@ const DisplayMapData = (caseType, caseTitle, data) => {
     select("g.map-legend").remove()
     select("text.legend-title").remove()
 
-    // add data to build new visualization
+    // add new caseType data to build new visualization
     if (caseType !== "reset") {    
 
         const g = select(".map-group")
@@ -65,6 +66,10 @@ const DisplayMapData = (caseType, caseTitle, data) => {
         // selectAll("circle").on("mouseover", function(){
         //     select(this).raise()
         // });
+    } else {
+        // remove entire svg and re-draw map to reset to original zoom level
+        select("svg").remove()
+        DrawMap()
     }
 }
 

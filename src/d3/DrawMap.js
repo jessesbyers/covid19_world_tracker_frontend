@@ -1,7 +1,7 @@
 import { select, json, geoPath, geoNaturalEarth1, tsv, zoom, event } from 'd3';
 import { feature } from 'topojson';
 
-const DrawMap = (caseType, data) => {
+const DrawMap = () => {
     console.log("drawing map")
 
     // setting up svg element on Home component; making size responsive
