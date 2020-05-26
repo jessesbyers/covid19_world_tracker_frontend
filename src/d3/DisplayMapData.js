@@ -3,6 +3,7 @@ import { sizeLegend } from './SizeLegend'
 import { color } from './Color'
 
 const DisplayMapData = (caseType, caseTitle, data) => {
+    data.sort((a, b) => a[`${caseType}`] < b[`${caseType}`] ? 1 : -1)
 
     // resetting to blank map
     selectAll("circle").remove()
@@ -59,6 +60,11 @@ const DisplayMapData = (caseType, caseTitle, data) => {
         // color-coding all circles based on caseType from user input
         g.selectAll("circle")
             .attr("fill", color(caseType));
+
+        // raises the current circle when moused over
+        // selectAll("circle").on("mouseover", function(){
+        //     select(this).raise()
+        // });
     }
 }
 
