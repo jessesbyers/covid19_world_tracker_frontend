@@ -39,7 +39,7 @@ const CountryDropdown = (props) => {
                     <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
                         fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
-                        <option placeholder="Choose Multiple Countries to Create a Collection">Choose Multiple Countries to Create a Collection</option>
+                        <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
                         {props.options.map(option => (
                             <option
                             id={props.id}
@@ -57,7 +57,7 @@ const CountryDropdown = (props) => {
                             countryData,
                             collection
                         }}>
-                        <Button variant="dark" disabled={invalid()}>View Collection</Button>
+                        <button className="dark" disabled={invalid()}>View Collection</button>
                     </NavLink>
 
                 </Col>

@@ -14,12 +14,12 @@ const NavBar = () => {
 
         <NavLink 
         to="/">
-          <Button variant="dark">Home</Button>
+          <button className="nav">Home</button>
         </NavLink>
 
         <NavLink 
         to="/new">
-          <Button variant="dark">Create a New Collection</Button>
+          <button className="nav">Create a New Collection</button>
         </NavLink>
     </div>
   );
