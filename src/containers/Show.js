@@ -5,12 +5,11 @@ import Viz from '../d3/Viz'
 import { Card } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
+
 import { selectAll } from 'd3'
 
-
-
 const Show = (props) => {
-    console.log(props)
     const [caseType, setCaseType] = useState("");
 
 
@@ -24,6 +23,14 @@ const Show = (props) => {
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths block" value="deaths">Deaths</button>
+
+                            <NavLink
+                                to = {{
+                                    pathname: `/collection`,
+                                    countryData: props.location.collection
+                                }}>
+                                <button className="reset block">Return to Collection</button>
+                            </NavLink>
                         </Card> 
                     </Col>
 

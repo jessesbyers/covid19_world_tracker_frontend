@@ -27,8 +27,8 @@ const Collection = (props) => {
                     {props.location.countryData.map((country, index) => { 
                         return (
                             <Col xs={12} sm={6} md={4} lg={3} key={index}>
-                            <Card>
-                                    <Country key={index} id={index} country={country} caseType={caseType}/> 
+                                <Card>
+                                    <Country key={index} id={index} country={country} caseType={caseType} collection={props.location.countryData}/> 
                                 </Card>
                             </Col>
                         )

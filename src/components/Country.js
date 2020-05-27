@@ -42,7 +42,8 @@ const Country = (props) => {
                 totalCases: totalCases(),
                 dailyData: parseData(dailyData, array), 
                 slug: props.country.slug, 
-                id: props.country.slug
+                id: props.country.slug,
+                collection: props.collection
             }}>
             <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.country.slug} slug={props.country.slug} caseType={props.caseType}/>
         </NavLink>
