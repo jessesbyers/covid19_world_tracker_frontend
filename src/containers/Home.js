@@ -36,10 +36,7 @@ export default Home
 <h3>To Dos...</h3>
 <ul>
     <li>render About / Instructions</li>
-    <li>add forward and back navlinks to NavBar</li>
     <li>fix sizing on all pages</li>
-    <li>center vertical justify map legends</li>
-    <li>identify countries with missing data (shading)</li>
-    <li>add zoom to bar charts</li>
     <li>fix rendering lag bug on Map (DisplayMapData)</li>
+    <li>collapse button divs/spans into dropdown on small screens</li>
 </ul> */} 
