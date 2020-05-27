@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CountryDropdown from '../components/CountryDropdown'
 
-import { Card } from 'react-bootstrap'
-import { Col } from 'react-bootstrap'
-import { Row } from 'react-bootstrap'
-
-
-
 const New = () => {
     const [countries, setCountries] = useState([]);
  

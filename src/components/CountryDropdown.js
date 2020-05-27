@@ -30,6 +30,7 @@ const CountryDropdown = (props) => {
         fetchData();
     }
 
+    const invalid = () => collection.length === 0
 
     return (
         <div>
@@ -51,14 +52,13 @@ const CountryDropdown = (props) => {
                         ))}
                     </select>
 
-
                     <NavLink 
                         to = {{
                             pathname: `/collection`,
                             countryData,
                             collection
                         }}>
-                        <Button variant="dark">View Collection</Button>
+                        <Button variant="dark" disabled={invalid()}>View Collection</Button>
                     </NavLink>
 
                 </Col>
