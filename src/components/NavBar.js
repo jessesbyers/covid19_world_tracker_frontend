@@ -1,9 +1,5 @@
 import React from 'react';
-
 import { NavLink } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
-
-import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
   // const history = useHistory();

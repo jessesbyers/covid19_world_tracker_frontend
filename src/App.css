@@ -240,11 +240,15 @@ button.dark {
   width: 100%;
   border: none;
   color: white;
-  background-color: #7C715E;
+  background-color: black;
   padding: 4px;
   font-size: 18px;
   cursor: pointer;
   text-align: center;
+}
+
+button.dark:disabled {
+  background-color: lightgray;
 }
 
 button.nav {
