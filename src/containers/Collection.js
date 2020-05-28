@@ -8,6 +8,7 @@ import { selectAll } from 'd3'
 
 
 
+
 const Collection = (props) => {
     const [caseType, setCaseType] = useState("");
 
@@ -38,7 +39,8 @@ const Collection = (props) => {
         )
     } else {
         // return <Redirect to='/' />
-        return <Redirect to={process.env.PUBLIC_URL} />
+        // return <Redirect to={process.env.PUBLIC_URL} />
+        return <h3>Use the Buttons Above to Get Started</h3>
 
     }
 }
