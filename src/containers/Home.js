@@ -36,7 +36,5 @@ export default Home
 <h3>To Dos...</h3>
 <ul>
     <li>render About / Instructions</li>
-    <li>fix sizing on all pages</li>
     <li>fix rendering lag bug on Map (DisplayMapData)</li>
-    <li>collapse button divs/spans into dropdown on small screens</li>
 </ul> */} 
