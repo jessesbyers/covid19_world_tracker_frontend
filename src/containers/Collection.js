@@ -17,9 +17,9 @@ const Collection = (props) => {
                     <Col xs="12" sm="6" md="4" lg="3" xl="3">
                         <Card>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
-                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths block" value="deaths">Deaths</button>
                         </Card>
                     </Col>
 
@@ -37,8 +37,8 @@ const Collection = (props) => {
         )
     } else {
         // return <Redirect to='/' />
-        // return <Redirect to={process.env.PUBLIC_URL} />
-        return <h3>Use the Buttons Above to Get Started</h3>
+        return <Redirect to={process.env.PUBLIC_URL} />
+        // return <h3>Use the Buttons Above to Get Started</h3>
 
     }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-  // const history = useHistory();
 
   return (
     <div style={{ paddingBottom: '15px', marginBottom: '15px' }}>

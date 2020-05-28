@@ -13,7 +13,8 @@ export const color = (caseType) => {
         case "critical":
             return "#137B80"
         case "deaths" || "Deaths":
-            return "#BA5F06"
+            // return "#BA5F06"
+            return "#E6842A"
         case "recovered" || "Recovered":
             return "#A0B700"
         case "tests":
