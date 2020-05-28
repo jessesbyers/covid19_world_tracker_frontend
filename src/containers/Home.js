@@ -31,10 +31,3 @@ const Home = () => {
 }
 
 export default Home
-
-{/* <h1>HOME component placeholder</h1>
-<h3>To Dos...</h3>
-<ul>
-    <li>render About / Instructions</li>
-    <li>fix rendering lag bug on Map (DisplayMapData)</li>
-</ul> */} 

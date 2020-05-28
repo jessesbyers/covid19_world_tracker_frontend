@@ -1,4 +1,3 @@
-// **************DO NOT DELETE: WORKING CODE FOR SIMPLE BAR CHART!!!!****************
 import {
     max, scaleBand, scaleLinear, axisBottom, axisLeft, select, zoom, event
 } from 'd3'
@@ -7,8 +6,6 @@ import d3Tip from "d3-tip";
 import { color } from './Color'
 
 
-// TO DOS:
-    // add stacked bar
 const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     console.log(caseType)
 
@@ -187,10 +184,6 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
 
     svg.call(tip);
 
-        // enabling zooming/panning on entire svg
-        // svg.call(zoom().on("zoom", () => {
-        //     g.attr("transform", event.transform)
-        // }))
 }
 
 export default DrawBar
