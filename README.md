@@ -53,27 +53,29 @@ The bar charts are rendered from data from the [Coronavirus COVID19 API](https:/
 
 7. Close the Menu by clicking on "Close Map Menu", and re-open by clicking on "Open Map Menu".
 
-*The map is best viewed on a larger screen to enable all interactive features, especially #2, 3, and 4 above. However, it can also be viewed on mobile devices with more limited interactions.*
+* *The map is best viewed on a larger screen to enable all interactive features, especially #2, 3, and 4 above. However, it can also be viewed on mobile devices with more limited interactions.*
 
 ### Comparing Country-Specific Historical Data Using the Bar Chart Visualizations
 ![Imgur](https://i.imgur.com/81E1ki9.png)
 
-1. Click on "Create a New Collection". Use the dropdown menu to click on a number of countries that you would like to compare. You will see each country, with its flag, appear on the screen. When you are satified with your clollection, click on "View Collection" to view the data.
+1. Click on "Create a New Collection". Use the dropdown menu to click on a number of countries that you would like to compare. You will see each country, with its flag, appear on the screen. When you are satified with your collection, click on "View Collection" to view the data.
 
 ![Imgur](https://i.imgur.com/nTC9XgQ.png)
 
-2. Compare the countries by viewing the bar charts in ther dashboard. If a chart is blank, that means that no data has been reported (either because there have been 0 cases, OR because reliable data is not available through the API).
+2. Compare the countries by viewing the bar charts in the dashboard. If a chart is blank, that means that no data has been reported (either because there have been 0 cases, OR because reliable data is not available through the API).
 
 ![Imgur](https://i.imgur.com/YUclgZh.png)
 
-3. Interact with the data by hovering over each bar to see detailed information about that day, including: Day Number, Date, Total Cases, Active Cases, Recovered Cases, and Deaths. All data is cumulative data, showing the total reported from day one of the outbreak through that particular day.
+3. Interact with the data by hovering over each bar to see detailed information about that day, including: Day Number, Date, Total Cases, Active Cases, Recovered Cases, and Deaths. All data is cumulative data, showing the total reported from day one of the outbreak through that particular day.*
 
 4. Click on the buttons on the left sidebar to view data on Total Cases, Deaths, Active Cases, and Recovered Cases for all countries in your collection.
 
 ![Imgur](https://i.imgur.com/2FlpfS6.png)
 
-5. Click on any chart to see an enlarged chart, and use the buttons on the left sidebar to view each type of data.
+5. Click on any chart to see an enlarged chart, and use the buttons on the left sidebar to view each type of data. Hover over each bar to see detailed information about that day.
 
 6. Click on "Return to Collection" to go back to your collection of countries.
 
 6. Use the "Home" and "View Collection" buttons to continue exploring the map, generating more questions, and looking for patterns and trends in the data.
+
+* *The graphs are best viewed on a larger screen to enable all interactive features, especially #3 above. However, they can also be viewed on mobile devices with more limited interactions.*
