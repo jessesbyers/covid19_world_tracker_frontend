@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/covid19_world_tracker_frontend/static/css/main.fc4a824f.chunk.css",
-    "main.js": "/covid19_world_tracker_frontend/static/js/main.9308b69b.chunk.js",
-    "main.js.map": "/covid19_world_tracker_frontend/static/js/main.9308b69b.chunk.js.map",
+    "main.js": "/covid19_world_tracker_frontend/static/js/main.2c03ac56.chunk.js",
+    "main.js.map": "/covid19_world_tracker_frontend/static/js/main.2c03ac56.chunk.js.map",
     "runtime-main.js": "/covid19_world_tracker_frontend/static/js/runtime-main.805caea6.js",
     "runtime-main.js.map": "/covid19_world_tracker_frontend/static/js/runtime-main.805caea6.js.map",
     "static/css/2.69121389.chunk.css": "/covid19_world_tracker_frontend/static/css/2.69121389.chunk.css",
-    "static/js/2.0c71459c.chunk.js": "/covid19_world_tracker_frontend/static/js/2.0c71459c.chunk.js",
-    "static/js/2.0c71459c.chunk.js.map": "/covid19_world_tracker_frontend/static/js/2.0c71459c.chunk.js.map",
+    "static/js/2.1e654d07.chunk.js": "/covid19_world_tracker_frontend/static/js/2.1e654d07.chunk.js",
+    "static/js/2.1e654d07.chunk.js.map": "/covid19_world_tracker_frontend/static/js/2.1e654d07.chunk.js.map",
     "index.html": "/covid19_world_tracker_frontend/index.html",
-    "precache-manifest.d958ade10c61048cd304e97f3dcf9bfd.js": "/covid19_world_tracker_frontend/precache-manifest.d958ade10c61048cd304e97f3dcf9bfd.js",
+    "precache-manifest.343ebeadaa2cd25ff64ba80dd4efa330.js": "/covid19_world_tracker_frontend/precache-manifest.343ebeadaa2cd25ff64ba80dd4efa330.js",
     "service-worker.js": "/covid19_world_tracker_frontend/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/covid19_world_tracker_frontend/static/css/2.69121389.chunk.css.map",
     "static/css/main.fc4a824f.chunk.css.map": "/covid19_world_tracker_frontend/static/css/main.fc4a824f.chunk.css.map",
-    "static/js/2.0c71459c.chunk.js.LICENSE.txt": "/covid19_world_tracker_frontend/static/js/2.0c71459c.chunk.js.LICENSE.txt"
+    "static/js/2.1e654d07.chunk.js.LICENSE.txt": "/covid19_world_tracker_frontend/static/js/2.1e654d07.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.805caea6.js",
     "static/css/2.69121389.chunk.css",
-    "static/js/2.0c71459c.chunk.js",
+    "static/js/2.1e654d07.chunk.js",
     "static/css/main.fc4a824f.chunk.css",
-    "static/js/main.9308b69b.chunk.js"
+    "static/js/main.2c03ac56.chunk.js"
   ]
 }
