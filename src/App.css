@@ -241,10 +241,11 @@ button.dark {
   border: none;
   color: white;
   background-color: black;
-  padding: 4px;
-  font-size: 18px;
+  font-size: 22px;
+  padding: 12px;
   cursor: pointer;
   text-align: center;
+  margin-top: 1em;
 }
 
 button.dark:disabled {
@@ -264,7 +265,7 @@ button.nav {
 
 
 /* collapsible menu for MapInput on Home Page */
-.collapsible {
+.collapsible1, .collapsible2, .collapsible3 {
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -276,11 +277,11 @@ button.nav {
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.active, .collapsible1:hover, .collapsible2:hover, .collapsible3:hover {
   background-color: #ccc;
 }
 
-.content {
+.content1, .content2, .content3 {
   padding: 0 18px;
   display: block;
   overflow: hidden;

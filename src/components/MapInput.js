@@ -15,8 +15,8 @@ const MapInput = () => {
     }, [])   
     
     // logic for collapsing map choices
-    let coll = document.getElementsByClassName("collapsible");
-    let collButton = document.querySelector("button.collapsible")
+    let coll = document.getElementsByClassName("collapsible1");
+    let collButton = document.querySelector("button.collapsible1")
     let i
 
     for (i = 0; i < coll.length; i++) {
@@ -41,8 +41,8 @@ const MapInput = () => {
 
     return (
         <span>
-            <button className="collapsible">Close Map Menu</button>
-            <div className="content">
+            <button className="collapsible1">Close Map Menu</button>
+            <div className="content1">
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="cases block" value="cases">Total Cases</button>
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="casesPerOneMillion block" value="casesPerOneMillion">Total Cases Per Million</button>
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="todayCases block" value="todayCases">New Cases Today</button>

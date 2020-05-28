@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 
 import { selectAll } from 'd3'
 
+
 const Show = (props) => {
     const [caseType, setCaseType] = useState("");
 
@@ -23,6 +24,7 @@ const Show = (props) => {
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deaths block" value="deaths">Deaths</button>
+
 
                             <NavLink
                                 to = {{
@@ -47,8 +49,6 @@ const Show = (props) => {
         // return <Redirect to='/' />
         // return <Redirect to={process.env.PUBLIC_URL} />
         return <h3>Use the Buttons Above to Get Started</h3>
-
-        
     }
 }
 

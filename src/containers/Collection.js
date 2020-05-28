@@ -6,11 +6,9 @@ import { Col } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 import { selectAll } from 'd3'
 
-
-
-
 const Collection = (props) => {
     const [caseType, setCaseType] = useState("");
+
 
     if (props.location.countryData) {
         return (
