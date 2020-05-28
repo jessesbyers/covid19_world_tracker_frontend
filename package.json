@@ -13,6 +13,7 @@
     "d3-geo-projection": "^2.9.0",
     "d3-tip": "^0.9.1",
     "d3-zoom": "^1.8.3",
+    "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
