@@ -1,4 +1,5 @@
 {
+  "homepage": "https://jessesbyers.github.io/covid19_world_tracker_frontend",
   "proxy": "https://2019ncov.asia",
   "name": "covid19_world_tracker_frontend",
   "version": "0.1.0",
@@ -26,6 +27,8 @@
     "topojson": "^3.0.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
