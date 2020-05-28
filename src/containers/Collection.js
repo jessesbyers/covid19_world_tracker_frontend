@@ -37,7 +37,9 @@ const Collection = (props) => {
             </div>
         )
     } else {
-        return <Redirect to='/' />
+        // return <Redirect to='/' />
+        return <Redirect to={process.env.PUBLIC_URL} />
+
     }
 }
 
