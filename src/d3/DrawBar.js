@@ -1,5 +1,5 @@
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, zoom, event
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -7,7 +7,6 @@ import { color } from './Color'
 
 
 const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
-    console.log(caseType)
 
     caseType ? caseType = caseType : caseType = "total"
 
@@ -69,7 +68,6 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
             .attr("fill", "currentColor")
             .attr("text-anchor", "start")
             .text(dailyData.dayCount))
-
     }
 
     
