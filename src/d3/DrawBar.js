@@ -92,12 +92,12 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-            return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount + "<br/>" +
+            return "<p>" + "<span style='color:white'>" + "Day " + d.dayCount.toLocaleString('en') + "<br/>" +
                 d.date.toLocaleDateString() + "<br/>" + "</span>" +
-                "<span style='color:#BD2D28'>" + d.total + " Total" + "<br/>" + "</span>" +
-                "<span style='color:#E3BA22'>" + d.active + " Active" + "<br/>" + "</span>" +
-                "<span style='color:#A0B700'>" + d.recovered + " Recovered" + "<br/>" + "</span>" +
-                "<span style='color:#BA5F06'>" + d.deaths + " Deaths" + "</p>" 
+                "<span style='color:#BD2D28'>" + d.total.toLocaleString('en') + " Total" + "<br/>" + "</span>" +
+                "<span style='color:#E3BA22'>" + d.active.toLocaleString('en') + " Active" + "<br/>" + "</span>" +
+                "<span style='color:#A0B700'>" + d.recovered.toLocaleString('en') + " Recovered" + "<br/>" + "</span>" +
+                "<span style='color:#BA5F06'>" + d.deaths.toLocaleString('en') + " Deaths" + "</p>" 
         })
 
 
