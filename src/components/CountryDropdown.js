@@ -33,58 +33,62 @@ const CountryDropdown = (props) => {
     const invalid = () => collection.length === 0
 
     return (
-        <div>
-            <Row>
-                <Col xs="12" sm="6" md="4" lg="3" xl="3">
+        <Row>
+            <Col xs="12" sm="6" md="4" lg="3" xl="3">
 
-                    <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
-                        fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
+                <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
+                    fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
-                        <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
-                        {props.options.map(option => (
-                            <option
-                            id={props.id}
-                            key={option.value}
-                            value={[option.value, option.name, option.flagCode]}
-                            >
-                            {option.name}
-                            </option>
-                        ))}
-                    </select>
-
-                    <NavLink 
-                        to = {{
-                            pathname: `/collection`,
-                            countryData,
-                            collection
-                        }}>
-                        <button className="dark" disabled={invalid()}>View Collection</button>
-                    </NavLink>
-
-                </Col>
+                    <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
+                    {props.options.map(option => (
+                        <option
+                        id={props.id}
+                        key={option.value}
+                        value={[option.value, option.name, option.flagCode]}
+                        >
+                        {option.name}
+                        </option>
+                    ))}
+                </select>
 
 
-                {collection.map( (country, index) => {
-                    const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
-                    const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
-                    const slug = country[2]
 
-                    return (
-                        <Col xs={12} sm={6} md={4} lg={3} key={index}>
-                            <Card>
-                                <Card.Header>{country[0]}</Card.Header>
+                <NavLink 
+                    to = {{
+                        pathname: `/collection`,
+                        countryData,
+                        collection
+                    }}>
+                    <button className="dark" disabled={invalid()}>View Collection</button>
+                </NavLink>
 
-                                <Card.Img key={slug} src={flagUrl} onError={(e)=>{ 
-                                    if (e.target.src !== worldUrl) {
-                                        e.target.src=worldUrl;}
-                                    }}/>
-                            </Card>
-                        </Col>
-                    )
-                })}
-            </Row>
+            </Col>
 
-        </div>
+
+            {collection.map( (country, index) => {
+                const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
+                const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
+                const slug = country[2]
+
+                return (
+
+                    <Col xs={12} sm={6} md={4} lg={3} key={index}>
+
+                        <Card>
+                            <Card.Header>{country[0]}</Card.Header>
+
+                            <Card.Img key={slug} src={flagUrl} onError={(e)=>{ 
+                                if (e.target.src !== worldUrl) {
+                                    e.target.src=worldUrl;}
+                                }}/>
+                        </Card>
+                    </Col>
+
+                )
+            })}
+
+        </Row>
+
     )
 }
 

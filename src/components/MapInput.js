@@ -49,8 +49,9 @@ const MapInput = () => {
             {/* loading */}
             {isLoading ? (
                 < Loader />
-                // <button className="dark">LOADING DATA...</button>
             ) : (
+
+            // )}
 
             <span>
 
