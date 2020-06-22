@@ -1,5 +1,5 @@
 import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select
+    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, event
 } from 'd3'
 
 import d3Tip from "d3-tip";
@@ -184,5 +184,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     svg.call(tip);
 
 }
+
+
 
 export default DrawBar
