@@ -30,7 +30,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     const title = countryName
     const subtitle = () => {
         if (dailyData.length > 0) {
-            return totalCases + " COVID-19 Cases Reported Since " + dailyData[0].date.toLocaleDateString()
+            return totalCases.toLocaleString('en') + " COVID-19 Cases Reported Since " + dailyData[0].date.toLocaleDateString()
         } else {
             return totalCases + " COVID-19 Cases Reported"
         }
