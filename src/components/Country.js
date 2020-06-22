@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const Country = (props) => {
+    console.log(props)
     const countryName = Object.keys(props.country)[0]
     const dailyData = props.country[countryName]
 

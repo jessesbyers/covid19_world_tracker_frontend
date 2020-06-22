@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router"
 import { Loader } from '../components/Loader'
+import Country from '../components/Country'
 
 
 import Viz from '../d3/Viz'
@@ -50,9 +51,8 @@ const Show = (props) => {
     if (props.location.countryName) {
         return (
             <div>
-
-                <Row className="justify-content-md-center">
-                <Col sm="12" md="3" lg="3" xl="3">
+                <Row>
+                    <Col xs="12" sm="6" md="4" lg="3" xl="3">
                         <Card>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
                             <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
@@ -71,23 +71,17 @@ const Show = (props) => {
                     </Col>
 
 
-
-                    
-
-
-
-                    <Col sm="12" md="9" lg="9" xl="9" >
-                        {provinces.forEach(province => {
-                            const pData = provinceData.filter(data => data.Province === province)
-                            console.log(pData)
-                            return (
+                    {/* {let pData = provinces.forEach((province) => provinceData.filter((data) => data.Province === province)
+                    )} */}
+                        return (
+                            <Col xs={12} sm={6} md={4} lg={3} key={index}>
 
                                 <Card className="show">
-                                    <Viz countryName={props.location.countryName + province} totalCases={pData[pData.length-1].Confirmed} dailyData={pData} id={props.location.slug} slug={props.location.slug} caseType={caseType}/>
+                                    <Country key={index} id={index} country={pData} caseType={caseType} collection={props.location.collection}/>
                                 </Card>
-                            )
-                        })}
-                    </Col>
+                            </Col>
+                        )
+                    {/* })} */}
                 </Row>
             </div>
         )
