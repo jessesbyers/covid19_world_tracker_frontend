@@ -4,12 +4,16 @@ import DisplayMapData from '../d3/DisplayMapData'
 const MapInput = () => {
 
     const [countryResults, setCountryResults] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect( () => {
         async function fetchData() {
+            setIsLoading(true);
             const response = await fetch('https://corona.lmao.ninja/v2/countries')
             const data = await response.json()
             setCountryResults(data)
+            setIsLoading(false);
         }
         fetchData();
     }, [])   
@@ -40,8 +44,16 @@ const MapInput = () => {
 
 
     return (
+
+
         <span>
+
             <button className="collapsible1">Close Map Menu</button>
+
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+
             <div className="content1">
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="cases block" value="cases">Total Cases</button>
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="casesPerOneMillion block" value="casesPerOneMillion">Total Cases Per Million</button>
@@ -60,7 +72,11 @@ const MapInput = () => {
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="population block" value="population">Population</button>
                 <button onClick={event => DisplayMapData(event.target.value, event.target.innerText, countryResults)} className="reset block" value="reset">Reset Map</button>
             </div>
+
+            )}
         </span>
+
+       
     )
 }
 

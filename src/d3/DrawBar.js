@@ -99,6 +99,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
                 "<span style='color:#A0B700'>" + d.recovered.toLocaleString('en') + " Recovered" + "<br/>" + "</span>" +
                 "<span style='color:#BA5F06'>" + d.deaths.toLocaleString('en') + " Deaths" + "</p>" 
         })
+        
 
 
 
