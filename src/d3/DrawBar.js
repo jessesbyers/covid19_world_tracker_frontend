@@ -187,4 +187,5 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
 
 
 
+
 export default DrawBar
