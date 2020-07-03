@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { NavLink } from 'react-router-dom';
 import { Row } from 'react-bootstrap'
@@ -10,9 +10,12 @@ import { Card } from 'react-bootstrap'
 
 const CountryDropdown = (props) => {
 
-    const [collection, setCollection] = useState([]);
+    // const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
     const countries = useSelector(state => state.countries)
+    const collection = useSelector(state => state.collection)
+    const dispatch = useDispatch()
+
     console.log(countries)
 
 
@@ -25,7 +28,6 @@ const CountryDropdown = (props) => {
                 redirect: 'follow'
             };
             
-            // const response = await fetch(`https://api.covid19api.com/total/dayone/country/` + `${country}`, requestOptions)
             const response = await fetch(`https://api.covid19api.com/total/country/` + `${country}`, requestOptions)
             const data = await response.json()
             const parsedData = data.filter(day => day.Confirmed > 0)
@@ -41,8 +43,9 @@ const CountryDropdown = (props) => {
         <Row>
             <Col xs="12" sm="6" md="4" lg="3" xl="3">
 
-                <select onChange={ event => {setCollection([...collection, [event.target.value.split(",")[1], event.target.value.split(",")[2], event.target.value.split(",")[0]]]); 
-                    fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
+                <select onChange={dispatch({ type: 'addCountryToCollection', payload: event.target.value })}
+                fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}>
+                    
 
                     <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
                     {console.log(countries)}
