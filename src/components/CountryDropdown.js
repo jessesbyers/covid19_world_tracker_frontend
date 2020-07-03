@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
+
 import { NavLink } from 'react-router-dom';
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 
-
+// need to convert collection to use redux and fix flag urls
 
 const CountryDropdown = (props) => {
 
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
-    console.log(collection)
+    const countries = useSelector(state => state.countries)
+    console.log(countries)
 
 
     const fetchCountry = (country, countryName) => {
@@ -42,16 +45,15 @@ const CountryDropdown = (props) => {
                     fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}}>
 
                     <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
-                    {props.options.map(option => (
+                    {console.log(countries)}
+                    {countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map(country => (
                         <option
-                        id={props.id}
-                        key={option.value}
-                        // value={[option.value, option.name, option.flagCode]}
-                        value={[option.value, option.name, option.flagCode]}
-
+                            id={country.Slug}
+                            key={country.Slug}
+                            value={[country.Slug, country.Country, country.IS02]}
                         >
-                        {option.name}
-                        </option>
+                        {country.Country}
+                        </option> 
                     ))}
                 </select>
 
@@ -70,6 +72,7 @@ const CountryDropdown = (props) => {
 
 
             {collection.map( (country, index) => {
+                console.log(country)
                 const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
                 const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
                 const slug = country[2]

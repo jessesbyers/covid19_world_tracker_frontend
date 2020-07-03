@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 const New = () => {
-    const [countries, setCountries] = useState([]);
+    const [countries, setCountries] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const countryList = useSelector(state => state.countries)
     const dispatch = useDispatch()
@@ -29,21 +29,11 @@ const New = () => {
             const data = await response.json()
             dispatch({ type: 'addCountries', payload: data })
 
-            setCountries(data)
+            setCountries(...data)
             setIsLoading(false);
         }
         fetchData();
     }, []); 
-
-
-    // const options = countryList.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map( country => {
-    //     return (
-    //         {name: country.Country, value: country.Slug, flagCode: country.ISO2}
-    //     )
-    // })
-
-    // dispatch({ type: 'addCountries', payload: options })
-
 
     return (
 
@@ -53,7 +43,7 @@ const New = () => {
             {isLoading ? (
                 < Loader />
             ) : (
-                <CountryDropdown options={countryList} />
+                < CountryDropdown />
             )}
         </div>
     )
