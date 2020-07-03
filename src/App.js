@@ -12,6 +12,7 @@ import Collection from './containers/Collection'
 
 import Container from 'react-bootstrap/Container';
 
+
 function App() {
   return (    
       <Router basename={process.env.PUBLIC_URL}>
