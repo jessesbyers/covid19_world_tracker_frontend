@@ -10,6 +10,8 @@ const CountryDropdown = (props) => {
 
     const [collection, setCollection] = useState([]);
     const [countryData, setCountryData] = useState([]);
+    console.log(collection)
+
 
     const fetchCountry = (country, countryName) => {
 
@@ -44,7 +46,9 @@ const CountryDropdown = (props) => {
                         <option
                         id={props.id}
                         key={option.value}
+                        // value={[option.value, option.name, option.flagCode]}
                         value={[option.value, option.name, option.flagCode]}
+
                         >
                         {option.name}
                         </option>
