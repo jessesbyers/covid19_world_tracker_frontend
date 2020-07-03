@@ -1,3 +1,5 @@
+// doesn't require redux
+
 import React, { useState, useEffect } from 'react';
 import DisplayMapData from '../d3/DisplayMapData'
 import { Loader } from '../components/Loader'

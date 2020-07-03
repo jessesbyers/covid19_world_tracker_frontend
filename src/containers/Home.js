@@ -1,3 +1,5 @@
+// doesn't require redux
+
 import React, { useEffect } from 'react';
 
 import DrawMap from '../d3/DrawMap'
