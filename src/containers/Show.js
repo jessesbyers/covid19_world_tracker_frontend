@@ -50,40 +50,41 @@ const Show = (props) => {
 
     if (props.location.countryName) {
         return (
-            <div>
-                <Row>
-                    <Col xs="12" sm="6" md="4" lg="3" xl="3">
-                        <Card>
-                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
-                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
-                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
-                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
+            <div>Under construction...</div>
+            // {/* <div>
+            //     <Row>
+            //         <Col xs="12" sm="6" md="4" lg="3" xl="3">
+            //             <Card>
+            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
+            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
+            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
+            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
 
 
-                            <NavLink
-                                to = {{
-                                    pathname: `/collection`,
-                                    countryData: props.location.collection
-                                }}>
-                                <button className="reset block">Return to Collection</button>
-                            </NavLink>
-                        </Card> 
-                    </Col>
+            //                 <NavLink
+            //                     to = {{
+            //                         pathname: `/collection`,
+            //                         countryData: props.location.collection
+            //                     }}>
+            //                     <button className="reset block">Return to Collection</button>
+            //                 </NavLink>
+            //             </Card> 
+            //         </Col>
 
 
-                    {/* {let pData = provinces.forEach((province) => provinceData.filter((data) => data.Province === province)
-                    )} */}
-                        return (
-                            <Col xs={12} sm={6} md={4} lg={3} key={index}>
+            //         {/* {let pData = provinces.forEach((province) => provinceData.filter((data) => data.Province === province)
+            //         )} */}
+            //             return (
+            //                 <Col xs={12} sm={6} md={4} lg={3} key={index}>
 
-                                <Card className="show">
-                                    <Country key={index} id={index} country={pData} caseType={caseType} collection={props.location.collection}/>
-                                </Card>
-                            </Col>
-                        )
-                    {/* })} */}
-                </Row>
-            </div>
+            //                     <Card className="show">
+            //                         <Country key={index} id={index} country={pData} caseType={caseType} collection={props.location.collection}/>
+            //                     </Card>
+            //                 </Col>
+            //             )
+            //         {/* })} */}
+            //     </Row>
+            // </div> */}
         )
 
     } else {
@@ -94,7 +95,7 @@ const Show = (props) => {
 }
 
 export default Show
-
+// ****************************
 
 
 
