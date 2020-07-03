@@ -11,15 +11,17 @@ import { Card } from 'react-bootstrap'
 const CountryDropdown = (props) => {
 
     // const [collection, setCollection] = useState([]);
-    const [countryData, setCountryData] = useState([]);
+    // const [countryData, setCountryData] = useState([]);
     const countries = useSelector(state => state.countries)
     const collection = useSelector(state => state.collection)
+    const countryData = useSelector(state => state.countryData)
     const dispatch = useDispatch()
 
     console.log(countries)
 
 
-    const fetchCountry = (country, countryName) => {
+    const fetchCountry = (event) => {
+        const [slug, country, ISO2] = event.target.value.split(",") 
 
         async function fetchData() {
 
@@ -28,10 +30,12 @@ const CountryDropdown = (props) => {
                 redirect: 'follow'
             };
             
-            const response = await fetch(`https://api.covid19api.com/total/country/` + `${country}`, requestOptions)
+            const response = await fetch(`https://api.covid19api.com/total/country/` + `${slug}`, requestOptions)
             const data = await response.json()
             const parsedData = data.filter(day => day.Confirmed > 0)
-            setCountryData(countryData => [...countryData, {[countryName]: [parsedData], slug: country}])
+            console.log(parsedData)
+            dispatch( { type: 'addCountryData', payload: parsedData})
+            // setCountryData(countryData => [...countryData, {[country]: [parsedData], slug: slug}])
         }
 
         fetchData();
@@ -43,17 +47,20 @@ const CountryDropdown = (props) => {
         <Row>
             <Col xs="12" sm="6" md="4" lg="3" xl="3">
 
-                <select onChange={dispatch({ type: 'addCountryToCollection', payload: event.target.value })}
-                fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])}>
+                <select onChange={event => dispatch({ type: 'addCountryToCollection', payload: event.target.value }), 
+                    // fetchCountry(event.target.value.split(",")[0], event.target.value.split(",")[1])
+                    event => fetchCountry(event)
+                }>
+                
                     
 
                     <option placeholder="Choose a Collection of Countries">Choose a Collection of Countries</option>
-                    {console.log(countries)}
+                    {console.log(countryData)}
                     {countries.sort((a, b) => (a.Country > b.Country) ? 1 : -1).map(country => (
                         <option
                             id={country.Slug}
                             key={country.Slug}
-                            value={[country.Slug, country.Country, country.IS02]}
+                            value={[country.Slug, country.Country, country.ISO2]}
                         >
                         {country.Country}
                         </option> 
@@ -75,19 +82,17 @@ const CountryDropdown = (props) => {
 
 
             {collection.map( (country, index) => {
-                console.log(country)
-                const flagUrl = `https://disease.sh/assets/img/flags/${country[1].toLowerCase()}.png`
+                const flagUrl = `https://disease.sh/assets/img/flags/${country.ISO2.toLowerCase()}.png`
                 const worldUrl = `https://freesvg.org/img/Globe-Icon-Umber.png`
-                const slug = country[2]
 
                 return (
 
                     <Col xs={12} sm={6} md={4} lg={3} key={index}>
 
                         <Card>
-                            <Card.Header>{country[0]}</Card.Header>
+                            <Card.Header>{country.Country}</Card.Header>
 
-                            <Card.Img key={slug} src={flagUrl} onError={(e)=>{ 
+                            <Card.Img key={country.Slug} src={flagUrl} onError={(e)=>{ 
                                 if (e.target.src !== worldUrl) {
                                     e.target.src=worldUrl;}
                                 }}/>
