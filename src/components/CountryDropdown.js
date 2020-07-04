@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// need to split off into multiple components
+
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { NavLink } from 'react-router-dom';
@@ -10,7 +12,6 @@ const CountryDropdown = (props) => {
 
     const countries = useSelector(state => state.countries)
     const collection = useSelector(state => state.collection)
-    const countryData = useSelector(state => state.countryData)
     const dispatch = useDispatch()
 
     const fetchCountry = (event) => {
@@ -26,11 +27,10 @@ const CountryDropdown = (props) => {
             const response = await fetch(`https://api.covid19api.com/total/country/` + `${slug}`, requestOptions)
             const data = await response.json()
             const parsedData = data.filter(day => day.Confirmed > 0)
-            dispatch( { type: 'addCountryData', payload: { country: parsedData }} )
+
+            dispatch( { type: 'addCountryData', payload: { [country]: parsedData }} )
             dispatch( { type: 'addCountryToCollection', payload: {slug, country, ISO2}} )
-
         }
-
         fetchData();
     }
 
@@ -56,12 +56,7 @@ const CountryDropdown = (props) => {
 
 
 
-                <NavLink 
-                    to = {{
-                        pathname: `/collection`,
-                        countryData,
-                        collection
-                    }}>
+                <NavLink to='/collection'>
                     <button className="dark" disabled={invalid()}>View Collection</button>
                 </NavLink>
 

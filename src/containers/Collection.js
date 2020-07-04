@@ -5,12 +5,16 @@ import { Card } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 import { selectAll } from 'd3'
+import { useSelector, useDispatch } from 'react-redux'
+
 
 const Collection = (props) => {
+    const countryData = useSelector(state => state.countryData)
+
     const [caseType, setCaseType] = useState("");
 
 
-    if (props.location.countryData) {
+    if (countryData) {
         return (
             <div>
                 <Row >
@@ -23,11 +27,12 @@ const Collection = (props) => {
                         </Card>
                     </Col>
 
-                    {props.location.countryData.map((country, index) => { 
+                    {countryData.map((country, index) => { 
+                        console.log(country)
                         return (
                             <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                 <Card>
-                                    <Country key={index} id={index} country={country} caseType={caseType} collection={props.location.countryData}/> 
+                                    <Country key={index} caseType={caseType}/> 
                                 </Card>
                             </Col>
                         )
