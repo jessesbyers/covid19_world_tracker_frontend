@@ -5,7 +5,6 @@ import {
 import d3Tip from "d3-tip";
 import { color } from './Color'
 
-
 const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
 
     caseType ? caseType = caseType : caseType = "total"

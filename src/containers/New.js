@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CountryDropdown from '../components/CountryDropdown'
 import { Loader } from '../components/Loader'
-
 import { useDispatch } from "react-redux";
-
-
 
 const New = () => {
     const [isLoading, setIsLoading] = useState(false);

@@ -47,6 +47,7 @@ const Show = (props) => {
         }
         fetchData();
     }, []); 
+    // warning about a useEffect cleanup function - need to look into this - memory leak
 
 
     if (props.location.countryName) {

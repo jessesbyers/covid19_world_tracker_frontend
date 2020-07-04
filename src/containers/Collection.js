@@ -12,7 +12,6 @@ const Collection = () => {
     const collection = useSelector(state => state.collection)
     const countryData = useSelector(state => state.countryData)
     const [caseType, setCaseType] = useState("");
-    console.log(collection)
 
     if (countryData) {
         return (
