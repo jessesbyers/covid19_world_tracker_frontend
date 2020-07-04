@@ -41,16 +41,7 @@ const Country = ({caseType, country}) => {
 
 
     return (
-        <NavLink
-            to = {{
-                pathname: `/countries/${slug}`,
-                // countryName,
-                // totalCases: totalCases(),
-                // dailyData: parseData(dailyData, array), 
-                // slug: country.slug, 
-                // id: country.slug,
-                // collection: collection
-            }}>
+        <NavLink to={{pathname: `/countries/${slug}`}}>
             <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} caseType={caseType} slug={slug}/>
         </NavLink>
     )

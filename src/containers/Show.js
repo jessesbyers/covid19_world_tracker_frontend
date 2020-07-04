@@ -14,6 +14,7 @@ import { selectAll } from 'd3'
 
 
 const Show = (props) => {
+    console.log(props)
     const [caseType, setCaseType] = useState("");
     const [provinceData, setProvinceData] = useState([]);
     const [provinces, setProvinces] = useState([]);
