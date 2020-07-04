@@ -1,27 +1,32 @@
 import React from 'react';
 import Viz from '../d3/Viz'
+import { useSelector } from 'react-redux'
 
 import { NavLink } from 'react-router-dom';
 
-
-
-const Country = (props) => {
-    console.log(props)
-    const countryName = Object.keys(props.country)[0]
-    const dailyData = props.country[countryName]
+const Country = ({caseType, country}) => {
+    const collection = useSelector(state => state.collection)
+    console.log(country)
+    const countryName = Object.keys(country)[0]
+    console.log(countryName)
+    const dailyData = country[countryName]
+    const slug = collection.find(obj => obj.country === countryName).slug
+    console.log(slug)
 
     const totalCases = () => {
-        if (dailyData[0].length === 0) {
+        console.log(dailyData)
+        if (dailyData.length === 0) {
             return 0
         } else {
-            return dailyData[0][dailyData[0].length-1].Confirmed
+            console.log(dailyData[dailyData.length-1])
+            return dailyData[dailyData.length-1].Confirmed
         }
     }
 
     const array = []
 
     const parseData = (data, array) => {
-        data[0].forEach( (day, index) => {
+        data.forEach( (day, index) => {
             array.push({
                 dayCount: index + 1,
                 date: new Date(day.Date),
@@ -38,15 +43,15 @@ const Country = (props) => {
     return (
         <NavLink
             to = {{
-                pathname: `/countries/${props.country.slug}`,
-                countryName,
-                totalCases: totalCases(),
-                dailyData: parseData(dailyData, array), 
-                slug: props.country.slug, 
-                id: props.country.slug,
-                collection: props.collection
+                pathname: `/countries/${slug}`,
+                // countryName,
+                // totalCases: totalCases(),
+                // dailyData: parseData(dailyData, array), 
+                // slug: country.slug, 
+                // id: country.slug,
+                // collection: collection
             }}>
-            <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} id={props.country.slug} slug={props.country.slug} caseType={props.caseType}/>
+            <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} caseType={caseType} slug={slug}/>
         </NavLink>
     )
 }

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import DrawBar from './DrawBar'
 
-const Viz = (props) => {
-    console.log(props)
+const Viz = ( {caseType, countryName, totalCases, dailyData, slug}) => {
+    console.log(dailyData)
 
     useEffect( () => {
 
-        DrawBar(props.countryName, props.totalCases, props.dailyData, props.id, props.caseType)
-    }, [props])
+        DrawBar(countryName, totalCases, dailyData, slug, caseType)
+    }, [])
 
     return (
-        <div className={"viz" + props.id} ></div>
+        <div className={"viz" + slug} ></div>
     )
 }
 
