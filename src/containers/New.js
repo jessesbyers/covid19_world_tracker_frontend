@@ -1,18 +1,13 @@
-// does not need redux (yet)
-
 import React, { useState, useEffect } from 'react';
 import CountryDropdown from '../components/CountryDropdown'
 import { Loader } from '../components/Loader'
 
-import { useDispatch, useSelector } from "react-redux";
-// import { addCountries } from '../actions/addCountries'
+import { useDispatch } from "react-redux";
 
 
 
 const New = () => {
-    const [countries, setCountries] = useState();
     const [isLoading, setIsLoading] = useState(false);
-    const countryList = useSelector(state => state.countries)
     const dispatch = useDispatch()
 
  
@@ -28,8 +23,6 @@ const New = () => {
             const response = await fetch("https://api.covid19api.com/countries", requestOptions)
             const data = await response.json()
             dispatch({ type: 'addCountries', payload: data })
-
-            setCountries(...data)
             setIsLoading(false);
         }
         fetchData();
@@ -38,8 +31,6 @@ const New = () => {
     return (
 
         <div>
-            {/* loading */}
-
             {isLoading ? (
                 < Loader />
             ) : (
