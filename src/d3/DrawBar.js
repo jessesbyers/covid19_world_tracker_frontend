@@ -1,7 +1,4 @@
-import {
-    max, scaleBand, scaleLinear, axisBottom, axisLeft, select, event
-} from 'd3'
-
+import { max, scaleBand, scaleLinear, axisBottom, axisLeft, select } from 'd3'
 import d3Tip from "d3-tip";
 import { color } from './Color'
 
@@ -19,7 +16,7 @@ const DrawBar = (countryName, totalCases, dailyData, id, caseType) => {
     const padding = .2
     const margin = ({top: 80, right: 0, bottom: 80, left: 80})
     const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+    // const innerHeight = height - margin.top - margin.bottom;
     const vizName = "viz" + id
 
 

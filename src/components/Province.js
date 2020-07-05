@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 
 const Province = ({caseType, country}) => {
+    // const provincesData = useSelector(state => provincesData)
     // const collection = useSelector(state => state.collection)
     // const countryName = Object.keys(country)[0]
     // const dailyData = country[countryName]
@@ -33,7 +34,10 @@ const Province = ({caseType, country}) => {
     //         <Viz countryName={countryName} totalCases={totalCases()} dailyData={parseData(dailyData, array)} caseType={caseType} slug={slug}/>
     //     </NavLink>
     // )
-    return "Province Test"
+    return (
+        // provincesData !== [] ? console.log(provincesData) : 
+        "Province Test"
+    )
 }
 
 export default Province

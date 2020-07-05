@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+
 import { Redirect } from "react-router"
 import { Loader } from '../components/Loader'
-import Country from '../components/Country'
+import Province from '../components/Province'
 
 
 import Viz from '../d3/Viz'
@@ -14,12 +16,11 @@ import { selectAll } from 'd3'
 
 
 const Show = (props) => {
-    console.log(props)
     const [caseType, setCaseType] = useState("");
-    const [provinceData, setProvinceData] = useState([]);
-    const [provinces, setProvinces] = useState([]);
-
+    const provincesData = useSelector(state => state.provincesData)
+    const [provinces, setProvinces] = useState([])
     const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch()
 
     useEffect( () => {
         async function fetchData() {
@@ -32,17 +33,22 @@ const Show = (props) => {
 
             const response = await fetch("https://api.covid19api.com/dayone/country/" + props.location.slug, requestOptions)
             const data = await response.json()
+            const provinceArray = []
             console.log(data)
-            const province_array = []
 
             data.forEach(d => {
-                if (!province_array.includes(d.Province)) {
-                    province_array.push(d.Province)
+                if (!provinceArray.includes(d.Province) && d.Province !== "") {
+                    provinceArray.push(d.Province)
                 }
             })
+            
+            setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
 
-            setProvinceData(data)
-            setProvinces(province_array)
+            const parsedData = {}
+            provinceArray.forEach(province => parsedData[`${province}`] = data.filter(day => day.Province === Province))
+
+
+            dispatch({ type: 'addProvincesData', payload: parsedData})
             setIsLoading(false);
         }
         fetchData();
@@ -50,9 +56,14 @@ const Show = (props) => {
     // warning about a useEffect cleanup function - need to look into this - memory leak
 
 
-    if (props.location.countryName) {
+    // if (props.location.countryName) {
         return (
-            <div>Under construction...</div>
+            <div>Under construction...
+                {console.log(provincesData)}
+                {console.log(provinces)}
+
+                <Province />
+            </div>
             // {/* <div>
             //     <Row>
             //         <Col xs="12" sm="6" md="4" lg="3" xl="3">
@@ -89,11 +100,11 @@ const Show = (props) => {
             // </div> */}
         )
 
-    } else {
+    // } else {
         // return <Redirect to='/' />
-        return <Redirect to={process.env.PUBLIC_URL} />
+        // return <Redirect to={process.env.PUBLIC_URL} />
         // return <h3>Use the Buttons Above to Get Started</h3>
-    }
+    // }
 }
 
 export default Show

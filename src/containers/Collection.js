@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 
 
 const Collection = () => {
-    const collection = useSelector(state => state.collection)
     const countryData = useSelector(state => state.countryData)
     const [caseType, setCaseType] = useState("");
 

@@ -24,7 +24,9 @@ const CountryDropdown = (props) => {
                 redirect: 'follow'
             };
             
-            const response = await fetch(`https://api.covid19api.com/total/country/` + `${slug}`, requestOptions)
+            // const response = await fetch(`https://api.covid19api.com/total/country/` + `${slug}`, requestOptions)
+            const response = await fetch(`https://api.covid19api.com/total/country/` + slug, requestOptions)
+
             const data = await response.json()
             const parsedData = data.filter(day => day.Confirmed > 0)
 
