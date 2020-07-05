@@ -50,7 +50,7 @@ const Show = (props) => {
     // warning about a useEffect cleanup function - need to look into this - memory leak
 
 
-    if (provincesData) {
+    if (provincesData && provinces !== []) {
         return (
             <div>
                 <Row >
@@ -75,6 +75,32 @@ const Show = (props) => {
                 </Row>
             </div>
         )
+        
+        
+
+    // } else if (provincesData && provinces == []) {
+    //     return (
+    //         <div>
+    //             <Row >
+    //                 <Col xs="12" sm="6" md="4" lg="3" xl="3">
+    //                     <Card>
+    //                         <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
+    //                         <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
+    //                         <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
+    //                         <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
+    //                     </Card>
+    //                 </Col>
+
+    //                         <Col xs={12} sm={6} md={4} lg={3}>
+    //                             <Card>
+    //                                 {/* <Province caseType={caseType} province={"TEST"} provinceData={provincesData}/>  */}
+    //                             </Card>
+    //                         </Col>
+    //             </Row>
+    //         </div>
+    //     )
+
+
     } else {
         // return <Redirect to='/' />
         return <Redirect to={process.env.PUBLIC_URL} />

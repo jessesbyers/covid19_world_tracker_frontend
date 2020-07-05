@@ -6,7 +6,6 @@ import { Loader } from './Loader'
 
 const Province = ({caseType, province, provinceData}) => {
     console.log(provinceData)
-    // const slug = province.split(" ").map(word => word.toLowerCase()).join("-")
     const totalCases = () => provinceData.length === 0 ? 0 : provinceData[provinceData.length-1].Confirmed
     const slug = (province) => {
         return province
