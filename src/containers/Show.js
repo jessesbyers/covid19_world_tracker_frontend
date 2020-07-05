@@ -16,8 +16,8 @@ import { selectAll } from 'd3'
 
 
 const Show = (props) => {
-    const [caseType, setCaseType] = useState("");
     const provincesData = useSelector(state => state.provincesData)
+    const [caseType, setCaseType] = useState("");
     const [provinces, setProvinces] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
@@ -33,9 +33,9 @@ const Show = (props) => {
 
             const response = await fetch("https://api.covid19api.com/dayone/country/" + props.location.slug, requestOptions)
             const data = await response.json()
-            const provinceArray = []
-            console.log(data)
+            dispatch({ type: 'addProvincesData', payload: data})
 
+            const provinceArray = []
             data.forEach(d => {
                 if (!provinceArray.includes(d.Province) && d.Province !== "") {
                     provinceArray.push(d.Province)
@@ -43,12 +43,6 @@ const Show = (props) => {
             })
             
             setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
-
-            const parsedData = {}
-            provinceArray.forEach(province => parsedData[`${province}`] = data.filter(day => day.Province === Province))
-
-
-            dispatch({ type: 'addProvincesData', payload: parsedData})
             setIsLoading(false);
         }
         fetchData();
@@ -56,55 +50,57 @@ const Show = (props) => {
     // warning about a useEffect cleanup function - need to look into this - memory leak
 
 
-    // if (props.location.countryName) {
+    if (provincesData) {
         return (
-            <div>Under construction...
-                {console.log(provincesData)}
-                {console.log(provinces)}
+            <div>
+                <Row >
+                    <Col xs="12" sm="6" md="4" lg="3" xl="3">
+                        <Card>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
+                            <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
+                        </Card>
+                    </Col>
 
-                <Province />
+                    {provinces.map((province, index) => { 
+                        return (
+                            <Col xs={12} sm={6} md={4} lg={3} key={index}>
+                                <Card>
+                                    <Province caseType={caseType} province={province} provinceData={provincesData.filter(day => day.Province === province)}/> 
+                                </Card>
+                            </Col>
+                        )
+                    })}
+                </Row>
             </div>
-            // {/* <div>
-            //     <Row>
-            //         <Col xs="12" sm="6" md="4" lg="3" xl="3">
-            //             <Card>
-            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="cases block" value="total">Total Cases</button>
-            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="deathsPerOneMillion block" value="deaths">Deaths</button>
-            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="activee block" value="active"> Active Cases</button>
-            //                 <button onClick={event => (setCaseType(event.target.value), selectAll("svg").remove())} className="recovered block" value="recovered">Recovered Cases</button>
-
-
-            //                 <NavLink
-            //                     to = {{
-            //                         pathname: `/collection`,
-            //                         countryData: props.location.collection
-            //                     }}>
-            //                     <button className="reset block">Return to Collection</button>
-            //                 </NavLink>
-            //             </Card> 
-            //         </Col>
-
-
-            //         {/* {let pData = provinces.forEach((province) => provinceData.filter((data) => data.Province === province)
-            //         )} */}
-            //             return (
-            //                 <Col xs={12} sm={6} md={4} lg={3} key={index}>
-
-            //                     <Card className="show">
-            //                         <Country key={index} id={index} country={pData} caseType={caseType} collection={props.location.collection}/>
-            //                     </Card>
-            //                 </Col>
-            //             )
-            //         {/* })} */}
-            //     </Row>
-            // </div> */}
         )
-
-    // } else {
+    } else {
         // return <Redirect to='/' />
-        // return <Redirect to={process.env.PUBLIC_URL} />
+        return <Redirect to={process.env.PUBLIC_URL} />
         // return <h3>Use the Buttons Above to Get Started</h3>
-    // }
+    }
+
+
+
+
+
+
+
+
+
+
+    // return (
+
+    //     <div>
+    //         {isLoading ? (
+    //             < Loader />
+    //         ) : (
+    //             provinces.map(province => <Province province={province} caseType={caseType} />)
+    //         )}
+    //     </div>
+          
+    // )
 }
 
 export default Show
