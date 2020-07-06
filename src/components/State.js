@@ -20,19 +20,27 @@ const State = ({caseType, state, stateData, countryName}) => {
         .replace(/-+$/, "");
     }
 
+
+    // need to refactor to merge entries for each day
         const array = []
         const parseData = (stateData, array) => {
             console.log(stateData)
-            stateData.forEach( (day, index) => {
-                array.push({
-                    dayCount: index + 1,
-                    date: new Date(day.Date),
-                    total: day.Confirmed, 
-                    active: day.Active, 
-                    recovered: day.Recovered, 
-                    deaths: day.Deaths
-                })
+            stateData.forEach( day => {
+                const date = day.Date.substring(0, 10)
+                if (!array.includes(date)) {
+                    array.push(date)
+                }
+                // stateData.filter(d => d.date === day.date)
             })
+                // array.push({
+                //     dayCount: index + 1,
+                //     date: new Date(day.Date),
+                //     total: day.Confirmed, 
+                //     active: day.Active, 
+                //     recovered: day.Recovered, 
+                //     deaths: day.Deaths
+                // })
+            // })
             return array
         }
 
