@@ -3,6 +3,7 @@ import Viz from '../d3/Viz'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { Loader } from './Loader'
+import { active } from 'd3';
 
 const State = ({caseType, state, stateData, countryName}) => {
     state ? state = state : state = countryName
@@ -24,24 +25,53 @@ const State = ({caseType, state, stateData, countryName}) => {
     // need to refactor to merge entries for each day
         const array = []
         const parseData = (stateData, array) => {
-            console.log(stateData)
             stateData.forEach( day => {
                 const date = day.Date.substring(0, 10)
                 if (!array.includes(date)) {
                     array.push(date)
                 }
-                // stateData.filter(d => d.date === day.date)
             })
-                // array.push({
-                //     dayCount: index + 1,
-                //     date: new Date(day.Date),
-                //     total: day.Confirmed, 
-                //     active: day.Active, 
-                //     recovered: day.Recovered, 
-                //     deaths: day.Deaths
-                // })
-            // })
-            return array
+
+            const dateArray = array.map(date => stateData.filter(day =>  day.Date.substring(0,10) === date))
+
+            const parsedData = dateArray.map( (d, index) => {
+                const dayCount = index + 1
+                const date = new Date(d[0].Date)
+
+                const total = () => {
+                    let sum = 0
+                    for (let element of d) {
+                        sum += element.Confirmed
+                    }
+                    return sum
+                }
+
+                const active = () => {
+                    let sum = 0
+                    for (let element of d) {
+                        sum += element.Active
+                    }
+                    return sum
+                }
+
+                const recovered = () => {
+                    let sum = 0
+                    for (let element of d) {
+                        sum += element.Recovered
+                    }
+                    return sum
+                }
+
+                const deaths = () => {
+                    let sum = 0
+                    for (let element of d) {
+                        sum += element.Deaths
+                    }
+                    return sum
+                }
+
+                return {dayCount, date, total: total(), active: active(), recovered: recovered(), deaths: deaths()}
+            })
         }
 
     // if (stateData) {
