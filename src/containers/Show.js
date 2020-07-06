@@ -55,7 +55,6 @@ const Show = (props) => {
 
             // Logic if country is United States (because state data is broken down into cities)
             if (provinces.includes("Alabama")) {
-                console.log(provincesData)
                 return (
                     <div>
                         <Row >
@@ -69,11 +68,10 @@ const Show = (props) => {
                             </Col>
 
                             {provinces.map((state, index) => { 
-                                console.log(state + " " + index)
                                     return (
                                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                             <Card>
-                                                <State caseType={caseType} state={state} states={provinces} statesData={provincesData} countryName={provincesData[0].Country}/>
+                                                <State caseType={caseType} state={state} stateData={provincesData.filter(day => day.Province === state)} countryName={provincesData[0].Country}/>
                                             </Card>
                                         </Col>
                                     )

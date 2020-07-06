@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { Loader } from './Loader'
 
-const State = ({caseType, state, states, statesData, countryName}) => {
+const State = ({caseType, state, stateData, countryName}) => {
     state ? state = state : state = countryName
-    const totalCases = () => statesData.length === 0 ? 0 : statesData[statesData.length-1].Confirmed
-    const slug = (province) => {
-        return province
+    // need to refactor total cases function after parsing data
+    // const totalCases = () => stateData.length === 0 ? 0 : stateData[stateData.length-1].Confirmed
+    const slug = (state) => {
+        return state
         .toString()
         .trim()
         .toLowerCase()
@@ -20,8 +21,9 @@ const State = ({caseType, state, states, statesData, countryName}) => {
     }
 
         const array = []
-        const parseData = (statesData, array) => {
-            statesData.forEach( (day, index) => {
+        const parseData = (stateData, array) => {
+            console.log(stateData)
+            stateData.forEach( (day, index) => {
                 array.push({
                     dayCount: index + 1,
                     date: new Date(day.Date),
@@ -34,12 +36,13 @@ const State = ({caseType, state, states, statesData, countryName}) => {
             return array
         }
 
-    if (statesData) {
+    // if (stateData) {
         return (
-            <Viz countryName={state} totalCases={totalCases()} dailyData={parseData(statesData, array)} caseType={caseType} slug={slug(state)}/>
+            // <Viz countryName={state} totalCases={totalCases()} dailyData={parseData(stateData, array)} caseType={caseType} slug={slug(state)}/>
+            <Viz countryName={state} totalCases={100} dailyData={parseData(stateData, array)} caseType={caseType} slug={slug(state)}/>
 
         )
-    }
+    // }
 }
 
 export default State
