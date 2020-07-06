@@ -7,8 +7,7 @@ import { active } from 'd3';
 
 const State = ({caseType, state, stateData, countryName}) => {
     state ? state = state : state = countryName
-    // need to refactor total cases function after parsing data
-    // const totalCases = () => stateData.length === 0 ? 0 : stateData[stateData.length-1].Confirmed
+
     const slug = (state) => {
         return state
         .toString()
@@ -72,15 +71,15 @@ const State = ({caseType, state, stateData, countryName}) => {
 
                 return {dayCount, date, total: total(), active: active(), recovered: recovered(), deaths: deaths()}
             })
+            return parsedData
         }
 
-    // if (stateData) {
-        return (
-            // <Viz countryName={state} totalCases={totalCases()} dailyData={parseData(stateData, array)} caseType={caseType} slug={slug(state)}/>
-            <Viz countryName={state} totalCases={100} dailyData={parseData(stateData, array)} caseType={caseType} slug={slug(state)}/>
+        const dailyData = parseData(stateData, array)
+        const totalCases = dailyData[dailyData.length - 1].total
 
+        return (
+            <Viz countryName={state} totalCases={totalCases} dailyData={dailyData} caseType={caseType} slug={slug(state)}/>
         )
-    // }
 }
 
 export default State
