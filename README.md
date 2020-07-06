@@ -72,10 +72,6 @@ The bar charts are rendered from data from the [Coronavirus COVID19 API](https:/
 
 ![Imgur](https://i.imgur.com/2FlpfS6.png)
 
-5. Click on any chart to see an enlarged chart, and use the buttons on the left sidebar to view each type of data. Hover over each bar to see detailed information about that day.
-
-6. Click on "Return to Collection" to go back to your collection of countries.
-
-6. Use the "Home" and "View Collection" buttons to continue exploring the map, generating more questions, and looking for patterns and trends in the data.
+5. Click on any chart to see country-specific data. If the country has data broken down by province or state, you can interact with the data at that level. Otherwise, you will be able to interact with a full-size chart for that country. Use the buttons on the left sidebar to view each type of data. Hover over each bar to see detailed information about that day.
 
 * *The graphs are best viewed on a larger screen to enable all interactive features, especially #3 above. However, they can also be viewed on mobile devices with more limited interactions.*
