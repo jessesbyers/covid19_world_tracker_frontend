@@ -104,7 +104,7 @@ const Show = (props) => {
                     </div>
                 )
 
-            // Logic for all other countries that have data broken down by province (such as Canada, or United Kingdom)
+            // Logic for all other countries that have data broken down by province (such as China, or United Kingdom)
             } else {
                 return (
                     <div>
