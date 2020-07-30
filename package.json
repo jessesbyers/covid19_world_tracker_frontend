@@ -24,6 +24,7 @@
     "react-select-search": "^1.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "tlds": "^1.207.0",
     "topojson": "^3.0.2"
   },
   "scripts": {
