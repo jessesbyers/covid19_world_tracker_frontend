@@ -19,23 +19,46 @@ import { selectAll } from 'd3'
 
 
 const Show = (props) => {
+    const cache = useSelector(state => state.cache)
+    console.log(cache)
     const provincesData = useSelector(state => state.provincesData)
     const [caseType, setCaseType] = useState("");
     const [provinces, setProvinces] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
+    const url = "https://api.covid19api.com/dayone/country/" + props.location.slug
+
 
     useEffect( () => {
         async function fetchData() {
             setIsLoading(true);
+
+            if (cache[props.location.slug]) {
+                console.log("true - using cached data")
+                dispatch({ type: 'addProvincesData', payload: cache[props.location.slug] })
+                const provinceArray = []
+                cache[props.location.slug].forEach(d => {
+                    if (!provinceArray.includes(d.Province) && d.Province !== "") {
+                        provinceArray.push(d.Province)
+                    } else if (!provinceArray.includes("") && d.Province === "")
+                        provinceArray.push("")
+                })
+                
+                setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
+                setIsLoading(false);
+
+            } else {
+                console.log(props.location.slug)
+
 
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
               };
 
-            const response = await fetch("https://api.covid19api.com/dayone/country/" + props.location.slug, requestOptions)
+            const response = await fetch(url, requestOptions)
             const data = await response.json()
+            // dispatch({ type: 'cacheData', payload: { [props.location.slug]: data} })
             dispatch({ type: 'addProvincesData', payload: data})
 
             const provinceArray = []
@@ -48,13 +71,17 @@ const Show = (props) => {
             
             setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
             setIsLoading(false);
+            }
         }
         fetchData();
     }, []); 
     // warning about a useEffect cleanup function - need to look into this - memory leak
 
+    // if (isLoading) {
+    //     return < Loader />
+
             // Logic if country is United States (because state data is broken down into cities)
-            if (provinces.includes("Alabama")) {
+        if (provinces.includes("Alabama")) {
                 return (
                     <div>
                         <Row >
@@ -68,6 +95,8 @@ const Show = (props) => {
                             </Col>
 
                             {provinces.map((state, index) => { 
+                                setIsLoading(false);
+
                                     return (
                                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                             <Card>
@@ -119,6 +148,8 @@ const Show = (props) => {
                             </Col>
 
                             {provinces.map((province, index) => { 
+                                setIsLoading(false);
+
                                 console.log(province + " " + index)
                                     return (
                                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
@@ -133,6 +164,7 @@ const Show = (props) => {
                     </div>
                 )
             }
+
 }
 
 export default Show

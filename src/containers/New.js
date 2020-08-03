@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 const New = () => {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
+    const url = "https://api.covid19api.com/dayone/country/united-states"
 
  
     useEffect( () => {
@@ -24,6 +25,26 @@ const New = () => {
         }
         fetchData();
     }, []); 
+
+                useEffect( () => {
+                    console.log("inside fetch for US data")
+                    async function fetchData() {
+                        setIsLoading(true);
+
+                        var requestOptions = {
+                            method: 'GET',
+                            redirect: 'follow'
+                        };
+                        
+                        const response = await fetch(url, requestOptions)
+                        const data = await response.json()
+                        console.log(data)
+                        console.log( {"united-states": data} )
+                        dispatch({ type: 'cacheData', payload: {slug: "united-states", data} })
+                        setIsLoading(false);
+                    }
+                    fetchData();
+                }, [url]); 
 
     return (
 
