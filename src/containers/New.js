@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 const New = () => {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
-    const url = "https://api.covid19api.com/dayone/country/united-states"
+    // const url = "https://api.covid19api.com/dayone/country/united-states"
+    const url = "https://api.covid19api.com/dayone/country/china"
 
  
     useEffect( () => {
@@ -39,7 +40,6 @@ const New = () => {
                         const response = await fetch(url, requestOptions)
                         const data = await response.json()
                         console.log(data)
-                        console.log( {"united-states": data} )
                         dispatch({ type: 'cacheData', payload: {slug: "united-states", data} })
                         setIsLoading(false);
                     }

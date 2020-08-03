@@ -45,33 +45,30 @@ const Show = (props) => {
                 })
                 const sortedProvinces = provinceArray.sort((a,b) => a > b ? 1 : -1)
                 setProvinces(sortedProvinces)
-                // setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
                 // setIsLoading(false);
 
             } else {
-                console.log(props.location.slug)
 
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow'
+                };
 
-            var requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-              };
+                const response = await fetch(url, requestOptions)
+                const data = await response.json()
+                // dispatch({ type: 'cacheData', payload: { [props.location.slug]: data} })
+                dispatch({ type: 'addProvincesData', payload: data})
 
-            const response = await fetch(url, requestOptions)
-            const data = await response.json()
-            // dispatch({ type: 'cacheData', payload: { [props.location.slug]: data} })
-            dispatch({ type: 'addProvincesData', payload: data})
-
-            const provinceArray = []
-            data.forEach(d => {
-                if (!provinceArray.includes(d.Province) && d.Province !== "") {
-                    provinceArray.push(d.Province)
-                } else if (!provinceArray.includes("") && d.Province === "")
-                    provinceArray.push("")
-            })
-            
-            setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
-            // setIsLoading(false);
+                const provinceArray = []
+                data.forEach(d => {
+                    if (!provinceArray.includes(d.Province) && d.Province !== "") {
+                        provinceArray.push(d.Province)
+                    } else if (!provinceArray.includes("") && d.Province === "")
+                        provinceArray.push("")
+                })
+                
+                setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
+                // setIsLoading(false);
             }
         }
         fetchData();
@@ -96,7 +93,6 @@ const Show = (props) => {
                             </Col>
 
                             {provinces.map((state, index) => { 
-                                setIsLoading(false);
 
                                     return (
                                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
@@ -149,9 +145,6 @@ const Show = (props) => {
                             </Col>
 
                             {provinces.map((province, index) => { 
-                                setIsLoading(false);
-
-                                console.log(province + " " + index)
                                     return (
                                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                             <Card>

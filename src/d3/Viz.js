@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import DrawBar from './DrawBar'
 
 const Viz = ( {caseType, countryName, totalCases, dailyData, slug}) => {
-    console.log(countryName)
-    console.log(dailyData)
 
     useEffect( () => {
 
