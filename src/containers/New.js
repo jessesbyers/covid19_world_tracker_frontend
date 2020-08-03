@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 const New = () => {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
-    // const url = "https://api.covid19api.com/dayone/country/united-states"
-    const url = "https://api.covid19api.com/dayone/country/china"
+    const url = "https://api.covid19api.com/dayone/country/united-states"
+    // const url = "https://api.covid19api.com/dayone/country/china"
 
  
     useEffect( () => {

@@ -56,7 +56,7 @@ const Show = (props) => {
 
                 const response = await fetch(url, requestOptions)
                 const data = await response.json()
-                // dispatch({ type: 'cacheData', payload: { [props.location.slug]: data} })
+                dispatch({ type: 'cacheData', payload: {slug: props.location.slug, data} })
                 dispatch({ type: 'addProvincesData', payload: data})
 
                 const provinceArray = []
