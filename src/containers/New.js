@@ -44,7 +44,7 @@ const New = () => {
                         setIsLoading(false);
                     }
                     fetchData();
-                }, [url]); 
+                }, []); 
 
     return (
 

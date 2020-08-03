@@ -31,7 +31,7 @@ const Show = (props) => {
 
     useEffect( () => {
         async function fetchData() {
-            setIsLoading(true);
+            // setIsLoading(true);
 
             if (cache[props.location.slug]) {
                 console.log("true - using cached data")
@@ -43,9 +43,10 @@ const Show = (props) => {
                     } else if (!provinceArray.includes("") && d.Province === "")
                         provinceArray.push("")
                 })
-                
-                setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
-                setIsLoading(false);
+                const sortedProvinces = provinceArray.sort((a,b) => a > b ? 1 : -1)
+                setProvinces(sortedProvinces)
+                // setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
+                // setIsLoading(false);
 
             } else {
                 console.log(props.location.slug)
@@ -70,7 +71,7 @@ const Show = (props) => {
             })
             
             setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
-            setIsLoading(false);
+            // setIsLoading(false);
             }
         }
         fetchData();
