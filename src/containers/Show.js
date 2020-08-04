@@ -31,7 +31,6 @@ const Show = (props) => {
 
     useEffect( () => {
         async function fetchData() {
-            // setIsLoading(true);
 
             if (cache[props.location.slug]) {
                 console.log("true - using cached data")
@@ -45,7 +44,6 @@ const Show = (props) => {
                 })
                 const sortedProvinces = provinceArray.sort((a,b) => a > b ? 1 : -1)
                 setProvinces(sortedProvinces)
-                // setIsLoading(false);
 
             } else {
 
@@ -68,15 +66,10 @@ const Show = (props) => {
                 })
                 
                 setProvinces(provinceArray.sort((a,b) => a > b ? 1 : -1))
-                // setIsLoading(false);
             }
         }
         fetchData();
     }, []); 
-    // warning about a useEffect cleanup function - need to look into this - memory leak
-
-    // if (isLoading) {
-    //     return < Loader />
 
             // Logic if country is United States (because state data is broken down into cities)
         if (provinces.includes("Alabama")) {
