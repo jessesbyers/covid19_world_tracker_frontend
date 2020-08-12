@@ -1,4 +1,5 @@
 // need to add loader logic
+import data from '../components/data/data.json'
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
@@ -18,6 +19,7 @@ import { NavLink } from 'react-router-dom';
 import { selectAll } from 'd3'
 
 
+
 const Show = (props) => {
     const cache = useSelector(state => state.cache)
     console.log(cache)
@@ -35,6 +37,7 @@ const Show = (props) => {
             if (cache[props.location.slug]) {
                 console.log("true - using cached data")
                 dispatch({ type: 'addProvincesData', payload: cache[props.location.slug] })
+
                 const provinceArray = []
                 cache[props.location.slug].forEach(d => {
                     if (!provinceArray.includes(d.Province) && d.Province !== "") {
@@ -44,6 +47,40 @@ const Show = (props) => {
                 })
                 const sortedProvinces = provinceArray.sort((a,b) => a > b ? 1 : -1)
                 setProvinces(sortedProvinces)
+
+
+
+            } else if (props.location.slug === "united-states") {
+                dispatch({ type: 'cacheData', payload: {slug: props.location.slug, data} })
+
+                // fetch US data from 05/01/20 onwards and add to cache
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow'
+                };
+
+                const url = "https://api.covid19api.com/live/country/united-states/status/confirmed/date/2020-08-12T13:13:30Z"
+                // const url = "https://api.covid19api.com/live/country/united-states/status/confirmed/date/2020-05-01T13:13:30Z"
+                const response = await fetch(url, requestOptions)
+                const fetchedData = await response.json()
+                dispatch({ type: 'addToCachedData', payload: fetchedData })
+                // dispatch({ type: 'addProvincesData', payload: cache["united-states"] })
+                dispatch({ type: 'addProvincesData', payload: data.concat(fetchedData) })
+
+
+
+                const provinceArray = []
+                data.concat(fetchedData).forEach(d => {
+                    if (!provinceArray.includes(d.Province) && d.Province !== "") {
+                        provinceArray.push(d.Province)
+                    } else if (!provinceArray.includes("") && d.Province === "")
+                        provinceArray.push("")
+                })
+                const sortedProvinces = provinceArray.sort((a,b) => a > b ? 1 : -1)
+                setProvinces(sortedProvinces)
+
+
+
 
             } else {
 
